@@ -1,0 +1,41 @@
+.slogan-section {
+    flex: 1;
+    background-color: #7f4de7;
+    border-radius: 20px;
+    color: #a9f8e6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
+  }
+  
+  .slogan-text {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  .slogan-image img{
+    position: absolute;
+    width: 50px; 
+    height: auto;
+    z-index: 1;
+  }
+  
+  .slogan-top {
+    top: 10px; 
+    right: 10px;
+  }
+
+  .slogan-bottom {
+    bottom: 10px;
+    left: 10px;
+  }
+
+  .slogan-handshake {
+    bottom: 10px;
+    right: 10px;
+  }
+
+
+  

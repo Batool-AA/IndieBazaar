@@ -1,9 +1,11 @@
-import Slogan from "./components/slogan";
-import "./css/slogandes.css"
+import "./App.css"
+import LoginPage from  "./pages/Login-Page/login-page";
+
+
 function App () {
   return (
     <>
-      <Slogan/>
+      <LoginPage/>
     </>
   )
 }

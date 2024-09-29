@@ -1,0 +1,23 @@
+.login-page-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+  }
+
+  .login-page-slogan-container {
+    flex: 0.9;
+  }
+
+  .login-page-form-container {
+    flex: 0.5;
+  }
+
+  .login-page-form-container h1 {
+    color: #7f4de7;
+    text-align: center;
+  }
+  
+  

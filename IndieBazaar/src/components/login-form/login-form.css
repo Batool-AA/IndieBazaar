@@ -1,0 +1,96 @@
+  .login-form-component {
+    flex: 1;
+    border: 2px solid #b490ff;
+    border-radius: 20px;
+    background-color: #fff;
+    padding: 20px;
+    padding-top: 0;
+  }
+
+  .login-form-component h2 {
+    text-align: center;
+  }
+
+  .login-component-input-group {
+    margin-bottom: 15px;
+  }
+  
+  .login-component-input-group input {
+    width: 100%;
+  }
+  
+  .login-component-input-group label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  .login-component-input-error {
+    border: 1px solid red;
+  }
+  
+  .login-component-error-message {
+    color: red;
+    font-size: 0.9em;
+  }
+  
+  .login-component-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 400;
+  }
+
+  .login-component-forgot-password-link {
+    text-decoration: underline;
+    color: black;
+    font-weight: 400;
+  }
+  
+  .login-component-forgot-password-link:hover {
+    color: gray;
+  }
+
+  .login-component-button-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .login-component-login-btn {
+    background-color: #7f4de7;
+    color: #a9f8e6;
+    padding: 10px;
+    border: 3px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 50%;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .login-component-login-btn:hover {
+    background-color: #663bca;
+  }
+   
+  .login-component-signup {
+    text-align: center;
+    text-decoration: underline;
+    color: black;
+    font-weight: 400;
+  }
+
+  .login-component-signup:hover {
+    color: gray;
+  }
+  
+  .login-component-back-to-home {
+    display: block;
+    margin-top: 20px;
+    color: black;
+    text-align: right;
+  }
+  
+  
+  
+  
+  
