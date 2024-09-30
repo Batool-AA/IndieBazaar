@@ -1,0 +1,24 @@
+.category-card {
+    width: 150px; /* Set width for category card */
+    text-align: center; /* Center text and image */
+    margin: 10px; /* Space between cards */
+    border: 1px solid #5ce6af; /* Border for card */
+    border-radius: 5px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow */
+    transition: transform 0.2s; /* Animation on hover */
+}
+
+.category-card:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+.category-image {
+    width: 100%; /* Image takes full width of card */
+    height: 100px; /* Set a fixed height */
+    object-fit: cover; /* Crop image to fit */
+}
+
+.category-name {
+    margin: 5px 0; /* Space above and below the name */
+    font-size: 16px; /* Adjust font size */
+}
