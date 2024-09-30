@@ -1,0 +1,24 @@
+.signup-page-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .signup-page-slogan-container {
+    flex: 0.9;
+  }
+
+  .signup-page-form-container {
+    flex: 0.5;
+  }
+
+  .signup-page-form-container h1 {
+    color: #7f4de7;
+    text-align: center;
+  }
+  
+  

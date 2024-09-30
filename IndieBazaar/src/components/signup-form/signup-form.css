@@ -1,0 +1,33 @@
+.signup-form-component {
+  flex: 1;
+  border: 2px solid #b490ff;
+  border-radius: 20px;
+  background-color: rgb(244, 242, 240);
+  padding: 25px;
+  padding-top: 0;
+}
+
+.signup-form-component h2 {
+  text-align: center;
+}
+
+.signup-component-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 400;
+}
+
+.signup-component-signup {
+  text-align: center;
+}
+
+.signup-component-back-to-login {
+  display: block;
+  margin-top: 20px;
+  text-align: right;
+}
+
+
+
+
