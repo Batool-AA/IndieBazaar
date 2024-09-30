@@ -13,10 +13,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
+ /* *{
+  border: 1px solid black;
+ } */
 body {
   margin: 0;
-  display: flex;
+  /* display: flex; */
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
@@ -45,7 +47,7 @@ img {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: rgb(244, 242, 240);
+    background-color: rgb(244, 243, 240);
   }
   a:hover {
     color: #747bff;

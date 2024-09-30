@@ -1,0 +1,17 @@
+.buyer-seller-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  /* background-color: #f9f9f9; */
+  padding-top: 100px; /* Padding to accommodate the fixed header */
+}
+
+.buyer-seller-buttons-container {
+  display: flex;
+  justify-content: center; /* Centers the buttons horizontally */
+  align-items: center; /* Aligns the buttons vertically */
+  width: 100%; /* Ensure container spans full width */
+  margin-top: 20px;
+}

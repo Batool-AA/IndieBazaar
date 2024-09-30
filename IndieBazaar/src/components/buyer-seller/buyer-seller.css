@@ -1,0 +1,14 @@
+/* Styling each button container */
+.buyer-seller {
+    width: 200px; /* Set a fixed width for each button container */
+    margin: 0 10px; /* Space between buttons */
+}
+
+/* Styling the overall container for the buttons */
+.buyer-seller-container {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    align-items: center; /* Vertically align the buttons with the "OR" text */
+    font-weight: 400;
+    gap: 20px; /* Space between the button and the "OR" text */
+}
