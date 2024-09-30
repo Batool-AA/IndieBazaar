@@ -1,0 +1,46 @@
+.button-basic-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .button-basic {
+      background-color: #7f4de7;
+      color: #a9f8e6;
+      padding: 10px;
+      border: 3px solid black;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+      width: 40%;
+      margin-bottom: 10px;
+      text-align: center;
+  }
+  
+  .button-basic:hover{
+    background-color: #663bca;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 0.9em;
+  }
+  
+  .input-error {
+    border: 1px solid red;
+  }
+
+  .input-group {
+    margin-bottom: 15px;
+  }
+
+  .input-group label {
+    display: block;
+    font-weight: bold;
+  }
+
+  .input-group input {
+    border: none;
+    width: 100%;
+    background-color: rgb(244, 242, 240);
+    border-bottom: 1px solid black;
+  }

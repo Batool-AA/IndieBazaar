@@ -1,4 +1,7 @@
 import "./slogan.css"
+import Handshake from "../../assets/hand-shake.png";
+import LeftDesign from "../../assets/bottom-left.png";
+import TopDesign from "../../assets/top-right.png";
 
 function Slogan() {
     return (
@@ -7,13 +10,13 @@ function Slogan() {
           <h1>Make a mark with your product</h1>
         </div>
         <div className="slogan-image">
-          <img src="../../assets/hand-shake.png" alt="Handshake" className="slogan-handshake"></img>
+          <img src={Handshake} alt="Handshake" className="slogan-handshake"></img>
         </div>
         <div className="slogan-image">
-          <img src="../../assets/bottom-left.png" alt="Left Design" className="slogan-bottom"></img>
+          <img src={LeftDesign} alt="Left Design" className="slogan-bottom"></img>
         </div>
         <div className="slogan-image">
-          <img src="../../assets/top-right.png" alt="Top Design" className="slogan-top"></img>
+          <img src={TopDesign} alt="Top Design" className="slogan-top"></img>
         </div>
       </div>
     );

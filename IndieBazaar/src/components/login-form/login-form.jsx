@@ -55,28 +55,28 @@ function LoginForm() {
       <form onSubmit={handleSubmit}>
         <h2>Login</h2>
 
-        <div className="login-component-input-group">
+        <div className="input-group">
           <label>Email</label>
           <input
             type="email"
             name="email"
             value={email}
             onChange={handleEmailChange}
-            className={errors.email ? 'login-component-input-error' : ''}
+            className={errors.email ? 'input-error' : ''}
           />
-          {errors.email && <span className="login-component-error-message">{errors.email}</span>}
-        </div>
+          {errors.email && <span className="error-message">{errors.email}</span>}
+        </div> 
 
-        <div className="login-component-input-group">
+        <div className="input-group">
           <label>Password</label>
           <input
             type="password"
             name="password"
             value={password}
             onChange={handlePasswordChange}
-            className={errors.password ? 'login-component-input-error' : ''}
+            className={errors.password ? 'input-error' : ''}
           />
-          {errors.password && <span className="login-component-error-message">{errors.password}</span>}
+          {errors.password && <span className="error-message">{errors.password}</span>}
         </div>
 
         <div className="login-component-options">
@@ -91,15 +91,13 @@ function LoginForm() {
             <label htmlFor="remember-me">Remember me</label>
           </div>
 
-          <a href="/forgot-password" className='login-component-forgot-password-link'>Forgot Password?</a>
+          <a href="/forgot-password">Forgot Password?</a>
 
         </div>
 
-        <div className='login-component-button-container'>
-          <button type="submit" className="login-component-login-btn">Login</button>
+        <div className='button-basic-container'>
+          <button type="submit" className="button-basic">Login</button>
         </div>
-
-        
 
         <div className="login-component-signup">
           <a href="/signup">Don’t have an account? Sign Up!</a>
