@@ -6,6 +6,11 @@ import food from  "../../assets/food.jpg"
 import clothes from "../../assets/clothes.jpg"
 import decor from "../../assets/decor.jpg"
 import CategoryCard from "../../components/categorycard/categorycard";
+import Health from "../../assets/health.jpg"
+import book from "../../assets/books.jpg"
+import handmade from "../../assets/handmade.jpg"
+import stationary from "../../assets/stationary.jpg"
+
 import "./categoriespage.css"
 
 const CategoriesPage = () => {
@@ -15,6 +20,11 @@ const CategoriesPage = () => {
         { name: 'Accessories', image: accessory },
         { name: 'Clothes', image: clothes},
         { name: 'Decor', image: decor },
+        { name: 'Decor', image: Health },
+        { name: 'Decor', image: book },
+        { name: 'Decor', image: stationary },
+        { name: 'Decor', image: handmade },
+        
         // Add more categories as needed
     ];
 
