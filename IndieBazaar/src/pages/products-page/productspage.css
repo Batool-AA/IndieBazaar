@@ -1,0 +1,18 @@
+.products-page {
+    padding: 20px;
+    background-color: #fafafa;
+  }
+  
+  .product-cards-container {
+    display: flex;
+    justify-content: left; /* Change from space-around to space-between */
+    flex-wrap: wrap;
+    gap: 40px; /* Reduce the gap between cards */
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+  
+  .product-card {
+    margin: 0; /* Remove additional margin from product cards if present */
+  }
+  

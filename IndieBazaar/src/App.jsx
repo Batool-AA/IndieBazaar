@@ -4,6 +4,8 @@ import SignUpPage from "./pages/Signup-Page/signup-page"
 import BusinessPage from "./pages/Business-Page/business-page"
 import BuyerSellerPage from "./pages/buyer-seller-page/buyer-seller-page"
 import CategoriesPage from "./pages/categories-page/categoriespage"
+import ProductPage from "./pages/products-page/productspage"
+
 
 
 function App () {
@@ -11,9 +13,10 @@ function App () {
     <>
       {/* <LoginPage/> */}
       {/* <SignUpPage/> */}
-      <BusinessPage />
+      {/* <BusinessPage /> */}
       {/* <BuyerSellerPage/> */}
       {/* <CategoriesPage/> */}
+      {<ProductPage/>}
     </>
   )
 }

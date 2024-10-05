@@ -3,12 +3,13 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 20px;
-  margin-left: 20px;
+  margin-left: 100px; /* Center the content by adjusting margin */
+  margin-top: 20px; /* Add some space at the top */
 }
 
 .category-card {
   width: 200px;
-  height: 250px; /* Adjust the height as needed */
+  height: 250px;
   border: 15px solid #a9f8e6;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
@@ -19,8 +20,14 @@
   justify-content: flex-start;
   text-align: center;
   position: relative;
-  padding: 15px 10px 5px; /* Increase top and side padding, decrease bottom */
-  margin-bottom: 20px; /* Slightly reduce bottom margin */
+  padding: 15px 10px 5px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add smooth hover transition */
+}
+
+.category-card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Increase shadow */
 }
 
 .category-card img {

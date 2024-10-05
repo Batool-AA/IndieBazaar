@@ -20,17 +20,17 @@ const CategoriesPage = () => {
         { name: 'Accessories', image: accessory },
         { name: 'Clothes', image: clothes},
         { name: 'Decor', image: decor },
-        { name: 'Decor', image: Health },
-        { name: 'Decor', image: book },
-        { name: 'Decor', image: stationary },
-        { name: 'Decor', image: handmade },
+        { name: 'Health', image: Health },
+        { name: 'Book', image: book },
+        { name: 'Stationary', image: stationary },
+        { name: 'Handmade', image: handmade },
         
         // Add more categories as needed
     ];
 
     return (
         <div className="categories-page-container">
-            <NavBar />
+            <NavBar title="IndieBazaar" />
             <SearchBar />
             <div className="content-container">
                 <FilterBox />

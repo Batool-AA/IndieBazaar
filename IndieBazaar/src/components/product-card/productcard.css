@@ -1,0 +1,52 @@
+.product-card {
+    position: relative;
+    width: 200px; /* Set a fixed width */
+    height: 200px; /* Set a fixed height for square cards */
+    margin: 10px; /* Space between cards */
+    border-radius: 15px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: transform 0.2s ease; /* Transition effect for card hover */
+}
+
+.product-image {
+    width: 100%; /* Full width of the container */
+    height: 100%; /* Full height of the container */
+    object-fit: cover; /* Cover the container */
+}
+
+.product-info {
+    position: absolute; /* Positioning it absolutely to the card */
+    bottom: 0; /* Start at the bottom */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
+    top: 0; /* Stretch to the top */
+    background: rgba(128, 0, 128, 0.8); /* Purple background with transparency */
+    color: white; /* White text color */
+    display: flex; /* Flexbox for centering */
+    flex-direction: column; /* Arrange items vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    padding: 10px; /* Padding around the text */
+    text-align: center; /* Center text */
+    transform: translateY(100%); /* Hide initially by moving down */
+    transition: transform 0.4s ease, opacity 0.4s ease; /* Smooth transitions for slide and fade */
+    opacity: 0; /* Fully transparent initially */
+    z-index: 1; /* Ensure it appears above the image */
+}
+
+.product-card:hover .product-info {
+    transform: translateY(0); /* Slide up to reveal */
+    opacity: 1; /* Fully visible */
+}
+
+.product-info h3, .product-info p {
+    margin: 0; /* No margin around text */
+    font-weight: bold; /* Bold text */
+    color: white; /* Ensure product name is white */
+}
+
+/* Optional: Add hover effect border for debugging */
+.product-card:hover {
+    border: 2px solid green; /* Add a border for debugging (can be removed later) */
+}
