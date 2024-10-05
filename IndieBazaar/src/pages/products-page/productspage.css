@@ -1,18 +1,19 @@
-.products-page {
-    padding: 20px;
-    background-color: #fafafa;
-  }
-  
-  .product-cards-container {
+.category-section {
+    margin: 20px 0; /* Space between sections */
+    padding: 20px; /* Padding for the section */
+    background-color: #fff; /* Background color for visibility */
+    border-radius: 10px; /* Rounded corners for sections */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+}
+
+.category-section h2 {
+    margin-bottom: 10px; /* Space between title and cards */
+    color: #333; /* Color for the section title */
+}
+
+.product-cards-container {
     display: flex;
-    justify-content: left; /* Change from space-around to space-between */
+    justify-content: flex-start; /* Align items to start */
     flex-wrap: wrap;
-    gap: 40px; /* Reduce the gap between cards */
-    margin-top: 20px;
-    margin-left: 20px;
-  }
-  
-  .product-card {
-    margin: 0; /* Remove additional margin from product cards if present */
-  }
-  
+    gap: 20px; /* Space between cards */
+}
