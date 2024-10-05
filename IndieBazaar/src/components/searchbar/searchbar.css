@@ -1,0 +1,23 @@
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0; /* Background color for the search bar */
+    border: 1px solid #ccc; /* Border for the search bar */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px; /* Padding around the icon and input */
+    width: 100%; /* Full width */
+    max-width: 600px; /* Adjust as needed */
+    margin: 10px auto; /* Center the search bar */
+}
+
+.search-icon {
+    color: #7f4de7; /* Icon color */
+    margin-right: 10px; /* Space between icon and input */
+}
+
+.search-input {
+    border: none; /* Remove default input border */
+    outline: none; /* Remove default input outline */
+    flex: 1; /* Allow input to take up available space */
+    padding: 5px; /* Padding inside the input */
+}

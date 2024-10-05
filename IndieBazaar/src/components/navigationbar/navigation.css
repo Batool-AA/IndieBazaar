@@ -1,0 +1,44 @@
+/* Styling the navigation bar */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Space between title and icons */
+    align-items: center; /* Center items vertically */
+    background-color: #39dabf; /* Background color for the navbar */
+    padding: 10px 20px; /* Padding for spacing */
+}
+
+/* Styling the icons container */
+.navbar-icons {
+    display: flex; /* Enable flex for horizontal alignment */
+    gap: 15px; /* Space between the icons */
+    align-items: center; /* Center icons vertically */
+}
+
+/* Styling the title */
+.navbar-title {
+    font-size: 24px; /* Adjust the font size */
+    color: #5c15ce; /* Color for the title text */
+}
+
+/* Styling for each icon */
+.icon {
+    font-size: 20px; /* Adjust the icon size */
+    color: #6400b6; /* Color for the icons */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+/* Optional: Add hover effect for icons */
+.icon:hover {
+    color: #a138ce; /* Change color on hover */
+}
+
+.content-container {
+    display: flex; /* Use flexbox to align items */
+    margin-top: 20px; /* Space between the search bar and content */
+}
+
+/* Optional: Add styles for main content area if needed */
+.main-content {
+    flex-grow: 1; /* Allow this area to grow */
+    margin-left: 20px; /* Space between filter and main content */
+}

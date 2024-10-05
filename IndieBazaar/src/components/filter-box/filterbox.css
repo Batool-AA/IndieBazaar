@@ -1,0 +1,52 @@
+.filter-box {
+    width: 200px; /* Adjust the width as needed */
+    padding: 10px; /* Padding inside the filter box */
+    border: 2px solid rgba(128, 0, 128, 0.5); /* Smooth purple border with some transparency */
+    border-radius: 10px; /* Increase border-radius for smoother edges */
+    background-color: #ffffff; /* Background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 300px; /* Set a maximum height for scrolling */
+    transition: border-color 0.3s ease; /* Smooth transition for border changes */
+}
+
+.filter-box:hover {
+    border-color: rgba(128, 0, 128, 0.8); /* Darken the purple on hover */
+}
+
+.checkbox-container {
+    display: flex;
+    flex-direction: column; /* Stack checkboxes vertically */
+}
+
+h3 {
+    margin-bottom: 10px; /* Space between heading and checkboxes */
+    color: #800080; /* Optional: Add purple color to match the border */
+}
+
+.price-range {
+    margin-top: 20px;
+}
+
+.price-range h4 {
+    margin-bottom: 10px;
+    color: #800080; /* Optional: match the filter box's theme */
+}
+
+.slider {
+    width: 100%;
+    margin: 10px 0;
+    background-color: #f0f0f0; /* Background for the slider */
+}
+
+.slider::-webkit-slider-thumb {
+    background-color: #800080; /* Thumb color */
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    background-color: #800080; /* Thumb color for Firefox */
+    border-radius: 50%;
+    cursor: pointer;
+}
