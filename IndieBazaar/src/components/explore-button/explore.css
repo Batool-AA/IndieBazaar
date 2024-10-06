@@ -1,0 +1,24 @@
+.explore-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .explore-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s ease, background-color 0.3s ease;
+  }
+  
+  .fade-in {
+    opacity: 1; /* Fade-in to full opacity */
+  }
+  
+  .explore-button:hover {
+    background-color: lightgray;
+  }
+  

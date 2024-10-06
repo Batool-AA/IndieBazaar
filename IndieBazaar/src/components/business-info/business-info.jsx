@@ -3,6 +3,7 @@ import './business-info.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import burgerImage from "../../assets/burger.png"; 
+import noodles from "../../assets/noodles.jpg"
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa'; 
 
 export const businessProducts = [
@@ -12,9 +13,9 @@ export const businessProducts = [
         imgSrc: burgerImage,
     },
     {
-        name: 'Pizza',
+        name: 'Noodles',
         description: 'Yum',
-        imgSrc: burgerImage,
+        imgSrc: noodles,
     },
     // Add more business-info members here
 ];

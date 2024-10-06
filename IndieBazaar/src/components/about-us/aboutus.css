@@ -1,0 +1,55 @@
+/* homepage.css */
+.homepage-container {
+    background-color:purple; /* Ensure this is applied to the whole container */
+    color: white;
+    min-height: 100vh; /* Fill the viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+  }
+  
+  .top-section {
+    text-align: center; /* Center text */
+  }
+  
+  /* aboutus.css */
+  .about-us-container {
+    display: flex; /* Flexbox for layout */
+    flex-direction: column; /* Stack boxes */
+    align-items: center; /* Center boxes horizontally */
+    margin-top: 20px; /* Space above the About Us section */
+  }
+  
+  .about-us-box {
+    margin: 10px; /* Space between boxes */
+    padding: 20px;
+    background-color: white;
+    color: black; /* Contrast for readability */
+    border-radius: 5px; /* Slightly round corners */
+    width: 100%; /* Adjust width as needed */
+  }
+  
+  /* Ensure you style the left, right, and bottom classes if needed */
+  .button-container {
+    display: flex; /* Use flexbox to align buttons */
+    justify-content: center; /* Center buttons horizontally */
+    gap: 20px; /* Space between buttons */
+    margin-top: 20px; /* Space above buttons */
+  }
+  
+  .setup-button, .explore-button-aboutus {
+    padding: 12px 24px; /* Increased padding for buttons */
+    font-size: 1.1rem; /* Slightly larger font size */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #6200ea; /* Purple background */
+    color: white; /* Text color */
+    cursor: pointer; /* Cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition effects */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect for depth */
+  }
+  
+  .setup-button:hover, .explore-button-aboutus:hover {
+    background-color: #3700b3; /* Darker purple on hover */
+    transform: scale(1.05); /* Slightly scale up on hover */
+  }

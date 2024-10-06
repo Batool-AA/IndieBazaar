@@ -1,0 +1,34 @@
+.homepage-container {
+    position: relative;
+  }
+  
+  .top-section {
+    height: 100vh; /* Full height for the first section */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: purple;
+    color: white;
+  }
+  
+  .content {
+    text-align: center;
+    margin-top: 150px; /* Adjust margin to make space for the navbar */
+  }
+  
+  #about-us {
+    height: 100vh; /* Full height for the about section */
+    width: 100%;
+    background-color: white;
+    color: black;
+    padding: 30px;
+    text-align: center;
+  }
+  
+  .contact-us-section {
+    background-color: purple; /* Change this to your desired color */
+    padding: 20px; /* Add some padding */
+    margin-top: 20px; /* Space above the contact us section */
+  }
+  
