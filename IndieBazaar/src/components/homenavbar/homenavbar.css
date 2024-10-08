@@ -1,21 +1,28 @@
 .navbar {
     display: flex;
-    justify-content: space-between;
-    padding: 5px 5px;
+    padding: 20px;
     background-color: purple;
     color: white;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    position: fixed; /* Make the navbar stay at the top */
-    top: 0;
-    left: 0;
     width: 100%;
-    z-index: 10; /* Ensure it stays above other elements */
+    z-index: 10; 
   }
   
   .nav-left, .nav-right {
     display: flex;
     gap: 20px;
   }
+
+  .nav-left {
+    margin-right: auto;
+    margin-left: 20px;
+  }
+
+  .nav-right {
+    margin-left: auto;
+    margin-right: 20px;
+  }
+  
   
   .nav-left span, .nav-right span {
     cursor: pointer;

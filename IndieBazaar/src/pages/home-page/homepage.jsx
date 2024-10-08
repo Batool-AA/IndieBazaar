@@ -11,18 +11,17 @@ const HomePage = () => {
     return (
       <div className="homepage-container">
         <div className="top-section">
-          <Title />
           <HomeNavbar />
+          <Title />
           <Explore />
-        </div>
+        </div> 
         <div id="about-us">
           <AboutUs />
-          <div id="layer">
-          <Layer />
+          {/* <div id="layer">
+            <Layer />
+          </div> */}
         </div>
         <ContactUs/>
-        </div>
-        
       </div>
     );
   };

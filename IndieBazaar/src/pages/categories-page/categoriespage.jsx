@@ -31,7 +31,7 @@ const CategoriesPage = () => {
     return (
         <div className="categories-page-container">
             <NavBar title="IndieBazaar" />
-            <SearchBar />
+            <SearchBar /> 
             <div className="content-container">
                 <FilterBox />
                 <div className="categories-container">

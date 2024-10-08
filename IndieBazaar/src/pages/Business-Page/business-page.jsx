@@ -1,4 +1,4 @@
-import Navbar from "../../components/nav-bar/nav-bar"
+import Navbar from "../../components/navigationbar/navigation"
 import BusinessBanner from "../../components/business-banner/business-banner"
 import BusinessInfo from  "../../components/business-info/business-info"
 
@@ -7,7 +7,7 @@ import "./business-page.css"
 const BusinessPage = () => {
     return (
         <div className="business-page-container">
-            <Navbar />
+            <Navbar title={"IndieBazaar"}/>
             <BusinessBanner />
             <BusinessInfo />
         </div>

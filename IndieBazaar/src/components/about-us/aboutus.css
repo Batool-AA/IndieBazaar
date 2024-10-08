@@ -1,40 +1,98 @@
-/* homepage.css */
-.homepage-container {
-    background-color:purple; /* Ensure this is applied to the whole container */
-    color: white;
-    min-height: 100vh; /* Fill the viewport height */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center the content horizontally */
-  }
-  
-  .top-section {
-    text-align: center; /* Center text */
-  }
+
   
   /* aboutus.css */
   .about-us-container {
-    display: flex; /* Flexbox for layout */
-    flex-direction: column; /* Stack boxes */
-    align-items: center; /* Center boxes horizontally */
-    margin-top: 20px; /* Space above the About Us section */
+    position: relative;
+    margin: auto; /* Center the content */
+
   }
   
-  .about-us-box {
-    margin: 10px; /* Space between boxes */
+  .big-text {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 150px; /* Reduced font size */
+    color: #83b53f; /* Green color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Spacing between the text and the boxes */
+    align-items: center;
+  }
+
+
+  .word-1 {
+    position: absolute;
+    left: 250px;
+    top: -30px;
+  }
+
+  .word-2 {
+    position: absolute;
+    right: 150px;
+    top: 150px;
+  }
+
+  .word-3 {
+    position: absolute;
+    left: 150px;
+    top: 280px;
+  }
+  
+  .indiebazaar-logo {
+    width: 500px; /* Adjust based on your design */
+    height: auto;
+    z-index: 1;
+    position: absolute;
+    top: 80px;
+    left: auto;
+  }
+  
+  .info-box {
+    position: absolute;
+    border: 1px solid #d2d2d2;
     padding: 20px;
-    background-color: white;
-    color: black; /* Contrast for readability */
-    border-radius: 5px; /* Slightly round corners */
-    width: 100%; /* Adjust width as needed */
+    z-index: 2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for a nice effect */
   }
   
-  /* Ensure you style the left, right, and bottom classes if needed */
+  .info-box p {
+    margin: 0;
+    font-size: 14px;
+    text-align: left;
+  }
+  
+  /* Positioning the info boxes relative to the leaf */
+  .info-box-1 {
+    left: 230px;
+    top: 130px;
+    width: 17%;
+  }
+
+  .info-box-2 {
+    left: 300px;
+    top: 250px;
+    width: 17%;
+  }
+  
+  .info-box-3 {
+    top: 70px;
+    right: 320px;
+    width: 17%;
+  }
+  
+  .info-box-4 {
+    top: 350px;
+    right: 400px;
+    width: 17%;
+  }
+
   .button-container {
+    position: absolute;
+    top: 500px;
+    left: 500px;
     display: flex; /* Use flexbox to align buttons */
     justify-content: center; /* Center buttons horizontally */
     gap: 20px; /* Space between buttons */
-    margin-top: 20px; /* Space above buttons */
+    margin-top: 10px; /* Space above buttons */
   }
   
   .setup-button, .explore-button-aboutus {

@@ -1,5 +1,5 @@
 /* Styling the navigation bar */
-.navbar {
+.pages-navbar {
     display: flex;
     justify-content: space-between; /* Space between title and icons */
     align-items: center; /* Center items vertically */
@@ -8,14 +8,14 @@
 }
 
 /* Styling the icons container */
-.navbar-icons {
+.pages-navbar-icons {
     display: flex; /* Enable flex for horizontal alignment */
     gap: 15px; /* Space between the icons */
     align-items: center; /* Center icons vertically */
 }
 
 /* Styling the title */
-.navbar-title {
+.pages-navbar-title {
     font-size: 24px; /* Adjust the font size */
     color: #5c15ce; /* Color for the title text */
 }

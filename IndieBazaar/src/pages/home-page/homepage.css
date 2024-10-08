@@ -1,24 +1,27 @@
 .homepage-container {
     position: relative;
+    overflow: hidden;
   }
   
   .top-section {
-    height: 100vh; /* Full height for the first section */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: purple;
+    background-color: purple; 
     color: white;
+    width: 100%;
   }
+
   
-  .content {
+  
+  /* .content {
     text-align: center;
-    margin-top: 150px; /* Adjust margin to make space for the navbar */
-  }
+    margin-top: 150px; 
+  } */
   
   #about-us {
-    height: 100vh; /* Full height for the about section */
+    height: 600px; /* Full height for the about section */
     width: 100%;
     background-color: white;
     color: black;

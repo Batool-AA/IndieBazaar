@@ -1,6 +1,5 @@
 .title-container {
     text-align: center;
-    margin-top: -50px; /* Adjust this value to move the title upwards */
     font-size: 60px; /* Increase font size for a larger title */
     color: white;
   }
@@ -8,6 +7,14 @@
   .title {
     display: inline-block;
     animation: titleAnimation 1s ease forwards;
+  }
+
+  .title-slogan {
+    width: 80%; /* Adjust width as needed */
+    max-width: 600px; /* Prevents the paragraph from expanding too wide */
+    margin: 0 auto; /* Centers the paragraph horizontally */
+    font-size: 16pt;
+    line-height: 1.5; /* Improves readability */
   }
   
   .indie, .bazaar {
