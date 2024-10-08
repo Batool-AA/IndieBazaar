@@ -1,4 +1,5 @@
 import "./App.css"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from  "./pages/Login-Page/login-page"
 import SignUpPage from "./pages/Signup-Page/signup-page"
 import BusinessPage from "./pages/Business-Page/business-page"
@@ -11,13 +12,18 @@ import Homepage from "./pages/home-page/homepage"
 function App () {
   return (
     <>
-      {/* <LoginPage/> */}
-      {/* <SignUpPage/> */}
-      {/* <BusinessPage /> */}
-      {/* <BuyerSellerPage/> */}
-      {/* <CategoriesPage/> */}
-      {/* <ProductPage/> */}
-      <Homepage/>
+     <Router>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/store" element={<CategoriesPage/>} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/buyerseller" element={<BuyerSellerPage />} />
+        <Route path="/setbusiness" /> 
+        <Route path="/business-home" element={<BusinessPage />} />
+        <Route path="/business-products" element={<ProductPage />} />
+      </Routes>
+    </Router>
 
     </>
   )

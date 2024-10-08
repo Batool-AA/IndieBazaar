@@ -12,16 +12,15 @@ const HomePage = () => {
       <div className="homepage-container">
         <div className="top-section">
           <HomeNavbar />
-          <Title />
+          <Title title={"IndieBazaar"} slogan={"Connecting Local Sellers, Empowering Buyers"}/>
           <Explore />
         </div> 
         <div id="about-us">
           <AboutUs />
-          {/* <div id="layer">
-            <Layer />
-          </div> */}
         </div>
-        <ContactUs/>
+        <div id="contact">
+          <ContactUs/>
+        </div>
       </div>
     );
   };

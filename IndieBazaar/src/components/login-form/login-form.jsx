@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import "./login-form.css"
 
 
@@ -33,6 +34,9 @@ function LoginForm() {
     return Object.keys(newErrors).length === 0;
   };
 
+  const navigate = useNavigate();
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -47,7 +51,10 @@ function LoginForm() {
       setEmail('');
       setPassword('');
       setRememberMe(false);
+      navigate("/store")
     }
+
+    
   };
 
   return (
@@ -103,7 +110,7 @@ function LoginForm() {
           <a href="/signup">Don’t have an account? Sign Up!</a>
         </div>
 
-        <a href="/home" className="login-component-back-to-home">Back to Home</a>
+        <a href="/" className="login-component-back-to-home">Back to Home</a>
       </form>
     </div>
   );

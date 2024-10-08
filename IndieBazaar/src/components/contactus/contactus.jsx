@@ -15,6 +15,8 @@ const ContactUs = () => {
     setEmail(''); // Clear the input after submission
   };
 
+  
+
   return (
     <div className="contact-us-container">
       <h2 className= "heading-contactus">Contact Us</h2>
@@ -30,9 +32,9 @@ const ContactUs = () => {
       </form>
       <div className="links-container">
         <a href="#about-us">About Us</a>
-        <a href="#find-in-store">Find in Store</a>
-        <a href="#sell">Sell</a>
-        <a href="#contact-us">Contact Us</a>
+        <a href="/store">Find in Store</a>
+        <a href="/login">Sell</a>
+        <a href="#contact">Contact Us</a>
         <a href="#terms-of-service">Terms of Service</a>
         <a href="#privacy-policy">Privacy Policy</a>
         <a href="#support">Support</a>

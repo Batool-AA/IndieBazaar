@@ -9,7 +9,9 @@ const BusinessPage = () => {
         <div className="business-page-container">
             <Navbar title={"IndieBazaar"}/>
             <BusinessBanner />
-            <BusinessInfo />
+            <div id="about-us">
+                <BusinessInfo />
+            </div>
         </div>
     );
 };

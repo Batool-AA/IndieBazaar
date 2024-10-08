@@ -18,19 +18,14 @@
 /* business-info header column */
 .business-info-header-column {
     flex: 0.35;
-    width: 1000px;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     
 }
 
-.business-info-header-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    gap: 10px;
-}
+
 
 .business-info-social-media {
     /* margin-top: 20px; */
@@ -55,9 +50,6 @@
     margin-bottom: 20px;
 }
 
-/* .business-info-icon {
-    margin:auto;
-} */
 
 
 .business-info-description {

@@ -5,6 +5,7 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 import burgerImage from "../../assets/burger.png"; 
 import noodles from "../../assets/noodles.jpg"
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa'; 
+import { useNavigate } from 'react-router-dom';
 
 export const businessProducts = [
     {
@@ -40,6 +41,12 @@ const BusinessInfo = () => {
     // Check if there is any social media info
     const hasSocialMedia = Object.values(socialMedia).some((url) => url);
 
+    const navigate = useNavigate();
+    const handleProducts = (e) => {
+        navigate("/business-products");
+    }
+
+
     return (
         <div className="business-info-container">
             <div className="business-info-content">
@@ -49,6 +56,8 @@ const BusinessInfo = () => {
                             {/* <div className="business-info-icon">🟩</div> */}
                             <h2 className="business-info-title">About Us</h2>
                         </div>
+
+                        
                         <p className="business-info-description">
                             We are a home based cooking business
                         </p>
@@ -71,7 +80,7 @@ const BusinessInfo = () => {
                             )}
                         </div>
                     )}
-                        <button className="business-info-button">Our Products</button>
+                        <button className="business-info-button" onClick={handleProducts}>Our Products</button>
                     </div>
                 </div>
 
@@ -93,7 +102,7 @@ const BusinessInfo = () => {
                                 <h3>{businessProducts[currentSlide].name}</h3>
                                 <p>{businessProducts[currentSlide].description}</p>
                             </div>
-                        </div>
+                        </div> 
                         
                         {/* Next arrow button */}
                         <button className="business-info-carousel-arrow right" onClick={handleNext}>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import "./signup-form.css"
 
 
@@ -49,6 +50,8 @@ function SignupForm() {
     return Object.keys(newErrors).length === 0;
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -64,6 +67,8 @@ function SignupForm() {
       setEmail('');
       setPassword('');
       setConfirmPassword('');
+
+      navigate("/buyerseller");
     }
   };
 
@@ -112,19 +117,19 @@ function SignupForm() {
           <label>Confirm Password</label>
           <input
             type="password"
-            name="password"
-            value={password}
+            name="confirmpassword"
+            value={confirmpassword}
             onChange={handleConfirmPasswordChange}
-            className={errors.password ? 'input-error' : ''}
+            className={errors.confirmpassword ? 'input-error' : ''}
           />
-          {errors.password && <span className="error-message">{errors.password}</span>}
+          {errors.confirmpassword && <span className="error-message">{errors.confirmpassword}</span>}
         </div>
 
         <div className='button-basic-container'>
           <button type="submit" className="button-basic">Sign Up</button>
         </div>
 
-        <a href="/home" className="signup-component-back-to-login">Back to Login</a>
+        <a href="/login" className="signup-component-back-to-login">Back to Login</a>
       </form>
     </div>
   );

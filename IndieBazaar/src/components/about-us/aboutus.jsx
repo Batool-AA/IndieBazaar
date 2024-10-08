@@ -1,17 +1,19 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import AboutUsBox from '../../components/aboutusboxes/aboutusbox.jsx'; // Ensure the path is correct
 import './aboutus.css';
 import logo from  '../../assets/logo-indiebazaar.png'; // Ensure the path is correct
 
 
 const AboutUs = () => {
+  const navigate = useNavigate();
   const handleSetUpBusinessClick = () => {
-    document.getElementById('layer').scrollIntoView({ behavior: 'smooth' });
+    navigate('/login');
   };
 
   const handleExploreProductsClick = () => {
-    console.log("Explore Products clicked");
-  }; 
+    navigate('/store');
+  };
 
   return (
     <div className="about-us-container">

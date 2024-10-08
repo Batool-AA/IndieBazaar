@@ -20,7 +20,7 @@
     margin-top: 150px; 
   } */
   
-  #about-us {
+  .homepage-container #about-us {
     height: 600px; /* Full height for the about section */
     width: 100%;
     background-color: white;
