@@ -1,8 +1,9 @@
+@import "../../variables.css";
+
 .navbar {
     display: flex;
     padding: 20px;
-    background-color: purple;
-    color: white;
+    background-color: var(--vanilla);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     width: 100%;
     z-index: 10; 

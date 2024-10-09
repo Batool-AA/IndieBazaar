@@ -1,8 +1,8 @@
 .slogan-section {
     flex: 1;
-    background-color: #7f4de7;
+    background-color: var(--tea-green);
     border-radius: 20px;
-    color: #a9f8e6;
+    color: var(--coral-pink);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,6 +13,7 @@
   .slogan-text {
     font-size: 2.4rem;
     margin-bottom: 45px;
+
   }
   
   .slogan-top {

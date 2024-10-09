@@ -1,7 +1,6 @@
 .title-container {
     text-align: center;
     font-size: 60px; /* Increase font size for a larger title */
-    color: white;
   }
   
   .title {
@@ -10,8 +9,7 @@
   }
 
   .title-slogan {
-    width: 80%; /* Adjust width as needed */
-    max-width: 600px; /* Prevents the paragraph from expanding too wide */
+    width: 100%; /* Adjust width as needed */
     margin: 0 auto; /* Centers the paragraph horizontally */
     font-size: 16pt;
     line-height: 1.5; /* Improves readability */

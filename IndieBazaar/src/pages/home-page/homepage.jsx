@@ -16,7 +16,7 @@ const HomePage = () => {
           <Explore />
         </div> 
         <div id="about-us">
-          <AboutUs />
+          <AboutUs /> 
         </div>
         <div id="contact">
           <ContactUs/>

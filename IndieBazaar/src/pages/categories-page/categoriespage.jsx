@@ -26,14 +26,16 @@ const CategoriesPage = () => {
         { name: 'Handmade', image: handmade },
         
         // Add more categories as needed
-    ];
+    ]; 
 
     return (
         <div className="categories-page-container">
             <NavBar title="IndieBazaar" />
             <SearchBar /> 
             <div className="content-container">
-                <FilterBox />
+                <div className="filter-box-container">
+                <FilterBox /> 
+                </div>
                 <div className="categories-container">
                     {categories.map((category, index) => (
                         <div key={index} className="category-card">
@@ -42,7 +44,9 @@ const CategoriesPage = () => {
                         </div>
                     ))}
                 </div>
+                
             </div>
+            
         </div>
     );
 };

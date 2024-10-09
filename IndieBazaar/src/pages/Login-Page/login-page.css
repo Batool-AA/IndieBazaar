@@ -1,3 +1,5 @@
+@import "../../variables.css";
+
 .login-page-container {
     display: flex;
     flex-direction: row;
@@ -6,6 +8,7 @@
     padding: 20px;
     align-items: center;
     height: 100vh;
+    background-color: var(--vanilla);
   }
 
   .login-page-slogan-container {
@@ -17,7 +20,7 @@
   }
 
   .login-page-form-container h1 {
-    color: #7f4de7;
+    color: var(--coral-pink);
     text-align: center;
   }
   

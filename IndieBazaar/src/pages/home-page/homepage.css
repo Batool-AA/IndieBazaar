@@ -1,3 +1,5 @@
+@import "../../variables.css";
+
 .homepage-container {
     position: relative;
     overflow: hidden;
@@ -8,8 +10,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: purple; 
-    color: white;
+    background-color: var(--vanilla); 
+    color: var(--coral-pink);
     width: 100%;
   }
 
@@ -23,15 +25,15 @@
   .homepage-container #about-us {
     height: 600px; /* Full height for the about section */
     width: 100%;
-    background-color: white;
+    background-color: var(--tea-green);
     color: black;
     padding: 30px;
     text-align: center;
   }
   
-  .contact-us-section {
-    background-color: purple; /* Change this to your desired color */
+  .homepage-container #contact {
+    background-color: var(--vanilla); /* Change this to your desired color */
     padding: 20px; /* Add some padding */
-    margin-top: 20px; /* Space above the contact us section */
+    color: var(--coral-pink);
   }
   

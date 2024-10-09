@@ -6,6 +6,7 @@
     padding: 20px;
     align-items: center;
     height: 100vh;
+    background-color: var(--vanilla);
   }
 
   .signup-page-slogan-container {
@@ -17,7 +18,7 @@
   }
 
   .signup-page-form-container h1 {
-    color: #7f4de7;
+    color: var(--coral-pink);
     text-align: center;
   }
   

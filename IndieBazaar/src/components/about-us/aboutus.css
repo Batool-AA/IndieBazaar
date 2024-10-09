@@ -1,16 +1,17 @@
-
+@import "../../variables.css";
   
   /* aboutus.css */
   .about-us-container {
     position: relative;
     margin: auto; /* Center the content */
+    
 
   }
   
   .big-text {
     font-family: 'Arial Black', sans-serif;
     font-size: 150px; /* Reduced font size */
-    color: #83b53f; /* Green color */
+    color: var(--coral-pink); /* Green color */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,11 +48,13 @@
   }
   
   .info-box {
+    /* background-color: var(--box-color); */
     position: absolute;
-    border: 1px solid #d2d2d2;
+    border: 1px solid var(--apricot);
     padding: 20px;
     z-index: 2;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for a nice effect */
+    box-shadow: 0 4px 8px var(--apricot); 
+    color: var(--red);
   }
   
   .info-box p {
@@ -100,7 +103,7 @@
     font-size: 1.1rem; /* Slightly larger font size */
     border: none; /* Remove border */
     border-radius: 5px; /* Rounded corners */
-    background-color: #6200ea; /* Purple background */
+    background-color: var(--coral-pink); /* Purple background */
     color: white; /* Text color */
     cursor: pointer; /* Cursor on hover */
     transition: background-color 0.3s ease, transform 0.2s ease; /* Transition effects */
@@ -108,6 +111,6 @@
   }
   
   .setup-button:hover, .explore-button-aboutus:hover {
-    background-color: #3700b3; /* Darker purple on hover */
+    background-color: var(--apricot); /* Darker purple on hover */
     transform: scale(1.05); /* Slightly scale up on hover */
   }

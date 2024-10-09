@@ -1,14 +1,17 @@
   .login-form-component {
     flex: 1;
-    border: 2px solid #b490ff;
+    border: 2px solid var(--coral-pink);
     border-radius: 20px;
-    background-color: rgb(244, 242, 240);
+    background-color: var(--vanilla);
+    box-shadow: 0 4px 8px var(--coral-pink);
     padding: 25px;
     padding-top: 0;
+    color: var(--coral-pink);
   }
 
   .login-form-component h2 {
     text-align: center;
+    color: var(--coral-pink);
   }
   
   .login-component-options {
@@ -20,6 +23,14 @@
  
   .login-component-signup {
     text-align: center;
+  }
+
+  .login-form-component a {
+    color: var(--coral-pink);
+  }
+
+  .login-form-component a:hover {
+    color: var(--apricot);
   }
   
   .login-component-back-to-home {

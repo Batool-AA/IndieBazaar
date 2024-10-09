@@ -4,10 +4,10 @@
   }
   
   .button-basic {
-      background-color: #7f4de7;
-      color: #a9f8e6;
+      background-color: var(--vanilla);
+      color: var(--red);
       padding: 10px;
-      border: 3px solid black;
+      border: 1px solid var(--coral-pink);
       border-radius: 10px;
       cursor: pointer;
       margin-top: 10px;
@@ -17,7 +17,7 @@
   }
   
   .button-basic:hover{
-    background-color: #663bca;
+    background-color: var(--apricot);
   }
   
   .error-message {
@@ -41,6 +41,6 @@
   .input-group input {
     border: none;
     width: 100%;
-    background-color: rgb(244, 242, 240);
-    border-bottom: 1px solid black;
+    background-color: var(--vanilla);
+    border-bottom: 1px solid var(--apricot);
   }

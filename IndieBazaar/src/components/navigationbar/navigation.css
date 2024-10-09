@@ -3,11 +3,11 @@
     display: flex;
     justify-content: space-between; /* Space between title and icons */
     align-items: center; /* Center items vertically */
-    background-color: #39dabf; /* Background color for the navbar */
+    background-color:var(--vanilla); /* Background color for the navbar */
     padding: 10px 20px; /* Padding for spacing */
 }
 
-/* Styling the icons container */
+/* Styling the icons container */ 
 .pages-navbar-icons {
     display: flex; /* Enable flex for horizontal alignment */
     gap: 15px; /* Space between the icons */
@@ -17,19 +17,20 @@
 /* Styling the title */
 .pages-navbar-title {
     font-size: 24px; /* Adjust the font size */
-    color: #5c15ce; /* Color for the title text */
+    color: var(--atomic-tangerine); /* Color for the title text */
+    text-decoration: solid;
 }
 
 /* Styling for each icon */
 .icon {
-    font-size: 20px; /* Adjust the icon size */
-    color: #6400b6; /* Color for the icons */
+    font-size: 20px; /* Adust the icon size */
+    color: var(--atomic-tangerine); /* Color for the icons */
     cursor: pointer; /* Change cursor to pointer on hover */
 }
 
 /* Optional: Add hover effect for icons */
 .icon:hover {
-    color: #a138ce; /* Change color on hover */
+    color: var(--apricot); /* Change color on hover */
 }
 
 .content-container {

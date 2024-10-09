@@ -7,12 +7,14 @@
   .explore-button {
     padding: 10px 20px;
     font-size: 1rem;
-    border: 2px solid black;
+    border: 2px solid var(--coral-pink);
     border-radius: 5px;
-    background-color: white;
+    background-color: var(--vanilla);
+    box-shadow: 0 4px 8px var(--coral-pink);
     cursor: pointer;
     opacity: 0; /* Initially hidden */
     transition: opacity 1s ease, background-color 0.3s ease;
+    color:var(--red);
   }
   
   .fade-in {
@@ -20,6 +22,6 @@
   }
   
   .explore-button:hover {
-    background-color: lightgray;
+    background-color: var(--apricot);
   }
   

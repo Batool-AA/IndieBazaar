@@ -1,10 +1,12 @@
 .signup-form-component {
   flex: 1;
-  border: 2px solid #b490ff;
+  border: 2px solid var(--coral-pink);
   border-radius: 20px;
-  background-color: rgb(244, 242, 240);
+  background-color: var(--vanilla);
+  box-shadow: 0 4px 8px var(--coral-pink);
   padding: 25px;
   padding-top: 0;
+  color: var(--coral-pink);
 }
 
 .signup-form-component h2 {
@@ -20,6 +22,14 @@
 
 .signup-component-signup {
   text-align: center;
+}
+
+.signup-form-component a {
+  color: var(--coral-pink);
+}
+
+.signup-form-component a:hover {
+  color: var(--apricot);
 }
 
 .signup-component-back-to-login {

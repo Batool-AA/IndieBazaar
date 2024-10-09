@@ -6,7 +6,7 @@ const FilterBox = () => {
 
     const handlePriceChange = (e) => {
         setPrice(e.target.value); // Update price when slider changes
-    };
+    }; 
     return (
         <div className="filter-box">
             <h3>Choose Category</h3>
