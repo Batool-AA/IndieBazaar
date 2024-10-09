@@ -1,6 +1,6 @@
 .business-banner-container {
     background-color: var(--vanilla);
-    color: white;
+    color: var(--coral-pink);
     text-align: center;
     position: relative;
     padding: 20px 20px;
