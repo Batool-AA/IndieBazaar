@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import "./signup-form.css"
 
 
-function SignupForm() {
+const SignupForm = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

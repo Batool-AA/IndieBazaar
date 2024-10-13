@@ -6,13 +6,12 @@ const ContactUs = () => {
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
-  };
+  }; 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle the submission of the email here (e.g., API call)
     alert(`Email submitted: ${email}`);
-    setEmail(''); // Clear the input after submission
+    setEmail(''); 
   };
 
   

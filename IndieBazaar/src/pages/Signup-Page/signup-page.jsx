@@ -2,7 +2,7 @@ import Slogan from "../../components/slogan/slogan.jsx";
 import SignupForm from  "../../components/signup-form/signup-form.jsx";
 import "./signup-page.css"
 
-function Signup() {
+const Signup = () => {
     return (
         <div className="signup-page-container">
             <div className="signup-page-slogan-container">
@@ -12,7 +12,7 @@ function Signup() {
                 <h1>IndieBazaar</h1>
                 <SignupForm />
             </div>
-        </div>
+        </div> 
     )
 }
 

@@ -1,8 +1,8 @@
 import Slogan from "../../components/slogan/slogan.jsx";
 import LoginForm from  "../../components/login-form/login-form.jsx";
 import "./login-page.css"
-
-function Login() {
+ 
+const Login = () => {
     return (
         <div className="login-page-container">
             <div className="login-page-slogan-container">

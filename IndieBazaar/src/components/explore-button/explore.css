@@ -1,7 +1,7 @@
 .explore-container {
     text-align: center;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
   }
   
   .explore-button {
@@ -12,13 +12,13 @@
     background-color: var(--vanilla);
     box-shadow: 0 4px 8px var(--coral-pink);
     cursor: pointer;
-    opacity: 0; /* Initially hidden */
+    opacity: 0; 
     transition: opacity 1s ease, background-color 0.3s ease;
     color:var(--red);
   }
   
   .fade-in {
-    opacity: 1; /* Fade-in to full opacity */
+    opacity: 1; 
   }
   
   .explore-button:hover {

@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import "./login-form.css"
 
 
-function LoginForm() {
-  const [email, setEmail] = useState('');
+const LoginForm = () => {
+  const [email, setEmail] = useState(''); 
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const [errors, setErrors] = useState({});
@@ -53,8 +53,6 @@ function LoginForm() {
       setRememberMe(false);
       navigate("/store")
     }
-
-    
   };
 
   return (
@@ -117,8 +115,3 @@ function LoginForm() {
 }
 
 export default LoginForm;
-
-// yet to add:
-//     page Navigation
-//     remember me functionality - saving email password
-//     checking for email password match

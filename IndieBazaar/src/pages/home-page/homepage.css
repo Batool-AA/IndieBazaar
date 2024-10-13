@@ -15,25 +15,17 @@
     width: 100%;
   }
 
-  
-  
-  /* .content {
-    text-align: center;
-    margin-top: 150px; 
-  } */
-  
   .homepage-container #about-us {
-    height: 600px; /* Full height for the about section */
+    height: 600px; 
     width: 100%;
     background-color: var(--tea-green);
-    color: black;
     padding: 30px;
     text-align: center;
   }
   
   .homepage-container #contact {
-    background-color: var(--vanilla); /* Change this to your desired color */
-    padding: 20px; /* Add some padding */
+    background-color: var(--vanilla); 
+    padding: 10px; 
     color: var(--coral-pink);
   }
   

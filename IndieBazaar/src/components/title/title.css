@@ -1,25 +1,27 @@
 .title-container {
-    text-align: center;
-    font-size: 60px; /* Increase font size for a larger title */
-  }
-  
-  .title {
-    display: inline-block;
-    animation: titleAnimation 1s ease forwards;
-  }
+  text-align: center;
+  font-size: 60px;
+}
 
-  .title-slogan {
-    width: 100%; /* Adjust width as needed */
-    margin: 0 auto; /* Centers the paragraph horizontally */
-    font-size: 16pt;
-    line-height: 1.5; /* Improves readability */
-  }
+.title-slogan { 
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  font-size: 16pt;
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: blink-caret 0.7s step-end infinite;
+}
+
+
   
-  .indie, .bazaar {
-    font-size: 5rem; /* Increase the font size */
+  .indie {
+    font-size: 5rem; 
     opacity: 0;
     transform: scale(0);
     transition: transform 1s ease, opacity 1s ease;
+    margin-bottom: 0px;
   }
   
   .grow {
@@ -27,8 +29,6 @@
     transform: scale(1);
   }
   
-  .bazaar {
-    margin-top: 10px;
-  }
+  
   
   

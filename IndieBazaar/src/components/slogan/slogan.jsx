@@ -3,11 +3,11 @@ import Handshake from "../../assets/hand-shake.png";
 import LeftDesign from "../../assets/bottom-left.png";
 import TopDesign from "../../assets/top-right.png";
 
-function Slogan() {
+const Slogan = () => {
     return (
       <div className="slogan-section">
         <div className="slogan-text">
-          <h1>Make a mark with your product</h1>
+          <h1>Make a mark with your product</h1> 
         </div>
         <div className="slogan-image">
           <img src={Handshake} alt="Handshake" className="slogan-handshake"></img>
@@ -22,4 +22,4 @@ function Slogan() {
     );
   }
   
-  export default Slogan;
+export default Slogan;

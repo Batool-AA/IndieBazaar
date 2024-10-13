@@ -1,116 +1,109 @@
 @import "../../variables.css";
-  
-  /* aboutus.css */
-  .about-us-container {
-    position: relative;
-    margin: auto; /* Center the content */
-    
 
-  }
-  
-  .big-text {
-    font-family: 'Arial Black', sans-serif;
-    font-size: 150px; /* Reduced font size */
-    color: var(--coral-pink); /* Green color */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px; /* Spacing between the text and the boxes */
-    align-items: center;
-  }
+.about-us-container {
+  position: relative;
+  margin: auto; 
+}
 
+.big-text {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 150px;
+  color: var(--coral-pink);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
-  .word-1 {
-    position: absolute;
-    left: 250px;
-    top: -30px;
-  }
+.word-1 {
+  position: absolute;
+  left: 250px;
+  top: -30px;
+}
 
-  .word-2 {
-    position: absolute;
-    right: 150px;
-    top: 150px;
-  }
+.word-2 {
+  position: absolute;
+  right: 150px;
+  top: 150px;
+}
 
-  .word-3 {
-    position: absolute;
-    left: 150px;
-    top: 280px;
-  }
-  
-  .indiebazaar-logo {
-    width: 500px; /* Adjust based on your design */
-    height: auto;
-    z-index: 1;
-    position: absolute;
-    top: 80px;
-    left: auto;
-  }
-  
-  .info-box {
-    /* background-color: var(--box-color); */
-    position: absolute;
-    border: 1px solid var(--apricot);
-    padding: 20px;
-    z-index: 2;
-    box-shadow: 0 4px 8px var(--apricot); 
-    color: var(--red);
-  }
-  
-  .info-box p {
-    margin: 0;
-    font-size: 14px;
-    text-align: left;
-  }
-  
-  /* Positioning the info boxes relative to the leaf */
-  .info-box-1 {
-    left: 230px;
-    top: 130px;
-    width: 17%;
-  }
+.word-3 {
+  position: absolute;
+  left: 150px;
+  top: 280px;
+}
 
-  .info-box-2 {
-    left: 300px;
-    top: 250px;
-    width: 17%;
-  }
-  
-  .info-box-3 {
-    top: 70px;
-    right: 320px;
-    width: 17%;
-  }
-  
-  .info-box-4 {
-    top: 350px;
-    right: 400px;
-    width: 17%;
-  }
+.indiebazaar-logo {
+  width: 500px;
+  height: auto;
+  z-index: 1;
+  position: absolute;
+  top: 80px;
+  left: auto;
+}
 
-  .button-container {
-    position: absolute;
-    top: 500px;
-    left: 500px;
-    display: flex; /* Use flexbox to align buttons */
-    justify-content: center; /* Center buttons horizontally */
-    gap: 20px; /* Space between buttons */
-    margin-top: 10px; /* Space above buttons */
-  }
-  
-  .setup-button, .explore-button-aboutus {
-    padding: 12px 24px; /* Increased padding for buttons */
-    font-size: 1.1rem; /* Slightly larger font size */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
-    background-color: var(--coral-pink); /* Purple background */
-    color: white; /* Text color */
-    cursor: pointer; /* Cursor on hover */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition effects */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect for depth */
-  }
-  
-  .setup-button:hover, .explore-button-aboutus:hover {
-    background-color: var(--apricot); /* Darker purple on hover */
-    transform: scale(1.05); /* Slightly scale up on hover */
-  }
+.about-info-box {
+  position: absolute;
+  border: 1px solid var(--apricot);
+  padding: 20px;
+  z-index: 2;
+  box-shadow: 0 4px 8px var(--apricot); 
+  color: var(--red);
+}
+
+.about-info-box p {
+  margin: 0;
+  font-size: 14px;
+  text-align: left;
+}
+
+.about-info-box-1 {
+  left: 230px;
+  top: 130px;
+  width: 17%;
+}
+
+.about-info-box-2 {
+  left: 300px;
+  top: 250px;
+  width: 17%;
+}
+
+.about-info-box-3 {
+  top: 70px;
+  right: 320px;
+  width: 17%;
+}
+
+.about-info-box-4 {
+  top: 350px;
+  right: 400px;
+  width: 17%;
+}
+
+.about-button-container {
+  position: absolute;
+  top: 500px;
+  left: 500px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.about-setup-button, .about-explore-button {
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--coral-pink);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.about-setup-button:hover, .about-explore-button:hover {
+  background-color: var(--apricot);
+  transform: scale(1.05);
+}

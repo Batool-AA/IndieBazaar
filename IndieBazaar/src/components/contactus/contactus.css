@@ -1,52 +1,47 @@
 @import "../../variables.css";
 
 .contact-us-container {
-  
     padding: 20px;
     text-align: center;
-    /* margin-top: 100px; */
-  }
+}
 
-  
-  .email-form {
+.email-form {
     margin: 20px 0;
-  }
-  
-  .email-form input {
+}
+
+.email-form input {
     padding: 10px;
     font-size: 1rem;
-    border: 1px solid #ccc; /* Light border */
-    border-radius: 5px; /* Rounded corners */
-    width: 300px; /* Fixed width for the input */
-  }
-  
-  .email-form button {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.email-form button {
     padding: 10px 20px;
     font-size: 1rem;
     border: 1px solid var(--coral-pink);
     background-color: var(--vanilla);
     box-shadow: 0 4px 8px var(--coral-pink);
-    color: var(--red); /* White text */
-    cursor: pointer; /* Pointer cursor on hover */
-    margin-left: 10px; /* Space between input and button */
-  }
-  
-  .email-form button:hover {
-    background-color: var(--apricot); /* Darker shade on hover */
-  }
-  
-  .links-container {
+    color: var(--red);
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.email-form button:hover {
+    background-color: var(--apricot);
+}
+
+.links-container {
     margin-top: 20px;
-  }
-  
-  .links-container a {
-    margin: 0 10px; /* Space between links */
-    text-decoration: none; /* Remove underline */
+}
+
+.links-container a {
+    margin: 0 10px;
+    text-decoration: none;
     color: var(--coral-pink);
-  }
-  
-  .links-container a:hover {
-    text-decoration: underline; /* Underline on hover */
-  }
-  
-  
+}
+
+.links-container a:hover {
+    color: var(--apricot);
+}
