@@ -1,45 +1,31 @@
-/* Styling the navigation bar */
 .pages-navbar {
     display: flex;
-    justify-content: space-between; /* Space between title and icons */
-    align-items: center; /* Center items vertically */
-    background-color:var(--vanilla); /* Background color for the navbar */
-    padding: 10px 20px; /* Padding for spacing */
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--vanilla);
+    padding: 10px 20px;
 }
 
-/* Styling the icons container */ 
 .pages-navbar-icons {
-    display: flex; /* Enable flex for horizontal alignment */
-    gap: 15px; /* Space between the icons */
-    align-items: center; /* Center icons vertically */
+    display: flex;
+    gap: 15px;
+    align-items: center;
 }
 
-/* Styling the title */
 .pages-navbar-title {
-    font-size: 24px; /* Adjust the font size */
-    color: var(--atomic-tangerine); /* Color for the title text */
+    font-size: 24px;
+    color: var(--atomic-tangerine); 
     text-decoration: solid;
 }
 
-/* Styling for each icon */
-.icon {
-    font-size: 20px; /* Adust the icon size */
-    color: var(--atomic-tangerine); /* Color for the icons */
-    cursor: pointer; /* Change cursor to pointer on hover */
+.pages-navbar-icons .icon {
+    font-size: 20px; 
+    color: var(--atomic-tangerine); 
+    cursor: pointer; 
 }
 
-/* Optional: Add hover effect for icons */
-.icon:hover {
-    color: var(--apricot); /* Change color on hover */
+.pages-navbar-icons .icon:hover {
+    color: var(--apricot); 
 }
 
-.content-container {
-    display: flex; /* Use flexbox to align items */
-    margin-top: 20px; /* Space between the search bar and content */
-}
 
-/* Optional: Add styles for main content area if needed */
-.main-content {
-    flex-grow: 1; /* Allow this area to grow */
-    margin-left: 20px; /* Space between filter and main content */
-}

@@ -50,7 +50,7 @@ const AboutUs = () => {
         <button className="about-explore-button" onClick={handleExploreProductsClick}>
           Explore Products
         </button>
-      </div>
+      </div> 
     </div>
   );
 };

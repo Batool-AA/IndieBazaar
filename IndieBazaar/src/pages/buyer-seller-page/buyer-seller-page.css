@@ -4,14 +4,44 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  /* background-color: #f9f9f9; */
-  padding-top: 100px; /* Padding to accommodate the fixed header */
+  padding-top: 100px;
 }
 
 .buyer-seller-buttons-container {
   display: flex;
-  justify-content: center; /* Centers the buttons horizontally */
-  align-items: center; /* Aligns the buttons vertically */
-  width: 100%; /* Ensure container spans full width */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   margin-top: 20px;
 }
+
+.buyer-seller-header-container {
+  background-color: #8AE3A3;
+  width: 100vw;
+  text-align: center;
+  padding: 10px 0;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.buyer-seller-header-title {
+  font-family: 'Arial', sans-serif;
+  color: #8A2BE2;
+  font-size: 36px;
+}
+
+.buyer-seller {
+  width: 200px;
+  margin: 0 10px;
+}
+
+.buyer-seller-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  gap: 20px;
+}
+

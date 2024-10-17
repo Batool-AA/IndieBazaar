@@ -12,7 +12,7 @@ const LoginForm = () => {
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
   const handleRememberMeChange = () => setRememberMe(!rememberMe);
-
+ 
   const validateForm = () => {
     const newErrors = {};
 

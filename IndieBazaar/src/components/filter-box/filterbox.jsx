@@ -1,31 +1,43 @@
-import './filterbox.css'; // Import your CSS file
+import './filterbox.css'; 
 import React, { useState } from 'react';
 
+const categories = ['Food', 'Accessories', 'Clothes', 'Decor'];
+
 const FilterBox = () => {
-    const [price, setPrice] = useState(5000); // Default price state at mid-range
+    const [price, setPrice] = useState(5000); 
+    const [selectedCategories, setSelectedCategories] = useState([]);
 
     const handlePriceChange = (e) => {
-        setPrice(e.target.value); // Update price when slider changes
-    }; 
+        setPrice(e.target.value); 
+    };
+
+    const handleCheckboxChange = (category) => {
+        setSelectedCategories((prevSelected) =>
+            prevSelected.includes(category)
+                ? prevSelected.filter((item) => item !== category)
+                : [...prevSelected, category]
+        );
+    };
+
     return (
         <div className="filter-box">
             <h3>Choose Category</h3>
-            <div className="checkbox-container">
-                <label>
-                    <input type="checkbox" /> Food
-                </label>
-                <label>
-                    <input type="checkbox" /> Accessories
-                </label>
-                <label>
-                    <input type="checkbox" /> Clothes
-                </label>
-                <label>
-                    <input type="checkbox" /> Decor
-                </label>
+            <div className="filter-checkbox-container">
+                {categories.map((category) => (
+                    <div key={category} className="filter-checkbox-item"> 
+                        <label>
+                            <input
+                                type="checkbox"
+                                value={category}
+                                onChange={() => handleCheckboxChange(category)}
+                            />
+                            {category}
+                        </label>
+                    </div>
+                ))}
             </div>
-            {/* Price Range Slider */}
-            <div className="price-range">
+
+            <div className="filter-price-range">
                 <h4>Price Range (PKR)</h4>
                 <input
                     type="range"
@@ -33,7 +45,7 @@ const FilterBox = () => {
                     max="10000"
                     value={price}
                     onChange={handlePriceChange}
-                    className="slider"
+                    className="filter-slider"
                 />
                 <p>Selected Price: PKR {price}</p>
             </div>

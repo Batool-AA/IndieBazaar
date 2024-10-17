@@ -11,7 +11,7 @@ const Title = ({title, slogan}) => {
   }, []); 
 
   useEffect(() => {
-    if (showIndie) {
+    if (showIndie) { 
       let index = -1;
       const typeSlogan = () => {
         if (index < slogan.length-1) {

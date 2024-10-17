@@ -1,20 +1,17 @@
 import React from 'react';
 import HomeNavbar from '../../components/homenavbar/homenavbar.jsx';
-import Title from '../../components/title/title.jsx';
-import Explore from '../../components/explore-button/explore.jsx';
 import AboutUs from '../../components/about-us/aboutus.jsx'
-import Layer from '../../components/layers/layer.jsx'
 import ContactUs from '../../components/contactus/contactus.jsx';
 import './homepage.css';
+import BusinessBanner from '../../components/business-banner/business-banner.jsx';
 
 const HomePage = () => {
     return (
       <div className="homepage-container">
         <div className="top-section">
           <HomeNavbar />
-          <Title title={"IndieBazaar"} slogan={"Connecting Local Sellers, Empowering Buyers"}/>
-          <Explore />
-        </div> 
+          <BusinessBanner title={"IndieBazaar"} slogan={"Connecting Local Sellers, Empowering Buyers"}/>
+        </div>  
         <div id="about-us">
           <AboutUs /> 
         </div>

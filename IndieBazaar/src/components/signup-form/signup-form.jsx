@@ -14,7 +14,7 @@ const SignupForm = () => {
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
   const handleConfirmPasswordChange = (e) => setConfirmPassword(e.target.value);
-
+ 
   const validateForm = () => {
     const newErrors = {};
 

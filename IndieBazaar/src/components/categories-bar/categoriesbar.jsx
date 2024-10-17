@@ -8,7 +8,7 @@ const CategoriesBar = ({ categories, onSelectCategory }) => {
         <button key={category} className="category-button" onClick={() => onSelectCategory(category)}>
           {category}
         </button>
-      ))}
+      ))} 
     </div>
   );
 };

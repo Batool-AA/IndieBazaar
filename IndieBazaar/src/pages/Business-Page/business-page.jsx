@@ -8,10 +8,10 @@ const BusinessPage = () => {
     return (
         <div className="business-page-container">
             <Navbar title={"IndieBazaar"}/>
-            <BusinessBanner />
+            <BusinessBanner title={"Amna Cooks"} slogan={""}/>
             <div id="about-us">
                 <BusinessInfo />
-            </div>
+            </div> 
         </div>
     );
 };

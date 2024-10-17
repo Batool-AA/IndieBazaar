@@ -6,20 +6,8 @@ import burgerImage from "../../assets/burger.png";
 import noodles from "../../assets/noodles.jpg"
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa'; 
 import { useNavigate } from 'react-router-dom';
+import ProductCard from '../product-card/productcard';
 
-export const businessProducts = [
-    {
-        name: 'Burger',
-        description: 'Mustard, because it\'s strong, spicy, and confident.',
-        imgSrc: burgerImage,
-    },
-    {
-        name: 'Noodles',
-        description: 'Yum',
-        imgSrc: noodles,
-    },
-    // Add more business-info members here
-];
 
 const BusinessInfo = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -38,7 +26,19 @@ const BusinessInfo = () => {
         instagram: '',
     };
 
-    // Check if there is any social media info
+    const businessProducts = [
+        {
+            name: 'Burger',
+            description: 'Mustard, because it\'s strong, spicy, and confident.',
+            image: burgerImage, 
+        },
+        {
+            name: 'Noodles',
+            description: 'Yum',
+            image: noodles,
+        },
+    ];
+
     const hasSocialMedia = Object.values(socialMedia).some((url) => url);
 
     const navigate = useNavigate();
@@ -53,7 +53,6 @@ const BusinessInfo = () => {
                 <div className="business-info-header-column">
                     <div className="business-info-header">
                         <div className="business-info-header-heading">
-                            {/* <div className="business-info-icon">🟩</div> */}
                             <h2 className="business-info-title">About Us</h2>
                         </div>
 
@@ -61,6 +60,7 @@ const BusinessInfo = () => {
                         <p className="business-info-description">
                             We are a home based cooking business
                         </p>
+
                         {hasSocialMedia && (
                         <div className="business-info-social-media">
                             {socialMedia.facebook && (
@@ -86,25 +86,14 @@ const BusinessInfo = () => {
 
                 <div className="business-info-carousel-column">
                     <div className="business-info-carousel-wrapper">
-                        {/* Previous arrow button */}
                         <button className="business-info-carousel-arrow left" onClick={handlePrev}>
                             <FontAwesomeIcon icon={faChevronLeft} />
                         </button>
                         
-                        {/* business-info member details */}
                         <div className="business-info-product">
-                            <img
-                                src={businessProducts[currentSlide].imgSrc}
-                                alt={businessProducts[currentSlide].name}
-                                className="business-info-product-photo"
-                            />
-                            <div className="business-info-product-description">
-                                <h3>{businessProducts[currentSlide].name}</h3>
-                                <p>{businessProducts[currentSlide].description}</p>
-                            </div>
+                            <ProductCard product={businessProducts[currentSlide]} size="big"/>
                         </div> 
                         
-                        {/* Next arrow button */}
                         <button className="business-info-carousel-arrow right" onClick={handleNext}>
                             <FontAwesomeIcon icon={faChevronRight} />
                         </button>

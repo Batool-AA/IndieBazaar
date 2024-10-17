@@ -20,6 +20,6 @@ const Slogan = () => {
         </div>
       </div>
     );
-  }
+  } 
   
 export default Slogan;

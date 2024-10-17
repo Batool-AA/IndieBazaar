@@ -1,5 +1,5 @@
 import './searchbar.css';
-import { FaSearch } from 'react-icons/fa'; // Import a magnifying glass icon
+import { FaSearch } from 'react-icons/fa'; 
 
 const SearchBar = () => {
     return (
@@ -12,6 +12,6 @@ const SearchBar = () => {
             />
         </div>
     );
-};
+}; 
 
 export default SearchBar;

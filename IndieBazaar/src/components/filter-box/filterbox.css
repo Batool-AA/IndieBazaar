@@ -1,53 +1,48 @@
 .filter-box {
-    /* width: 250px; */
-    height: auto; /* Adjust to your preferred height */
-    margin-left: 20px; /* Move it away from the left corner */
+    height: auto;
+    margin-left: 20px;
     margin-top: 20px;
     padding: 10px;
     background-color: var(--tea-green);
-    border-radius: 10px; 
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow-y: auto; /* Add vertical scrollbar */
-    color: var(--coral-pink); /* Optional: Add purple color to match the border */
-    max-height: 400px; /* Limit height to control scrollbar */
+    overflow-y: auto;
+    color: var(--coral-pink);
+    max-height: 400px;
 }
 
-
-
-.checkbox-container {
+.filter-checkbox-container {
     display: flex;
-    flex-direction: column; /* Stack checkboxes vertically */
+    flex-direction: column;
 }
 
-h3 {
-    margin-bottom: 10px; /* Space between heading and checkboxes */
-    color: var(--coral-pink); /* Optional: Add purple color to match the border */
+.filter-box h3 {
+    margin-bottom: 10px;
+    color: var(--coral-pink);
 }
 
-.price-range {
+.filter-price-range {
     margin-top: 20px;
 }
 
-.price-range h4 {
+.filter-price-range h4 {
     margin-bottom: 10px;
-    
 }
 
-.slider {
+.filter-slider {
     width: 100%;
     margin: 10px 0;
-    background-color: var(--tea-green); /* Background for the slider */
+    background-color: var(--tea-green);
 }
 
-.slider::-webkit-slider-thumb {
-    background-color: #800080; /* Thumb color */
+.filter-slider::-webkit-slider-thumb {
+    background-color: #800080;
     border-radius: 50%;
     cursor: pointer;
 }
 
-.slider::-moz-range-thumb {
-    background-color: #800080; /* Thumb color for Firefox */
+.filter-slider::-moz-range-thumb {
+    background-color: #800080;
     border-radius: 50%;
     cursor: pointer;
 }
-

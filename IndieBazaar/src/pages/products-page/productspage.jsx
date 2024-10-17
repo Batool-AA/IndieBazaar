@@ -10,7 +10,7 @@ import wings from "../../assets/wings.jpg";
 import milkshake from "../../assets/milkshake.jpg";
 import './productspage.css';
 
-const ProductsPage = () => {
+const ProductsPage = () => { 
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   const products = [
@@ -33,7 +33,7 @@ const ProductsPage = () => {
     setSelectedCategory(category);
     const section = document.getElementById(category);
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to the category section
+      section.scrollIntoView({ behavior: 'smooth' }); 
     }
   };
 
@@ -43,15 +43,15 @@ const ProductsPage = () => {
 
   return (
     <div className="products-page">
-      <NavBar title = "Amna Cooks"/>
+      <NavBar title = {"Amna Cooks"}/>
       <CategoriesBar categories={categories} onSelectCategory={handleCategoryClick} />
       
       {categories.map((category, index) => (
-        <section id={category} key={index} className="category-section">
+        <section id={category} key={index} className="products-category-section">
           <h2>{category}</h2>
           <div className="product-cards-container">
             {categoryProducts[category].map((product, index) => (
-              <ProductCard key={index} product={product} />
+              <ProductCard key={index} product={product} size="small"/>
             ))}
           </div>
         </section>

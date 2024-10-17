@@ -11,7 +11,7 @@ const Explore = () => {
 
   const handleExploreClick = () => {
     document.getElementById('about-us').scrollIntoView({ behavior: 'smooth' });
-  };
+  }; 
  
   return (
     <div className="explore-container">

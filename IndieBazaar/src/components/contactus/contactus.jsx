@@ -25,7 +25,7 @@ const ContactUs = () => {
           placeholder="Enter your email for updates"
           value={email}
           onChange={handleEmailChange}
-          required
+          required 
         />
         <button type="submit">Submit</button>
       </form>
