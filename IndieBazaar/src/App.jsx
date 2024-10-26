@@ -7,6 +7,7 @@ import BuyerSellerPage from "./pages/buyer-seller-page/buyer-seller-page"
 import CategoriesPage from "./pages/categories-page/categoriespage"
 import ProductPage from "./pages/products-page/productspage"
 import Homepage from "./pages/home-page/homepage"
+import SetupBusiness from "./pages/setupbusiness-page/setupbusiness"
 
 
 function App () {
@@ -22,6 +23,7 @@ function App () {
         <Route path="/setbusiness" /> 
         <Route path="/business-home" element={<BusinessPage />} />
         <Route path="/business-products" element={<ProductPage />} />
+        <Route path="/business-setup" element={<SetupBusiness/>} />
       </Routes>
     </Router>
 
