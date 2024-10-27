@@ -1,46 +1,32 @@
 import React, { useState } from 'react';
-import Navbar from '../../components/navigationbar/navigation.jsx'; // Import your existing Navbar component
-import CategorySelector from '../../components/businesscategory/businesscategory.jsx';
-import ItemDetailsForm from '../../components/itemdetails/itemdetails.jsx';
-import ImageUploader from '../../components/imageuploader/imageuploader.jsx';
-import './SetupBusiness.css'; // Ensure you import the CSS
+import StepOneBusinessName from '../../components/businessname/businessname.jsx';
+import StepTwoBusinessDescription from '../../components/businessdesc/businessdesc.jsx';
+import StepThreeBusinessCategory from '../../components/businesscategory/businesscat.jsx';
+import AddItemForm from '../../components/additem/additem.jsx';
+import ItemList from '../../components/itemlist/itemlist.jsx';
+import './SetupBusiness.css';
 
 const SetupBusiness = () => {
-  const [selectedCategory, setSelectedCategory] = useState('Food');
-  const [items, setItems] = useState([{ id: 1 }]); // Manage multiple items
+  const [step, setStep] = useState(1);
 
-  // Function to add a new item form
-  const addItemForm = () => {
-    setItems([...items, { id: items.length + 1 }]);
+  const nextStep = () => {
+    setStep(step + 1);
   };
 
   return (
     <div className="setup-business-container">
-      <Navbar /> {/* Navbar is added on top */}
-      <div className="setup-business">
-        <h2>Set-up your business</h2>
-
-        <CategorySelector 
-          selectedCategory={selectedCategory} 
-          onSelectCategory={setSelectedCategory} 
-        />
-
-        {/* Render multiple ItemDetailsForm for each item */}
-        {items.map((item, index) => (
-          <div key={item.id} className="item-form-wrapper">
-            <h3>Item {index + 1}</h3>
-            <ItemDetailsForm />
-            <ImageUploader />
-          </div>
-        ))}
-
-        {/* Button to add a new item */}
-        <button onClick={addItemForm} className="add-item-button">
-          + Add another item
-        </button>
-
-        <button className="next-button">Next</button>
+      <div className="back-arrow">&#8592;</div>
+      
+      {/* New header container */}
+      <div className="header-container">
+        <h1>Hi Seller!</h1>
+        <p className="subtitle">Let's Set Up Your Business</p>
       </div>
+
+      {step === 1 && <StepOneBusinessName onNext={nextStep} />}
+      {step === 2 && <StepTwoBusinessDescription onNext={nextStep} />}
+      {step === 3 && <StepThreeBusinessCategory onNext={nextStep} />}
+      {step === 4 && <AddItemForm onNext={nextStep} />}
     </div>
   );
 };
