@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import './businessdesc.css';
+import { getFirestore } from 'firebase/firestore';
+import { addDoc } from 'firebase/firestore';
 
-const StepTwoBusinessDescription = ({ onNext }) => {
-  const [businessDescription, setBusinessDescription] = useState('');
-
-  const handleNext = () => {
+const StepTwoBusinessDescription = ({ onNext, businessDescription, setBusinessDescription, categoriesRef }) => {
+  const handleNext = async () => {
     if (businessDescription.trim()) {
-      onNext();
+     setBusinessDescription(businessDescription);
     }
+    onNext();
   };
-
+ 
   return (
     <div className="step-container">
       <p className="prompt">Tell us about your business.</p>

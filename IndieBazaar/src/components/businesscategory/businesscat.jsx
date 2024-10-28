@@ -3,8 +3,9 @@ import './businesscat.css';
 
 const categories = ["Food", "Decor", "Clothes", "Accessories", "Other"];
 
-const StepThreeBusinessCategory = ({ onNext }) => {
-  const [selectedCategories, setSelectedCategories] = useState([]);
+const StepThreeBusinessCategory = ({ onNext, businessCategory, setBusinessCategories, categoriesRef }) => {
+
+  const [selectedCategory, setSelectedCategories] = useState([]);
 
   const toggleCategory = (category) => {
     setSelectedCategories(prev =>
@@ -14,10 +15,11 @@ const StepThreeBusinessCategory = ({ onNext }) => {
     );
   };
 
-  const handleNext = () => {
-    if (selectedCategories.length > 0) {
-      onNext();
-    }
+  const handleNext = async () => {
+    // if (selectedCategory.trim()) {
+     setBusinessCategories(selectedCategory);
+    // }
+    onNext();
   };
 
   return (
@@ -28,7 +30,7 @@ const StepThreeBusinessCategory = ({ onNext }) => {
           <button
             key={category}
             onClick={() => toggleCategory(category)}
-            className={selectedCategories.includes(category) ? 'selected' : ''}
+            className={selectedCategory.includes(category) ? 'selected' : ''}
           >
             {category}
           </button>

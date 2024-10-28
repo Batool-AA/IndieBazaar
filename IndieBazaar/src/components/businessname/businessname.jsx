@@ -1,26 +1,14 @@
 import React, { useState } from 'react';
-import { getFirestore } from 'firebase/firestore';
-import { addDoc } from 'firebase/firestore';
 import './businessname.css';
 
-const StepOneBusinessName = ({ onNext }) => {
-  const db = getFirestore();
-
-  const [businessName, setBusinessName] = useState('');
-
- 
-  
-
-
-  const handleNext = () => {
-    // if (businessName.trim()) {
-      const categoryDoc = addDoc(categoriesRef, {
-        name: businessName,
-      });
-      onNext();
-
-    // }
+const StepOneBusinessName = ({ onNext, businessName, setBusinessName, categoriesRef }) => {
+  const handleNext = async () => {
+    if (businessName.trim()) {
+      setBusinessName(businessName);
+    }
+    onNext();
   };
+
 
   return (
     <div className="step-container">

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './additem.css';
 
-const AddItemForm = ({ onNext }) => {
+const AddItemForm = ({ onNext, businessitems, setBusinessitems, categoriesRef}) => {
   const [itemName, setItemName] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(null);
@@ -9,7 +9,7 @@ const AddItemForm = ({ onNext }) => {
 
   const handleAddItem = () => {
     if (itemName.trim() && description.trim() && image) {
-      setItems([...items, { name: itemName, description, image }]);
+      setItems([...items, { name: itemName, description }]);
       setItemName('');
       setDescription('');
       setImage(null); // Clear the image preview after adding item
@@ -17,6 +17,7 @@ const AddItemForm = ({ onNext }) => {
   };
 
   const handleNext = () => {
+    setBusinessitems(items)
     onNext();
   };
 
