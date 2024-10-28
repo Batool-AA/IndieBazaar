@@ -1,0 +1,65 @@
+.browse-businesses-container {
+    background-color: var(--vanilla);
+    padding: 20px;
+  }
+  
+  .browse-content-container {
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  .browse-filter-box-container {
+    flex: 0.25;
+  }
+  
+  .businesses-container {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 30px;
+    margin-left: 100px; 
+  }
+  
+  .business-card {
+    width: 200px;
+    height: 250px;
+    border: 15px solid var(--tea-green);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background-color: var(--tea-green);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    position: relative;
+    padding: 15px 10px 5px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: var(--coral-pink);
+  }
+  
+  .business-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .business-card img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    border-bottom: 1px solid #a9f8e6;
+    margin-bottom: 10px;
+  }
+  
+  .business-card p {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 10px 0;
+    position: absolute;
+    bottom: 5px;
+    text-align: center;
+    width: 100%;
+  }
+  

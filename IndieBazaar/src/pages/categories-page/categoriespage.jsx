@@ -9,34 +9,43 @@ import Health from "../../assets/health.jpg"
 import book from "../../assets/books.jpg"
 import handmade from "../../assets/handmade.jpg"
 import stationary from "../../assets/stationary.jpg"
-
+import { useNavigate } from 'react-router-dom';
 import "./categoriespage.css"
 
 const CategoriesPage = () => {
-    const categories = [ 
-        { name: 'Food', image: food},
+    const navigate = useNavigate();
+
+    const categories = [
+        { name: 'Food', image: food },
         { name: 'Accessories', image: accessory },
-        { name: 'Clothes', image: clothes},
+        { name: 'Clothes', image: clothes },
         { name: 'Decor', image: decor },
         { name: 'Health', image: Health },
         { name: 'Book', image: book },
         { name: 'Stationary', image: stationary },
         { name: 'Handmade', image: handmade },
-        
-    ]; 
+    ];
+
+    const handleCategoryClick = (category) => {
+        navigate(`/browse/${category.name}`);
+    };
 
     return (
         <div className="categories-page-container">
             <NavBar title="IndieBazaar" />
-            <SearchBar /> 
+            <SearchBar />
             <div className="categories-content-container">
                 <div className="categories-filter-box-container">
-                <FilterBox /> 
+                    <FilterBox />
                 </div>
                 <div className="categories-container">
                     {categories.map((category, index) => (
-                        <div key={index} className="category-card">
-                            <p>{category.name}</p> 
+                        <div
+                            key={index}
+                            className="category-card"
+                            onClick={() => handleCategoryClick(category)}
+                        >
+                            <p>{category.name}</p>
                             <img src={category.image} alt={category.name} />
                         </div>
                     ))}
