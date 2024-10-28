@@ -5,13 +5,17 @@ import StepThreeBusinessCategory from '../../components/businesscategory/busines
 import AddItemForm from '../../components/additem/additem.jsx';
 import ItemList from '../../components/itemlist/itemlist.jsx';
 import './SetupBusiness.css';
+import { getFirestore } from 'firebase/firestore';
+import { collection } from 'firebase/firestore';
 
 const SetupBusiness = () => {
   const [step, setStep] = useState(1);
 
-  const nextStep = () => {
+  const nextStep = () => { 
     setStep(step + 1);
   };
+
+  const categoriesRef = collection(db, 'businessesssss');
 
   return (
     <div className="setup-business-container">

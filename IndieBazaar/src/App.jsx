@@ -21,10 +21,9 @@ function App () {
         <Route path="/store" element={<CategoriesPage/>} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/buyerseller" element={<BuyerSellerPage />} />
-        <Route path="/setbusiness" /> 
+        <Route path="/setbusiness" element={<SetupBusiness/>}/> 
         <Route path="/business-home" element={<BusinessPage />} />
         <Route path="/business-products" element={<ProductPage />} />
-        <Route path="/business-setup" element={<SetupBusiness/>} />
         <Route path="/browse/:category" element={<BrowseBusinesses />} />
       </Routes>
     </Router>
