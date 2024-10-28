@@ -1,0 +1,19 @@
+/* userprofile.css */
+.user-profile-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-profile {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* .user-profile__sidebar {
+    width: 300px;
+} */
+
+.user-profile__content {
+    flex-grow: 1;
+}

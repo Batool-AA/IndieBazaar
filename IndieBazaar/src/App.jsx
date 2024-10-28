@@ -9,6 +9,8 @@ import ProductPage from "./pages/products-page/productspage"
 import Homepage from "./pages/home-page/homepage"
 import SetupBusiness from "./pages/setupbusiness-page/setupbusiness"
 import BrowseBusinesses from "./pages/browsebusinesses-page/browsebusinesses"
+import UserProfile from "./pages/userprofile-page/userprofile"
+import EditingBusinesses from "./pages/editing-business-page/editingbusinesspage";
 
 
 function App () {
@@ -25,6 +27,8 @@ function App () {
         <Route path="/business-home" element={<BusinessPage />} />
         <Route path="/business-products" element={<ProductPage />} />
         <Route path="/browse/:category" element={<BrowseBusinesses />} />
+        <Route path="/user-profile" element={<UserProfile/>} />
+        <Route path="/edit-business" element={<EditingBusinesses />} />
       </Routes>
     </Router>
 
