@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./login-form.css"
-
+import { auth } from "../../firebase/firebase"
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState(''); 
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
@@ -34,9 +36,6 @@ const LoginForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const navigate = useNavigate();
-  
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -46,12 +45,23 @@ const LoginForm = () => {
         password,
         rememberMe,
       };
+
+     
+    signInWithEmailAndPassword(auth,email,password)
+    .then((userCredential)=>{
+      console.log(userCredential)
+      navigate('/store'); 
+
+    }).catch((error)=>{
+      console.error(error)
+      alert(error.message); // Show alert for user
+    })
+          
       console.log('Login successful!', loginData);
 
       setEmail('');
       setPassword('');
       setRememberMe(false);
-      navigate("/store")
     }
   };
 

@@ -1,48 +1,48 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./signup-form.css"
-
+import { auth } from '../../firebase/firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 const SignupForm = () => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmpassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState({});
+  const [notification, setNotification] = useState(''); 
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    password: '',
+    confirmpassword: '',
+  });
 
-  const handleNameChange = (e) => setUsername(e.target.value);
-  const handleEmailChange = (e) => setEmail(e.target.value);
-  const handlePasswordChange = (e) => setPassword(e.target.value);
-  const handleConfirmPasswordChange = (e) => setConfirmPassword(e.target.value);
- 
   const validateForm = () => {
     const newErrors = {};
 
-    if (!username) {
+    if (!formData.username) {
       newErrors.username = 'Name is required';
     } 
-    else if (username.length < 6) {
+    else if (formData.username.length < 6) {
       newErrors.username = 'Name must be at least 6 characters';
     }
 
-    if (!email) {
+    if (!formData.email) {
       newErrors.email = 'Email is required';
     } 
-    else if (!/\S+@\S+\.\S+/.test(email)) {
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Email address is invalid';
     }
 
-    if (!password) {
+    if (!formData.password) {
       newErrors.password = 'Password is required';
     } 
-    else if (password.length < 6) {
+    else if (formData.password.length < 6) {
       newErrors.password = 'Password must be at least 6 characters';
     }
 
-    if (!confirmpassword) {
+    if (!formData.confirmpassword) {
       newErrors.confirmpassword = 'Password is required';
     } 
-    else if (confirmpassword != password) {
+    else if (formData.confirmpassword != formData.password) {
       newErrors.confirmpassword = 'Passwords must match';
     }
 
@@ -50,27 +50,38 @@ const SignupForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const navigate = useNavigate();
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (validateForm()) {
-      const signupData = {
-        username,
-        email,
-        password,
-      };
-      console.log('signup successful!', signupData);
+      createUserWithEmailAndPassword(auth, formData.email, formData.password)
+                .then((userCredential) => {
+                    // Successfully registered
+                    console.log('User registered:', userCredential);
+                    setNotification('Account registered successfully!'); // Set notification message
+                    setFormData({ username: '', email: '', password: '', confirmpassword: '' }); // Clear form fields
+                    console.log('signup successful!', formData);
+                    navigate("/buyerseller");
+                    // Automatically hide notification after 3 seconds
+                    setTimeout(() => {
+                        setNotification('');
+                    }, 3000);
+                })
+                .catch((error) => {
+                    console.error('Registration error:', error);
+                });
+        }
 
-      setUsername('');
-      setEmail('');
-      setPassword('');
-      setConfirmPassword('');
-
-      navigate("/buyerseller");
+      
     }
+
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setFormData({ ...formData, [name]: value });
   };
+  
 
   return (
     <div className="signup-form-component">
@@ -82,8 +93,8 @@ const SignupForm = () => {
           <input
             type="username"
             name="username"
-            value={username}
-            onChange={handleNameChange}
+            value={formData.username}
+            onChange={handleChange}
             className={errors.username ? 'input-error' : ''}
           />
           {errors.password && <span className="error-message">{errors.username}</span>}
@@ -94,8 +105,8 @@ const SignupForm = () => {
           <input
             type="email"
             name="email"
-            value={email}
-            onChange={handleEmailChange}
+            value={formData.email}
+            onChange={handleChange}
             className={errors.email ? 'input-error' : ''}
           />
           {errors.email && <span className="error-message">{errors.email}</span>}
@@ -106,8 +117,8 @@ const SignupForm = () => {
           <input
             type="password"
             name="password"
-            value={password}
-            onChange={handlePasswordChange}
+            value={formData.password}
+            onChange={handleChange}
             className={errors.password ? 'input-error' : ''}
           />
           {errors.password && <span className="error-message">{errors.password}</span>}
@@ -118,8 +129,8 @@ const SignupForm = () => {
           <input
             type="password"
             name="confirmpassword"
-            value={confirmpassword}
-            onChange={handleConfirmPasswordChange}
+            value={formData.confirmpassword}
+            onChange={handleChange}
             className={errors.confirmpassword ? 'input-error' : ''}
           />
           {errors.confirmpassword && <span className="error-message">{errors.confirmpassword}</span>}
