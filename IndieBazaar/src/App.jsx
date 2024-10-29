@@ -11,13 +11,17 @@ import SetupBusiness from "./pages/setupbusiness-page/setupbusiness"
 import BrowseBusinesses from "./pages/browsebusinesses-page/browsebusinesses"
 import UserProfile from "./pages/userprofile-page/userprofile"
 import EditingBusinesses from "./pages/editing-business-page/editingbusinesspage";
+import { UserProvider } from './firebase/usercontext';
+import Profilepage from './pages/test/test'
 
 
 function App () {
   return (
     <>
+    <UserProvider>
      <Router>
       <Routes>
+        
         <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/store" element={<CategoriesPage/>} />
@@ -29,8 +33,10 @@ function App () {
         <Route path="/browse/:category" element={<BrowseBusinesses />} />
         <Route path="/user-profile" element={<UserProfile/>} />
         <Route path="/edit-business" element={<EditingBusinesses />} />
+        <Route path="/test" element={<Profilepage/>} />
       </Routes>
     </Router>
+    </UserProvider>
 
     </>
   )

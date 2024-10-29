@@ -125,6 +125,6 @@ const SignupForm = () => {
       </form>
     </div>
   );
-}
+} 
 
 export default SignupForm;

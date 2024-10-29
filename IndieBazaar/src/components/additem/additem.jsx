@@ -59,7 +59,7 @@ const AddItemForm = ({ onNext, businessitems, setBusinessitems }) => {
         className="text-input"
       />
       <textarea
-        placeholder="Item description"
+        placeholder="Item description" 
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         className="textarea"

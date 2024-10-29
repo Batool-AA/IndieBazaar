@@ -24,7 +24,7 @@ const EditingBusinesses = () => {
     };
 
     // Function to navigate to Add Item page
-    const handleAddItem = () => {
+    const handleAdditem = () => {
         navigate('/add-item'); // Adjust the route as needed
     };
 
@@ -39,7 +39,7 @@ const EditingBusinesses = () => {
                 </div>
                 <div className="editing-items-container">
                     {items.map(item => (
-                        <div key={item.id} className="item-card">
+                        <div key={item.id} className="editing-item-card">
                             <p>{item.name}</p>
                             <img src={item.image} alt={item.name} />
                             <button className="delete-button" onClick={() => handleDeleteItem(item.id)}>
@@ -47,7 +47,7 @@ const EditingBusinesses = () => {
                             </button>
                         </div>
                     ))}
-                    <button className="add-item-button" onClick={handleAddItem}>
+                    <button className="editing-add-item-button" onClick={handleAdditem}>
                         Add Item
                     </button>
                 </div>

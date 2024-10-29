@@ -7,12 +7,14 @@ import './SetupBusiness.css';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import StepFiveBusinessLogo from '../../components/businesslogo/business-logo.jsx';
-
+import { useUser } from '../../firebase/usercontext';
 const SetupBusiness = () => {
+  const user = useUser();
+  // console.log(user)
   const [step, setStep] = useState(1);
   const db = getFirestore();
   const businessdb = collection(db, 'businesses'); // Firestore collection reference
-
+ 
   // State variables for business details
   const [businessName, setBusinessName] = useState('');
   const [businessDescription, setBusinessDescription] = useState('');
@@ -30,7 +32,7 @@ const SetupBusiness = () => {
   };
 
   const handleDone = () => {
-    addDoc(businessdb, { name: businessName, description: businessDescription, category: businessCategories, items: businessitems, logo: businessLogo});
+    addDoc(businessdb, { name: businessName, description: businessDescription, category: businessCategories, items: businessitems, logo: businessLogo,email: user.email});
     navigate('/user-profile');
   }
 
