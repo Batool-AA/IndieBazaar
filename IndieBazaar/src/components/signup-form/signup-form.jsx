@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./signup-form.css"
-import { auth } from '../../firebase/firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+
 
 const SignupForm = () => {
   const [errors, setErrors] = useState({});
-  const [notification, setNotification] = useState(''); 
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -54,32 +53,14 @@ const SignupForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (validateForm()) {
-      createUserWithEmailAndPassword(auth, formData.email, formData.password)
-                .then((userCredential) => {
-                    // Successfully registered
-                    console.log('User registered:', userCredential);
-                    setNotification('Account registered successfully!'); // Set notification message
-                    setFormData({ username: '', email: '', password: '', confirmpassword: '' }); // Clear form fields
-                    console.log('signup successful!', formData);
-                    navigate("/buyerseller");
-                    // Automatically hide notification after 3 seconds
-                    setTimeout(() => {
-                        setNotification('');
-                    }, 3000);
-                })
-                .catch((error) => {
-                    console.error('Registration error:', error);
-                });
-        }
-
-      
+      navigate("/buyerseller",  { state: { formData } }); 
     }
+  }
 
-    const handleChange = (e) => {
-      const { name, value } = e.target;
-      setFormData({ ...formData, [name]: value });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
   
 
@@ -97,7 +78,7 @@ const SignupForm = () => {
             onChange={handleChange}
             className={errors.username ? 'input-error' : ''}
           />
-          {errors.password && <span className="error-message">{errors.username}</span>}
+          {errors.username && <span className="error-message">{errors.username}</span>}
         </div>
 
         <div className="input-group">
@@ -147,8 +128,3 @@ const SignupForm = () => {
 }
 
 export default SignupForm;
-
-// yet to add:
-//     page Navigation
-//     remember me functionality - saving email password
-//     checking for email password match

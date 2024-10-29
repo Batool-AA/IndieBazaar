@@ -41,7 +41,15 @@
     margin-left: auto;
   }
   
+  .password-toggle-icon {
+    position: absolute;
+    right: 40px; 
+    cursor: pointer;
+    font-size: 1.2rem; 
+    color: #666; 
+    bottom: 330px;
+  }
   
-  
-  
-  
+  a{
+    cursor: pointer;
+  }

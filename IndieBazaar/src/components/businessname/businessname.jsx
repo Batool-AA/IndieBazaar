@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './businessname.css';
 
-const StepOneBusinessName = ({ onNext, businessName, setBusinessName, categoriesRef }) => {
+const StepOneBusinessName = ({ onNext, businessName, setBusinessName }) => {
   const handleNext = async () => {
     if (businessName.trim()) {
       setBusinessName(businessName);

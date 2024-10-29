@@ -1,34 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import "./login-form.css"
-import { auth } from "../../firebase/firebase"
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import "./login-form.css";
+import { auth } from "../../firebase/firebase";
+import { signInWithEmailAndPassword, setPersistence, browserLocalPersistence, browserSessionPersistence } from 'firebase/auth';
 
 const LoginForm = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState(''); 
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const [errors, setErrors] = useState({});
 
-  const handleEmailChange = (e) => setEmail(e.target.value);
+  // Check localStorage for saved email-password pairs and autofill password if match is found
+  useEffect(() => {
+    const savedData = JSON.parse(localStorage.getItem('savedCredentials')) || {};
+    if (savedData[email]) {
+      setPassword(savedData[email]);
+    }
+  }, [email]);
+
+  const handleEmailChange = (e) => {
+    const newEmail = e.target.value;
+    setEmail(newEmail);
+
+    // Autofill password if email matches any stored credentials
+    const savedData = JSON.parse(localStorage.getItem('savedCredentials')) || {};
+    if (savedData[newEmail]) {
+      setPassword(savedData[newEmail]);
+    } else {
+      setPassword(''); // Clear password field if no matching email is found
+    }
+  };
+
   const handlePasswordChange = (e) => setPassword(e.target.value);
   const handleRememberMeChange = () => setRememberMe(!rememberMe);
- 
+  const toggleShowPassword = () => setShowPassword(!showPassword); // Toggle password visibility
+
   const validateForm = () => {
     const newErrors = {};
 
     if (!email) {
       newErrors.email = 'Email is required';
-    } 
-    else if (!/\S+@\S+\.\S+/.test(email)) {
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
       newErrors.email = 'Email address is invalid';
     }
 
     if (!password) {
       newErrors.password = 'Password is required';
-    } 
-    else if (password.length < 6) {
+    } else if (password.length < 6) {
       newErrors.password = 'Password must be at least 6 characters';
     }
 
@@ -40,29 +60,50 @@ const LoginForm = () => {
     e.preventDefault();
 
     if (validateForm()) {
-      const loginData = {
-        email,
-        password,
-        rememberMe,
-      };
+      const persistenceType = rememberMe ? browserLocalPersistence : browserSessionPersistence;
 
-     
-    signInWithEmailAndPassword(auth,email,password)
-    .then((userCredential)=>{
-      console.log(userCredential)
-      navigate('/store'); 
+      setPersistence(auth, persistenceType)
+        .then(() => {
+          if (rememberMe) {
+            // Save email-password pair in localStorage
+            const savedData = JSON.parse(localStorage.getItem('savedCredentials')) || {};
+            savedData[email] = password;
+            localStorage.setItem('savedCredentials', JSON.stringify(savedData));
+          }
 
-    }).catch((error)=>{
-      console.error(error)
-      alert(error.message); // Show alert for user
-    })
-          
-      console.log('Login successful!', loginData);
+          // Sign in with Firebase
+          return signInWithEmailAndPassword(auth, email, password);
+        })
+        .then((userCredential) => {
+          console.log("Login successful:", userCredential);
+          navigate('/store'); // Navigate to the main app
+        })
+        .catch((error) => {
+          console.error("Login error:", error.message);
+          alert(error.message);
+        });
 
+      // Clear input fields and reset rememberMe state
       setEmail('');
       setPassword('');
       setRememberMe(false);
     }
+  };
+
+  const handleForgotPassword = () => {
+    if (!email) {
+      alert("Please enter your email to reset your password.");
+      return;
+    }
+
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        alert("Password reset email sent! Check your inbox.");
+      })
+      .catch((error) => {
+        console.error("Error sending reset email:", error.message);
+        alert("Error: " + error.message);
+      });
   };
 
   return (
@@ -80,22 +121,30 @@ const LoginForm = () => {
             className={errors.email ? 'input-error' : ''}
           />
           {errors.email && <span className="error-message">{errors.email}</span>}
-        </div> 
+        </div>
 
-        <div className="input-group">
+        <div className="input-group password-input-group">
           <label>Password</label>
+          <span 
+            className="password-toggle-icon" 
+            onClick={toggleShowPassword} 
+            role="button"
+            aria-label="Toggle password visibility"
+          >
+            {showPassword ? '👁️' : '🙈'} {/* Eye icon to indicate show/hide */}
+          </span>
           <input
-            type="password"
+            type={showPassword ? 'text' : 'password'} // Toggle between text and password types
             name="password"
             value={password}
             onChange={handlePasswordChange}
             className={errors.password ? 'input-error' : ''}
           />
+         
           {errors.password && <span className="error-message">{errors.password}</span>}
         </div>
 
         <div className="login-component-options">
-
           <div className="login-component-remember-me">
             <input
               type="checkbox"
@@ -105,9 +154,7 @@ const LoginForm = () => {
             />
             <label htmlFor="remember-me">Remember me</label>
           </div>
-
-          <a href="/forgot-password">Forgot Password?</a>
-
+          <a onClick={handleForgotPassword}>Forgot Password?</a>
         </div>
 
         <div className='button-basic-container'>
@@ -122,6 +169,6 @@ const LoginForm = () => {
       </form>
     </div>
   );
-}
+};
 
 export default LoginForm;

@@ -1,28 +1,42 @@
 import React, { useState } from 'react';
 import './additem.css';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
-const AddItemForm = ({ onNext, businessitems, setBusinessitems, categoriesRef}) => {
+const AddItemForm = ({ onNext, businessitems, setBusinessitems }) => {
   const [itemName, setItemName] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(null);
   const [items, setItems] = useState([]);
+  const storage = getStorage();
 
   const handleAddItem = () => {
     if (itemName.trim() && description.trim() && image) {
-      setItems([...items, { name: itemName, description }]);
+      setItems([...items, { name: itemName, description, image }]);
       setItemName('');
       setDescription('');
-      setImage(null); // Clear the image preview after adding item
+      setImage(null); 
     }
   };
+
+  
 
   const handleNext = () => {
     setBusinessitems(items)
     onNext();
   };
 
-  const handleImageUpload = (e) => {
-    setImage(URL.createObjectURL(e.target.files[0]));
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const storageRef = ref(storage, `images/${file.name}`);
+      try {
+        await uploadBytes(storageRef, file);
+        const downloadURL = await getDownloadURL(storageRef);
+        setImage(downloadURL);
+      } catch (error) {
+        console.error("Error uploading image:", error);
+      }
+    }
   };
 
   return (

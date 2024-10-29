@@ -3,7 +3,7 @@ import './businessdesc.css';
 import { getFirestore } from 'firebase/firestore';
 import { addDoc } from 'firebase/firestore';
 
-const StepTwoBusinessDescription = ({ onNext, businessDescription, setBusinessDescription, categoriesRef }) => {
+const StepTwoBusinessDescription = ({ onNext, businessDescription, setBusinessDescription }) => {
   const handleNext = async () => {
     if (businessDescription.trim()) {
      setBusinessDescription(businessDescription);

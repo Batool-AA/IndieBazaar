@@ -3,7 +3,7 @@ import './businesscat.css';
 
 const categories = ["Food", "Decor", "Clothes", "Accessories", "Other"];
 
-const StepThreeBusinessCategory = ({ onNext, businessCategory, setBusinessCategories, categoriesRef }) => {
+const StepThreeBusinessCategory = ({ onNext, businessCategory, setBusinessCategories }) => {
 
   const [selectedCategory, setSelectedCategories] = useState([]);
 
