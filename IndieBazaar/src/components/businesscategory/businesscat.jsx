@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './businesscat.css';
 
-const categories = ["Food", "Decor", "Clothes", "Accessories", "Other"];
+const categories = ["Food", "Decor", "Clothes", "Accessories"];
 
 const StepThreeBusinessCategory = ({ onNext, businessCategory, setBusinessCategories }) => {
 
-  const [selectedCategory, setSelectedCategories] = useState([]);
+  const [selectedCategory, setSelectedCategories] = useState(businessCategory || []);
 
   const toggleCategory = (category) => {
     setSelectedCategories(prev =>
@@ -16,10 +16,13 @@ const StepThreeBusinessCategory = ({ onNext, businessCategory, setBusinessCatego
   };
 
   const handleNext = async () => {
-    // if (selectedCategory.trim()) {
-     setBusinessCategories(selectedCategory);
-    // }
-    onNext();
+    setBusinessCategories(selectedCategory);
+    if (selectedCategory.length > 0){
+      onNext();
+    }
+    else{
+      alert("Please select atleast one category");
+    }
   };
 
   return (

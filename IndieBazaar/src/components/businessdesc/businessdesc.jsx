@@ -8,7 +8,12 @@ const StepTwoBusinessDescription = ({ onNext, businessDescription, setBusinessDe
     if (businessDescription.trim()) {
      setBusinessDescription(businessDescription);
     }
-    onNext();
+    if (businessDescription.length > 0){
+      onNext();
+    }
+    else{
+      alert("Please enter some description");
+    }
   };
  
   return (

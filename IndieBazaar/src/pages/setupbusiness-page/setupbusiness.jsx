@@ -6,6 +6,7 @@ import AddItemForm from '../../components/additem/additem.jsx';
 import './SetupBusiness.css';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
+import StepFiveBusinessLogo from '../../components/businesslogo/business-logo.jsx';
 
 const SetupBusiness = () => {
   const [step, setStep] = useState(1);
@@ -16,7 +17,8 @@ const SetupBusiness = () => {
   const [businessName, setBusinessName] = useState('');
   const [businessDescription, setBusinessDescription] = useState('');
   const [businessCategories, setBusinessCategories] = useState([]);
-  const [businessitems,setBusinessitems] = useState([])
+  const [businessitems,setBusinessitems] = useState([]);
+  const [businessLogo, setBusinessLogo] = useState(null);
   const navigate = useNavigate();
 
   const nextStep = () => { 
@@ -28,7 +30,8 @@ const SetupBusiness = () => {
   };
 
   const handleDone = () => {
-    addDoc(businessdb, { name: businessName, description: businessDescription, category: businessCategories, items: businessitems});
+    addDoc(businessdb, { name: businessName, description: businessDescription, category: businessCategories, items: businessitems, logo: businessLogo});
+    navigate('/user-profile');
   }
 
   return (
@@ -70,7 +73,15 @@ const SetupBusiness = () => {
           setBusinessitems={setBusinessitems}
         />
       )}
-      {step == 5 && (
+      {step === 5 && (
+        <StepFiveBusinessLogo 
+          onNext={nextStep} 
+          businessLogo={businessLogo}
+          setBusinessLogo={setBusinessLogo}
+        />
+      )}
+
+      {step == 6 && (
         <button onClick={handleDone}>Finish</button>
       )}
     </div>

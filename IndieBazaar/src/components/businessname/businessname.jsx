@@ -6,7 +6,12 @@ const StepOneBusinessName = ({ onNext, businessName, setBusinessName }) => {
     if (businessName.trim()) {
       setBusinessName(businessName);
     }
-    onNext();
+    if (businessName.length > 0){
+      onNext();
+    }
+    else{
+      alert("Please enter business name");
+    }
   };
 
 
