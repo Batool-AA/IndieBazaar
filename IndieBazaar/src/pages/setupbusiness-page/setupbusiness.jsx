@@ -5,13 +5,14 @@ import StepThreeBusinessCategory from '../../components/businesscategory/busines
 import AddItemForm from '../../components/additem/additem.jsx';
 import './SetupBusiness.css';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
-import { useNavigate } from 'react-router-dom';
+import { useLocation,useNavigate } from 'react-router-dom';
 import StepFiveBusinessLogo from '../../components/businesslogo/business-logo.jsx';
 import { useUser } from '../../firebase/usercontext';
 const SetupBusiness = () => {
+  const location = useLocation();
   const user = useUser();
   // console.log(user)
-  const [step, setStep] = useState(1);
+  // const [step, setStep] = useState(1);
   const db = getFirestore();
   const businessdb = collection(db, 'businesses'); // Firestore collection reference
  
@@ -22,6 +23,10 @@ const SetupBusiness = () => {
   const [businessitems,setBusinessitems] = useState([]);
   const [businessLogo, setBusinessLogo] = useState(null);
   const navigate = useNavigate();
+  
+
+  const initialStep = location.state?.startAtStep4 ? 4 : 1;
+  const [step, setStep] = useState(initialStep);
 
   const nextStep = () => { 
     setStep(step + 1);

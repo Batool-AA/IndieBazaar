@@ -10,7 +10,7 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     background-color: var(--vanilla);
   }
-  
+   
   .prompt {
     font-size: 1.5rem;
     color: var(--coral-pink);
@@ -31,7 +31,7 @@
   }
   
   .add-item-button,
-  .next-button {
+  .item-next-button {
     padding: 10px 20px;
     border: none;
     border-radius: 20px;
@@ -91,3 +91,15 @@
     margin-top: 10px;
   }
   
+.item-text-input,
+.item-textarea,
+.image-upload {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 2px solid var(--coral-pink);
+  border-radius: 12px;
+  font-size: 1rem;
+  outline: none;
+}
+

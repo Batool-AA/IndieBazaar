@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import './profiledetails.css';
-
+import { useUser } from '../../firebase/usercontext';
 const ProfileDetails = () => {
+    const user = useUser();
+    console.log(user)
     const [isEditing, setIsEditing] = useState(false);
     const [formData, setFormData] = useState({
-        fullName: 'Kenneth Valdez',
-        email: 'fip@jukmuh.al',
+        fullName: 'laiba zehra',
+        email: 'laiba123@gmail.com',
         phone: '(239) 816-9029',
         mobile: '(320) 380-4539',
         address: 'Bay Area, San Francisco, CA',

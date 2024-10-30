@@ -25,7 +25,7 @@ const EditingBusinesses = () => {
 
     // Function to navigate to Add Item page
     const handleAdditem = () => {
-        navigate('/add-item'); // Adjust the route as needed
+        navigate('/setbusiness', { state: { startAtStep4: true } });
     };
 
     return (

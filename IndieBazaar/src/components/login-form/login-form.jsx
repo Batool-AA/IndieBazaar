@@ -76,7 +76,7 @@ const LoginForm = () => {
         })
         .then((userCredential) => {
           console.log("Login successful:", userCredential);
-          navigate('/test'); // Navigate to the main app
+          navigate('/user-profile'); // Navigate to the main app
         })
         .catch((error) => {
           console.error("Login error:", error.message);
