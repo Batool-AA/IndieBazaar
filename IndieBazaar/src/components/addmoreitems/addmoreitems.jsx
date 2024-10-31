@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import './additem.css';
+import React, { useState } from 'react';
+import '../additem/additem.css';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { getFirestore, doc, updateDoc, arrayUnion } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
 
-const AddItemForm = ({ onNext, businessitems, setBusinessitems }) => {
+const AddMoreItems = ({ businessId }) => {
   const [itemName, setItemName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
@@ -10,33 +12,36 @@ const AddItemForm = ({ onNext, businessitems, setBusinessitems }) => {
   const [image, setImage] = useState(null);
   const [items, setItems] = useState([]);
   const storage = getStorage();
+  const db = getFirestore();
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (businessitems) {
-      setItems(businessitems);
-    }
-  }, [businessitems]);
-
-  const handleAddItem = () => {
+  const handleAddItem = async () => {
     if (itemName.trim() && description.trim() && price.trim() && category.trim() && image) {
-      setItems([...items, { name: itemName, description, price, category, image }]);
-      setItemName('');
-      setDescription('');
-      setPrice('');
-      setCategory('');
-      setImage(null);
+      const newItem = { name: itemName, description, price, category, image };
+
+      try {
+        const businessDocRef = doc(db, 'businesses', businessId);
+        await updateDoc(businessDocRef, {
+          items: arrayUnion(newItem) // Add the new item to Firestore
+        });
+
+        // Update local state
+        setItems([...items, newItem]);
+        setItemName('');
+        setDescription('');
+        setPrice('');
+        setCategory('');
+        setImage(null);
+      } catch (error) {
+        console.error("Error updating document: ", error);
+      }
     } else {
       alert('Please fill in all fields before adding the item.');
     }
   };
 
-  const handleNext = () => {
-    setBusinessitems(items);
-    if (items.length > 0) {
-      onNext();
-    } else {
-      alert('Please add at least one item before proceeding.');
-    }
+  const handleDone = () => {
+    navigate('/user-profile'); // Navigate to user profile after finishing
   };
 
   const handleImageUpload = async (e) => {
@@ -55,7 +60,7 @@ const AddItemForm = ({ onNext, businessitems, setBusinessitems }) => {
 
   return (
     <div className="step-container">
-      <p className="prompt">Add your items.</p>
+      <p className="prompt">Add more items to your business.</p>
       <input
         type="text"
         placeholder="Item name"
@@ -85,7 +90,7 @@ const AddItemForm = ({ onNext, businessitems, setBusinessitems }) => {
       />
       <input type="file" onChange={handleImageUpload} className="image-upload" />
       <button className="add-item-button" onClick={handleAddItem}>Add Item</button>
-      <button className="item-next-button" onClick={handleNext}>Next</button>
+      <button className="item-next-button" onClick={handleDone}>Done</button>
 
       <div className="items-list">
         {items.map((item, index) => (
@@ -93,7 +98,7 @@ const AddItemForm = ({ onNext, businessitems, setBusinessitems }) => {
             <h4>Item {index + 1}:</h4>
             <h5>Name: {item.name}</h5>
             <p>Description: {item.description}</p>
-            <p>Price: PKR{item.price}</p>
+            <p>Price: PKR {item.price}</p>
             <p>Category: {item.category}</p>
             <img src={item.image} alt={`Item ${index}`} className="item-image" />
           </div>
@@ -103,4 +108,4 @@ const AddItemForm = ({ onNext, businessitems, setBusinessitems }) => {
   );
 };
 
-export default AddItemForm;
+export default AddMoreItems;

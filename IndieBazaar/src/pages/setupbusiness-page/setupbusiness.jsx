@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 import StepOneBusinessName from '../../components/businessname/businessname.jsx';
 import StepTwoBusinessDescription from '../../components/businessdesc/businessdesc.jsx';
 import StepThreeBusinessCategory from '../../components/businesscategory/businesscat.jsx';

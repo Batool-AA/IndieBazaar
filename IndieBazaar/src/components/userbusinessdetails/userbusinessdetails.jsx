@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './userbusinessdetails.css';
-import { useEffect } from 'react';
 import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
 import { useUser } from '../../firebase/usercontext';
+import { useNavigate } from 'react-router-dom';
 
 const BusinessDetails = () => {
     const db = getFirestore(); // Initialize Firestore
     const user = useUser(); // Get current user information
+    const navigate = useNavigate(); // Initialize navigation
     const [isEditing, setIsEditing] = useState(false);
     const [formData, setFormData] = useState({
         category: '',
@@ -14,6 +15,7 @@ const BusinessDetails = () => {
         phone: '',
         website: '',
     });
+    const [businessId, setBusinessId] = useState(null); // Store business ID
 
     useEffect(() => {
         const fetchBusinessDetails = async () => {
@@ -25,8 +27,10 @@ const BusinessDetails = () => {
                     const querySnapshot = await getDocs(q);
                     if (!querySnapshot.empty) {
                         const businessData = querySnapshot.docs[0].data();
+                        setBusinessId(querySnapshot.docs[0].id); // Set business ID
                         setFormData({
                             category: businessData.category || '',
+                            // Uncomment and use if needed
                             // location: businessData.location || '',
                             // phone: businessData.phone || '',
                             // website: businessData.website || '',
@@ -44,7 +48,9 @@ const BusinessDetails = () => {
     }, [user, db]);
 
     const handleEditClick = () => {
-        setIsEditing(true);
+        console.log('business')
+        console.log(businessId)
+        navigate('/edit-business', { state: { businessId } }); // Navigate to editing page with business ID
     };
 
     const handleSaveClick = () => {
@@ -70,37 +76,11 @@ const BusinessDetails = () => {
                         onChange={handleChange}
                         placeholder="Category"
                     />
-                    {/* <input
-                        type="text"
-                        name="location"
-                        value={formData.location}
-                        onChange={handleChange}
-                        placeholder="Location"
-                    /> */}
-                    {/* <input
-                        type="text"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="Phone"
-                    /> */}
-                    {/* <input
-                        type="text"
-                        name="website"
-                        value={formData.website}
-                        onChange={handleChange}
-                        placeholder="Website"
-                    /> */}
                     <button onClick={handleSaveClick}>Save</button>
                 </>
             ) : (
                 <>
                     <p className="business-details__item">Category: {formData.category}</p>
-                    {/* <p className="business-details__item">Location: {formData.location}</p>
-                    <p className="business-details__item">Phone: {formData.phone}</p>
-                    <p className="business-details__item">
-                        Website: <a href={formData.website} target="_blank" rel="noopener noreferrer">{formData.website}</a>
-                    </p> */}
                     <button onClick={handleEditClick}>Edit</button>
                 </>
             )}

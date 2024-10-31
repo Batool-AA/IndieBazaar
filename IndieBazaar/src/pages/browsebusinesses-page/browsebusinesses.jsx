@@ -6,12 +6,20 @@ import NavBar from "../../components/navigationbar/navigation";
 import FilterBox from "../../components/filter-box/filterbox";
 import { useParams } from 'react-router-dom';
 import "./browsebusinesses.css";
+import { useNavigate } from 'react-router-dom';
 
 const BrowseBusinesses = () => {
     const { category } = useParams(); // Get the category from URL parameters
     const [businesses, setBusinesses] = useState([]); // State for businesses
     const [selectedBusiness, setSelectedBusiness] = useState(''); // State for selected business
     const [businessNames, setBusinessNames] = useState([]); // State for business names for dropdown
+
+    const navigate = useNavigate(); // Initialize useNavigate
+
+    // Function to handle business card click
+    const handleBusinessClick = (business) => {
+        navigate(`/business-home/${business.id}`); // Navigate to BusinessPage with business ID
+    };
 
     // Fetch businesses from Firebase based on category
     useEffect(() => {
@@ -88,9 +96,9 @@ const BrowseBusinesses = () => {
                 <div className="businesses-container">
                     {businesses.length > 0 ? (
                         businesses.map((business) => (
-                            <div key={business.id} className="business-card">
+                            <div key={business.id} className="business-card" onClick={() => handleBusinessClick(business)}>  
                                 <p>{business.name}</p>
-                                <img src={business.image} alt={business.name} />
+                                <img src={business.logo} alt={business.name} />
                             </div>
                         ))
                     ) : (

@@ -13,6 +13,7 @@ import UserProfile from "./pages/userprofile-page/userprofile"
 import EditingBusinesses from "./pages/editing-business-page/editingbusinesspage";
 import { UserProvider } from './firebase/usercontext';
 import Profilepage from './pages/test/test'
+import AddMoreItemsPage from "./pages/addmoreitemspage/addmoreitems-page";
 
 
 
@@ -29,12 +30,14 @@ function App () {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/buyerseller" element={<BuyerSellerPage />} />
         <Route path="/setbusiness" element={<SetupBusiness/>}/> 
-        <Route path="/business-home" element={<BusinessPage />} />
+        <Route path="/business-home/:id" element={<BusinessPage />} />
         <Route path="/business-products" element={<ProductPage />} />
         <Route path="/browse/:category" element={<BrowseBusinesses />} />
         <Route path="/user-profile" element={<UserProfile/>} />
         <Route path="/edit-business" element={<EditingBusinesses />} />
         <Route path="/test" element={<Profilepage/>} />
+        <Route path="/add-more-items" element={<AddMoreItemsPage/>} />
+        
       </Routes>
     </Router>
     </UserProvider>

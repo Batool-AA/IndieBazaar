@@ -8,6 +8,7 @@ const ProductCard = ({ product , size}) => {
       <div className="product-info">
         <h3>{product.name}</h3>
         <p>{product.description}</p>
+        <p className="product-price">Rs. {product.price}</p>
       </div>
     </div> 
   );
