@@ -1,6 +1,7 @@
 .editing-businesses-container {
     background-color: var(--vanilla);
     padding: 20px;
+    width:100vw;
 }
 
 .editing-content-container {

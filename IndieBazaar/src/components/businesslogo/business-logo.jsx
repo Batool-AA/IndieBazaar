@@ -41,7 +41,7 @@ const StepFiveBusinessLogo = ({ onNext, businessLogo, setBusinessLogo }) => {
           onChange={handleLogoUpload}
           required
         />
-        {errors && <p className="error-message">{errors}</p>}
+        {errors && <p className="error-message">{errors}</p>} 
         <button className="next-button" onClick={handleNext}>Next</button>
       </div>
     </div>

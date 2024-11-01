@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './businessname.css';
 
 const StepOneBusinessName = ({ onNext, businessName, setBusinessName }) => {
+  const [errors, setErrors] = useState('');
   const handleNext = async () => {
     if (businessName.trim()) {
       setBusinessName(businessName);
@@ -10,7 +11,7 @@ const StepOneBusinessName = ({ onNext, businessName, setBusinessName }) => {
       onNext();
     }
     else{
-      alert("Please enter business name");
+      setErrors('Please enter a business name');
     }
   };
 
@@ -25,6 +26,7 @@ const StepOneBusinessName = ({ onNext, businessName, setBusinessName }) => {
           value={businessName}
           onChange={(e) => setBusinessName(e.target.value)}
         />
+        {errors && <p className="error-message">{errors}</p>}
         <button className="next-button" onClick={handleNext}>Next</button>
       </div>
     </div>

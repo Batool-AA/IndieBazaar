@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './businesscat.css';
 
-const categories = ["Food", "Decor", "Clothes", "Accessories"];
+const categories = ["Food", "Decor", "Clothes", "Accessories", "Others"];
 
 const StepThreeBusinessCategory = ({ onNext, businessCategory, setBusinessCategories }) => {
 
   const [selectedCategory, setSelectedCategories] = useState(businessCategory || []);
+  const [errors, setErrors] = useState('');
 
   const toggleCategory = (category) => {
     setSelectedCategories(prev =>
@@ -21,7 +22,7 @@ const StepThreeBusinessCategory = ({ onNext, businessCategory, setBusinessCatego
       onNext();
     }
     else{
-      alert("Please select atleast one category");
+      setErrors('Please select atleast one category');
     }
   };
 
@@ -39,6 +40,7 @@ const StepThreeBusinessCategory = ({ onNext, businessCategory, setBusinessCatego
           </button>
         ))}
       </div>
+      {errors && <p className="error-message">{errors}</p>}
       <button className="next-button" onClick={handleNext}>Next</button>
     </div>
   );

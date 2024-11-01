@@ -40,7 +40,7 @@ const BusinessPage = () => {
             <Navbar title={"IndieBazaar"} />
             {business && ( // Render only if business data is available
                 <>
-                    <BusinessBanner title={business.name} slogan={""} businessId={business.id} />
+                    <BusinessBanner title={business.name} slogan={""} businessId={business.id} path={"/business-products"}/>
                     <div id="about-us">
                         <BusinessInfo businessId={business.id} /> {/* Pass business description */}
                     </div>

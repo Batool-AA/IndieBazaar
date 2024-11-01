@@ -6,7 +6,8 @@ const StepTwoBusinessDescription = ({ onNext, businessDescription, setBusinessDe
   const [instagram, setInstagram] = useState('');
   const [twitter, setTwitter] = useState('');
   const [facebook, setFacebook] = useState('');
-
+  const [errors, setErrors] = useState('');
+  
   const handleNext = async () => {
     if (businessDescription.trim()) {
       setBusinessDescription(businessDescription);
@@ -14,7 +15,7 @@ const StepTwoBusinessDescription = ({ onNext, businessDescription, setBusinessDe
     if (businessDescription.length > 0) {
       onNext();
     } else {
-      alert("Please enter some description");
+      setErrors('Please enter some description about your business');
     }
   };
 
@@ -56,6 +57,7 @@ const StepTwoBusinessDescription = ({ onNext, businessDescription, setBusinessDe
             />
           </div>
         </div>
+        {errors && <p className="error-message">{errors}</p>}
         <button className="next-button" onClick={handleNext}>Next</button>
       </div>
     </div>

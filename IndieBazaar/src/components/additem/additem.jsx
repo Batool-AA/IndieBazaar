@@ -10,6 +10,7 @@ const AddItemForm = ({ onNext, businessitems, setBusinessitems }) => {
   const [image, setImage] = useState(null);
   const [items, setItems] = useState([]);
   const storage = getStorage();
+  const [errors, setErrors] = useState('');
 
   useEffect(() => {
     if (businessitems) {
@@ -26,7 +27,7 @@ const AddItemForm = ({ onNext, businessitems, setBusinessitems }) => {
       setCategory('');
       setImage(null);
     } else {
-      alert('Please fill in all fields before adding the item.');
+      setErrors('Please fill in all fields before adding the item.');
     }
   };
 
@@ -35,7 +36,7 @@ const AddItemForm = ({ onNext, businessitems, setBusinessitems }) => {
     if (items.length > 0) {
       onNext();
     } else {
-      alert('Please add at least one item before proceeding.');
+      setErrors('Please add at least one item before proceeding.');
     }
   };
 
@@ -85,6 +86,7 @@ const AddItemForm = ({ onNext, businessitems, setBusinessitems }) => {
       />
       <input type="file" onChange={handleImageUpload} className="image-upload" />
       <button className="add-item-button" onClick={handleAddItem}>Add Item</button>
+      {errors && <p className="error-message">{errors}</p>}
       <button className="item-next-button" onClick={handleNext}>Next</button>
 
       <div className="items-list">
@@ -99,6 +101,7 @@ const AddItemForm = ({ onNext, businessitems, setBusinessitems }) => {
           </div>
         ))}
       </div>
+      
     </div>
   );
 };

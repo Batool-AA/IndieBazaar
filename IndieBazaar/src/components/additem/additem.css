@@ -1,15 +1,15 @@
-.step-container {
-  display: flex;
+/* .step-container { */
+  /* display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Align items to the top */
-  width: 90%;
-  max-width: 600px;
-  padding: 20px;
+  justify-content: flex-start;  */
+  /* width: 90%; */
+  /* max-width: 600px; */
+  /* padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  background-color: var(--vanilla);
-}
+  background-color: var(--vanilla); */
+/* } */
 
 .prompt {
   font-size: 1.5rem;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './explore.css';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
-const Explore = ({ businessId }) => { // Destructure businessId from props
+const Explore = ({ businessId , path }) => { // Destructure businessId from props
   const [fadeIn, setFadeIn] = useState(false);
   const navigate = useNavigate(); // Initialize useNavigate
 
@@ -13,7 +13,7 @@ const Explore = ({ businessId }) => { // Destructure businessId from props
 
   const handleExploreClick = () => {
     // Navigate to the products page with the businessId
-    navigate("/business-products", { state: { businessId } });
+    navigate(path, { state: { businessId } });
   }; 
 
   return (

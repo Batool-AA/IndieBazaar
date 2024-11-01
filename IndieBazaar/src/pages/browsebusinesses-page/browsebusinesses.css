@@ -1,6 +1,9 @@
 .browse-businesses-container {
     background-color: var(--vanilla);
     padding: 20px;
+    padding-top: 10px;
+    width: 100vw;
+    
   }
   
   .browse-content-container {
