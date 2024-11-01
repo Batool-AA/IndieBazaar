@@ -2,17 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./login-form.css";
 import { auth } from "../../firebase/firebase";
-import { signInWithEmailAndPassword, setPersistence, browserLocalPersistence, browserSessionPersistence } from 'firebase/auth';
+import { signInWithEmailAndPassword, setPersistence, browserLocalPersistence, browserSessionPersistence, sendPasswordResetEmail } from 'firebase/auth';
 
 const LoginForm = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState(''); 
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
-  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+  const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
 
-  // Check localStorage for saved email-password pairs and autofill password if match is found
   useEffect(() => {
     const savedData = JSON.parse(localStorage.getItem('savedCredentials')) || {};
     if (savedData[email]) {
@@ -23,19 +22,17 @@ const LoginForm = () => {
   const handleEmailChange = (e) => {
     const newEmail = e.target.value;
     setEmail(newEmail);
-
-    // Autofill password if email matches any stored credentials
     const savedData = JSON.parse(localStorage.getItem('savedCredentials')) || {};
     if (savedData[newEmail]) {
       setPassword(savedData[newEmail]);
     } else {
-      setPassword(''); // Clear password field if no matching email is found
+      setPassword('');
     }
   };
 
   const handlePasswordChange = (e) => setPassword(e.target.value);
   const handleRememberMeChange = () => setRememberMe(!rememberMe);
-  const toggleShowPassword = () => setShowPassword(!showPassword); // Toggle password visibility
+  const toggleShowPassword = () => setShowPassword(!showPassword);
 
   const validateForm = () => {
     const newErrors = {};
@@ -65,25 +62,22 @@ const LoginForm = () => {
       setPersistence(auth, persistenceType)
         .then(() => {
           if (rememberMe) {
-            // Save email-password pair in localStorage
             const savedData = JSON.parse(localStorage.getItem('savedCredentials')) || {};
             savedData[email] = password;
             localStorage.setItem('savedCredentials', JSON.stringify(savedData));
           }
 
-          // Sign in with Firebase
           return signInWithEmailAndPassword(auth, email, password);
         })
         .then((userCredential) => {
           console.log("Login successful:", userCredential);
-          navigate('/user-profile'); // Navigate to the main app
+          navigate('/user-profile');
         })
         .catch((error) => {
           console.error("Login error:", error.message);
-          alert(error.message);
+          setErrors((prevErrors) => ({ ...prevErrors, form: error.message }));
         });
 
-      // Clear input fields and reset rememberMe state
       setEmail('');
       setPassword('');
       setRememberMe(false);
@@ -92,17 +86,17 @@ const LoginForm = () => {
 
   const handleForgotPassword = () => {
     if (!email) {
-      alert("Please enter your email to reset your password.");
+      setErrors((prevErrors) => ({ ...prevErrors, form: "Please enter your email to reset your password." }));
       return;
     }
 
     sendPasswordResetEmail(auth, email)
       .then(() => {
-        alert("Password reset email sent! Check your inbox.");
+        setErrors((prevErrors) => ({ ...prevErrors, form: "Password reset email sent! Check your inbox." }));
       })
       .catch((error) => {
         console.error("Error sending reset email:", error.message);
-        alert("Error: " + error.message);
+        setErrors((prevErrors) => ({ ...prevErrors, form: "Error: " + error.message }));
       });
   };
 
@@ -111,6 +105,7 @@ const LoginForm = () => {
       <form onSubmit={handleSubmit}>
         <h2>Login</h2>
 
+      
         <div className="input-group">
           <label>Email</label>
           <input
@@ -125,22 +120,23 @@ const LoginForm = () => {
 
         <div className="input-group password-input-group">
           <label>Password</label>
-          <span 
-            className="password-toggle-icon" 
-            onClick={toggleShowPassword} 
-            role="button"
-            aria-label="Toggle password visibility"
-          >
-            {showPassword ? '👁️' : '🙈'} {/* Eye icon to indicate show/hide */}
-          </span>
-          <input
-            type={showPassword ? 'text' : 'password'} // Toggle between text and password types
-            name="password"
-            value={password}
-            onChange={handlePasswordChange}
-            className={errors.password ? 'input-error' : ''}
-          />
-         
+          <div className="password-input-wrapper">
+            <input
+              type={showPassword ? 'text' : 'password'}
+              name="password"
+              value={password}
+              onChange={handlePasswordChange}
+              className={errors.password ? 'input-error' : ''}
+            />
+            <span 
+              className="login-password-toggle-icon" 
+              onClick={toggleShowPassword} 
+              role="button"
+              aria-label="Toggle password visibility"
+            >
+              {showPassword ? '👁️' : '🙈'}
+            </span>
+          </div>
           {errors.password && <span className="error-message">{errors.password}</span>}
         </div>
 
@@ -156,6 +152,7 @@ const LoginForm = () => {
           </div>
           <a onClick={handleForgotPassword}>Forgot Password?</a>
         </div>
+        {errors.form && <div className="error-message">{errors.form}</div>}
 
         <div className='button-basic-container'>
           <button type="submit" className="button-basic">Login</button>
