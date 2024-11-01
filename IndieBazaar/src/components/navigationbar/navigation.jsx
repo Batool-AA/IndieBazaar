@@ -9,9 +9,16 @@ const NavBar = ({ title }) => {
         navigate('/user-profile');
     };
 
+    const handletitleclick = () => {
+        if (title.includes("IndieBazaar"))
+        {
+            navigate("/");
+        }
+    }
+
     return (
         <div className="pages-navbar">
-            <div className="pages-navbar-title">{title}</div> 
+            <div className="pages-navbar-title" onClick={handletitleclick}>{title}</div> 
             <div className="pages-navbar-icons">
                 <FaHeart className="icon" />
                 <FaShoppingCart className="icon" />

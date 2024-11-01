@@ -13,8 +13,17 @@ const Explore = ({ businessId , path }) => { // Destructure businessId from prop
 
   const handleExploreClick = () => {
     // Navigate to the products page with the businessId
-    navigate(path, { state: { businessId } });
-  }; 
+    if (businessId == ""){
+      const target = document.getElementById(path);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    else
+    {
+      navigate(path, { state: { businessId } });
+    }
+  };  
 
   return (
     <div className="explore-container">

@@ -4,12 +4,13 @@
     display: flex;
     align-items: center;
     background-color: #f0f0f0;
-    border: 1px solid #ccc;
+    border: 1px solid black;
     border-radius: 5px;
     padding: 5px;
+    padding-left: 15px;
     width: 100%;
     max-width: 600px;
-    margin: 10px auto;
+    margin: auto;
     cursor: pointer;
 }
 

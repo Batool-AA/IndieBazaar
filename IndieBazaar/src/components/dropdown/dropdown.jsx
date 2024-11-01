@@ -18,7 +18,7 @@ const Dropdown = ({ options, onSelect }) => {
             <span className="dropdown-icon">▼</span>
             <span className="dropdown-selected">{selectedOption}</span>
             {isOpen && (
-                <div className="dropdown-list">
+                <div className="dropdown-list"> 
                     {options.map((option, index) => (
                         <div
                             key={index}

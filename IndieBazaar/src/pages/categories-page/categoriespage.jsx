@@ -17,7 +17,7 @@ const CategoriesPage = () => {
     const navigate = useNavigate();
 
     const categories = [
-        { name: 'Food', image: food },
+        { name: 'Food', image: food }, 
         { name: 'Accessories', image: accessory },
         { name: 'Clothes', image: clothes },
         { name: 'Decor', image: decor },

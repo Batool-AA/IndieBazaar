@@ -10,7 +10,7 @@ const HomePage = () => {
       <div className="homepage-container">
         <div className="top-section">
           <HomeNavbar />
-          <BusinessBanner title={"IndieBazaar"} slogan={"Connecting Local Sellers, Empowering Buyers"} path={"/store"}/>
+          <BusinessBanner title={"IndieBazaar"} slogan={"Connecting Local Sellers, Empowering Buyers"} path={"about-us"} businessId={""}/>
         </div>  
         <div id="about-us">
           <AboutUs /> 

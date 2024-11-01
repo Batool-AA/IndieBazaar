@@ -28,4 +28,8 @@
     color: var(--apricot); 
 }
 
+.pages-navbar-title
+{
+    cursor: pointer;
+}
 
