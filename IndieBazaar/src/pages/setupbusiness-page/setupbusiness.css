@@ -1,51 +1,138 @@
-
-
 /* Main container */
 .setup-business-container {
-  /* margin: 0 auto; */
-  /* background-color: #f9f9f9;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 12px; */
-  /* text-align: center; */
   font-family: Arial, sans-serif;
-  width: 100vw;
-  /* height: 100%; */
+  width: 100%; /* Make it responsive */
+  max-width: 1200px; /* Add a max-width for larger screens */
+  margin: 0 auto; /* Center content horizontally */
+  padding: 20px; /* Add padding to create space around the container */
   display: flex;
   flex-direction: column;
-  /* justify-content: center;
-  align-items: center; */
-  /* padding: 0 20px; */
-  /* background-color: #e8f5e9;  */
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box; /* Prevent padding from affecting the width */
 }
 
 /* Header container */
 .header-container {
   text-align: center;
   margin-bottom: 30px;
+  margin-top: 50px; /* Reduce margin for better responsiveness */
   padding: 15px;
-  /* border-radius: 10px; */
+  width: 100%; /* Allow the header to expand with the content */
 }
 
 /* Main heading */
 .setup-business-container h1 {
-  font-size: 3rem;
+  font-size: 2.5rem; /* Slightly reduce font-size for smaller screens */
   font-weight: bold;
-  color: #2e7d32; /* Darker green to contrast the background */
+  color: #2e7d32;
   margin: 0;
 }
 
 /* Subtitle */
 .subtitle {
-  font-size: 1.5rem;
-  color: #558b2f; /* Slightly lighter green than the main heading */
+  font-size: 1.2rem; /* Adjust font-size for better readability */
+  color: #558b2f;
   margin-top: 5px;
+  text-align: center;
+ 
 }
 
-/* Back arrow */
-.back-arrow {
-  font-size: 1.5rem;
-  color: #8e8e8e; /* Neutral gray for less emphasis */
-  margin-bottom: 20px;
+/* Buttons */
+.prev-button,
+.next-button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--atomic-tangerine);
+  color: #ffffff;
+  font-size: 1rem;
   cursor: pointer;
+  transition: background-color 0.3s;
+  max-width: 250px; /* Set a max-width for large screens */
 }
 
+.prev-button:hover,
+.next-button:hover {
+  background-color: var(--coral-pink);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .setup-business-container h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .prev-button,
+  .next-button {
+    max-width: 100%; /* Allow buttons to stretch fully on smaller screens */
+  }
+}
+
+.prompt {
+  font-size: 2rem;
+  color: var(--coral-pink);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+input[type="text"], textarea, input[type="number"] {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 8px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  border-color: #2e7d32; /* Green border on focus */
+  box-shadow: 0 0 5px rgba(46, 125, 50, 0.3); /* Subtle shadow on focus */
+}
+
+/* Placeholder text styling */
+input[type="text"]::placeholder, textarea::placeholder, input[type="number"]::placeholder {
+  color: #aaa; /* Light color for placeholder */
+  font-size: 0.9rem;
+}
+
+textarea{
+  resize: vertical;
+  height: 60px;
+}
+
+
+.error-message {
+  margin-bottom: 0px;
+} 
+
+.step-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-upload {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #9b513b;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 1rem;
+  color: #333;
+  outline: none;
+  box-sizing: border-box;
+}

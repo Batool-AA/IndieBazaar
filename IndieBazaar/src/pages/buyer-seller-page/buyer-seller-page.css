@@ -3,8 +3,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  padding-top: 100px;
+  height: 100vh; /* Full viewport height */
+  box-sizing: border-box;
 }
 
 .buyer-seller-buttons-container {
@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 20px;
+  margin: auto;
 }
 
 .buyer-seller-header-container {
@@ -21,7 +21,7 @@
   text-align: center;
   padding: 10px 0;
   margin: 0;
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   left: 0;
 }

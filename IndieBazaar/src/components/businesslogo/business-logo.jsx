@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './business-logo.css'; // Ensure you have this CSS file for styles
+import '../../pages/setupbusiness-page/setupbusiness.css'; // Ensure you have this CSS file for styles
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 const StepFiveBusinessLogo = ({ onNext, businessLogo, setBusinessLogo }) => {
@@ -16,7 +16,7 @@ const StepFiveBusinessLogo = ({ onNext, businessLogo, setBusinessLogo }) => {
         const logoURL = await getDownloadURL(storageRef);
         setLogo(logoURL);
       } catch (error) {
-        console.error("Error uploading file: ", error);
+        console.error("Error uploading file: ", error); 
       }
     }
   };
@@ -40,11 +40,12 @@ const StepFiveBusinessLogo = ({ onNext, businessLogo, setBusinessLogo }) => {
           accept="image/*" // Accept only image files
           onChange={handleLogoUpload}
           required
+          className='image-upload'
         />
         {errors && <p className="error-message">{errors}</p>} 
         <button className="next-button" onClick={handleNext}>Next</button>
       </div>
-    </div>
+    </div> 
   );
 };
 

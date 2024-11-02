@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: var(--vanilla);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,9 +13,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html{
+  background-color: var(--vanilla);
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
-/* 
- *{
+
+ /* *{
   border: 1px solid black;
  } */
 

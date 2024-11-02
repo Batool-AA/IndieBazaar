@@ -41,9 +41,9 @@ const BuyerSellerPage = () => {
   
   return (
     <div className="buyer-seller-page-container">
-      <div className="buyer-seller-header-container">
+      {/* <div className="buyer-seller-header-container">
         <h1 className="buyer-seller-header-title">IndieBazaar</h1>
-      </div>
+      </div> */}
       <div className="buyer-seller-buttons-container">
 
         <button className="button-basic buyer-seller" onClick={handleBuyer}>

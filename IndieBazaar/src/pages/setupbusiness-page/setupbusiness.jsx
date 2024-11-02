@@ -42,17 +42,14 @@ const SetupBusiness = () => {
   }
 
   return (
-    <div className="setup-business-container">
-      {step > 1 && 
-      <div className="back-arrow" onClick={previousStep}>&#8592;</div>}
-      
+    <div className="setup-business-container">    
       {/* New header container */}
       <div className="header-container">
         <h1>Hi Seller!</h1>
         <p className="subtitle">Let's Set Up Your Business</p>
       </div>
 
-      {step <= 1 && (
+      {step <= 1 && ( 
         <StepOneBusinessName 
           onNext={nextStep} 
           businessName={businessName}
@@ -87,9 +84,11 @@ const SetupBusiness = () => {
           setBusinessLogo={setBusinessLogo}
         />
       )}
+      {step > 1 && 
+      <button className='prev-button' onClick={previousStep}>Previous</button>}
 
       {step == 6 && (
-        <button onClick={handleDone}>Finish</button>
+        <button className='prev-button' onClick={handleDone}>Finish Setting Up</button>
       )}
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './businessname.css';
+import '../../pages/setupbusiness-page/setupbusiness.css';
 
 const StepOneBusinessName = ({ onNext, businessName, setBusinessName }) => {
   const [errors, setErrors] = useState('');
@@ -14,7 +14,7 @@ const StepOneBusinessName = ({ onNext, businessName, setBusinessName }) => {
       setErrors('Please enter a business name');
     }
   };
-
+ 
 
   return (
     <div className="step-container">

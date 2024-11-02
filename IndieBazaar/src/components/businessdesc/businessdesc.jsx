@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './businessdesc.css';
+import '../../pages/setupbusiness-page/setupbusiness.css';
 import { FaInstagram, FaTwitter, FaFacebook } from 'react-icons/fa';
 
 const StepTwoBusinessDescription = ({ onNext, businessDescription, setBusinessDescription }) => {
@@ -19,7 +20,7 @@ const StepTwoBusinessDescription = ({ onNext, businessDescription, setBusinessDe
     }
   };
 
-  return (
+  return ( 
     <div className="step-container">
       <p className="prompt">Tell us about your business.</p>
       <div className="input-container">

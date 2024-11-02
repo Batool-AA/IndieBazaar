@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './businesscat.css';
+import '../../pages/setupbusiness-page/setupbusiness.css';
 
-const categories = ["Food", "Decor", "Clothes", "Accessories", "Others"];
+const categories = ["Food", "Decor", "Clothes", "Accessories"];
 
 const StepThreeBusinessCategory = ({ onNext, businessCategory, setBusinessCategories }) => {
 
@@ -40,10 +41,12 @@ const StepThreeBusinessCategory = ({ onNext, businessCategory, setBusinessCatego
           </button>
         ))}
       </div>
-      {errors && <p className="error-message">{errors}</p>}
-      <button className="next-button" onClick={handleNext}>Next</button>
+      <div className="input-container">
+        {errors && <p className="error-message">{errors}</p>}
+        <button className="next-button" onClick={handleNext}>Next</button>
+      </div>
     </div>
   );
 };
 
-export default StepThreeBusinessCategory;
+export default StepThreeBusinessCategory; 
