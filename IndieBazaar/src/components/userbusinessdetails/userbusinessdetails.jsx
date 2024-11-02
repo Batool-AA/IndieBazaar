@@ -10,10 +10,8 @@ const BusinessDetails = () => {
     const navigate = useNavigate(); // Initialize navigation
     const [isEditing, setIsEditing] = useState(false);
     const [formData, setFormData] = useState({
+        name: '',
         category: '',
-        location: '',
-        phone: '',
-        website: '',
     });
     const [businessId, setBusinessId] = useState(null); // Store business ID
 
@@ -29,11 +27,8 @@ const BusinessDetails = () => {
                         const businessData = querySnapshot.docs[0].data();
                         setBusinessId(querySnapshot.docs[0].id); // Set business ID
                         setFormData({
+                            name: businessData.name || '',
                             category: businessData.category || '',
-                            // Uncomment and use if needed
-                            // location: businessData.location || '',
-                            // phone: businessData.phone || '',
-                            // website: businessData.website || '',
                         });
                     } else {
                         console.log("No business found for this user.");
@@ -48,8 +43,6 @@ const BusinessDetails = () => {
     }, [user, db]);
 
     const handleEditClick = () => {
-        console.log('business')
-        console.log(businessId)
         navigate('/edit-business', { state: { businessId } }); // Navigate to editing page with business ID
     };
 
@@ -71,6 +64,13 @@ const BusinessDetails = () => {
                 <>
                     <input
                         type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Business Name"
+                    />
+                    <input
+                        type="text"
                         name="category"
                         value={formData.category}
                         onChange={handleChange}
@@ -80,6 +80,7 @@ const BusinessDetails = () => {
                 </>
             ) : (
                 <>
+                    <p className="business-details__item">Name: {formData.name}</p>
                     <p className="business-details__item">Category: {formData.category}</p>
                     <button onClick={handleEditClick}>Edit</button>
                 </>

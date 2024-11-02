@@ -20,3 +20,21 @@
     cursor: pointer;
     margin-top: 15px;
 }
+
+.profile-details__button-container {
+    display: flex;
+    gap: 10px; /* Add space between buttons */
+}
+
+.profile-details__logout-button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.profile-details__logout-button:hover {
+    background-color: #c9302c;
+}

@@ -2,23 +2,26 @@ import React, { useState, useEffect } from 'react';
 import './profiledetails.css';
 import { useUser } from '../../firebase/usercontext';
 import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
+import { getAuth, signOut } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 const ProfileDetails = () => {
     const user = useUser();
-    const db = getFirestore(); // Initialize Firestore
+    const db = getFirestore();
+    const auth = getAuth();
+    const navigate = useNavigate();
     const [isEditing, setIsEditing] = useState(false);
     const [formData, setFormData] = useState({
-        fullName: '',
         email: '',
-        phone: '',
-        mobile: '',
-        address: '',
+        password: '',
+        username: '',
+        usertype: '',
     });
 
     useEffect(() => {
         const fetchUserData = async () => {
             if (user && user.email) {
-                const userCollection = collection(db, 'users'); // Change 'users' to your actual collection name
+                const userCollection = collection(db, 'users');
                 const q = query(userCollection, where('email', '==', user.email));
                 
                 try {
@@ -26,11 +29,10 @@ const ProfileDetails = () => {
                     if (!querySnapshot.empty) {
                         const userData = querySnapshot.docs[0].data();
                         setFormData({
-                            fullName: userData.fullName || '',
                             email: userData.email || '',
-                            phone: userData.phone || '',
-                            mobile: userData.mobile || '',
-                            address: userData.address || '',
+                            password: userData.password || '',
+                            username: userData.username || '',
+                            usertype: userData.usertype || '',
                         });
                     } else {
                         console.log("No user found for this email.");
@@ -50,9 +52,7 @@ const ProfileDetails = () => {
 
     const handleSaveClick = async () => {
         setIsEditing(false);
-        // Save logic (e.g., API call to update Firestore) can be added here
         console.log("Profile Details Saved:", formData);
-        // You can add Firestore update logic here if needed
     };
 
     const handleChange = (e) => {
@@ -60,61 +60,66 @@ const ProfileDetails = () => {
         setFormData({ ...formData, [name]: value });
     };
 
+    const handleLogout = async () => {
+        try {
+            await signOut(auth);
+            console.log("User signed out");
+            navigate("/"); // Redirect to homepage
+        } catch (error) {
+            console.error("Error signing out:", error);
+        }
+    };
+
     return (
         <div className="profile-details">
             {isEditing ? (
                 <>
-                    <input
-                        type="text"
-                        name="fullName"
-                        value={formData.fullName}
-                        onChange={handleChange}
-                        placeholder="Full Name"
-                    />
                     <input
                         type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="Email"
-                        readOnly // Make email read-only if it shouldn't be edited
+                        readOnly
+                    />
+                    <input
+                        type="password"
+                        name="password"
+                        value={formData.password}
+                        onChange={handleChange}
+                        placeholder="Password"
                     />
                     <input
                         type="text"
-                        name="phone"
-                        value={formData.phone}
+                        name="username"
+                        value={formData.username}
                         onChange={handleChange}
-                        placeholder="Phone"
+                        placeholder="Username"
                     />
                     <input
                         type="text"
-                        name="mobile"
-                        value={formData.mobile}
+                        name="usertype"
+                        value={formData.usertype}
                         onChange={handleChange}
-                        placeholder="Mobile"
-                    />
-                    <input
-                        type="text"
-                        name="address"
-                        value={formData.address}
-                        onChange={handleChange}
-                        placeholder="Address"
+                        placeholder="User Type"
+                        readOnly
                     />
                     <button onClick={handleSaveClick}>Save</button>
                 </>
             ) : (
                 <>
-                    <h3 className="profile-details__heading">Full Name</h3>
-                    <p>{formData.fullName}</p>
                     <h3 className="profile-details__heading">Email</h3>
                     <p>{formData.email}</p>
-                    <h3 className="profile-details__heading">Phone</h3>
-                    <p>{formData.phone}</p>
-                    <h3 className="profile-details__heading">Mobile</h3>
-                    <p>{formData.mobile}</p>
-                    <h3 className="profile-details__heading">Address</h3>
-                    <p>{formData.address}</p>
-                    <button className="profile-details__edit-button" onClick={handleEditClick}>Edit</button>
+                    <h3 className="profile-details__heading">Password</h3>
+                    <p>{formData.password}</p>
+                    <h3 className="profile-details__heading">Username</h3>
+                    <p>{formData.username}</p>
+                    <h3 className="profile-details__heading">User Type</h3>
+                    <p>{formData.usertype}</p>
+                    <div className="profile-details__button-container">
+                        <button className="profile-details__edit-button" onClick={handleEditClick}>Edit</button>
+                        <button className="profile-details__logout-button" onClick={handleLogout}>Logout</button>
+                    </div>
                 </>
             )}
         </div>

@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./login-form.css";
 import { auth } from "../../firebase/firebase";
+import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
 import { signInWithEmailAndPassword, setPersistence, browserLocalPersistence, browserSessionPersistence, sendPasswordResetEmail } from 'firebase/auth';
 
 const LoginForm = () => {
   const navigate = useNavigate();
+  const db = getFirestore();
   const [email, setEmail] = useState(''); 
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
@@ -53,7 +55,7 @@ const LoginForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (validateForm()) {
@@ -69,9 +71,30 @@ const LoginForm = () => {
 
           return signInWithEmailAndPassword(auth, email, password);
         })
-        .then((userCredential) => {
+        .then(async (userCredential) => {
           console.log("Login successful:", userCredential);
-          navigate('/user-profile');
+
+          // Fetch the user type from Firestore
+          const userDocQuery = query(collection(db, 'users'), where('email', '==', email));
+          const userDocSnapshot = await getDocs(userDocQuery);
+          
+          if (!userDocSnapshot.empty) {
+            const userData = userDocSnapshot.docs[0].data();
+            const userType = userData.usertype;
+
+            // Navigate based on user type
+            if (userType === 'buyer') {
+              navigate('/store');
+            } else if (userType === 'seller') {
+              navigate('/user-profile');
+            } else {
+              console.error("Invalid user type");
+              setErrors({ form: "User type not recognized." });
+            }
+          } else {
+            console.error("No user found for this email.");
+            setErrors({ form: "User not found." });
+          }
         })
         .catch((error) => {
           console.error("Login error:", error.message);
@@ -105,7 +128,6 @@ const LoginForm = () => {
       <form onSubmit={handleSubmit}>
         <h2>Login</h2>
 
-      
         <div className="input-group">
           <label>Email</label>
           <input
