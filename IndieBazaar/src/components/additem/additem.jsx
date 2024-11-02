@@ -21,8 +21,21 @@ const AddItemForm = ({ onNext, businessitems, setBusinessitems }) => {
   }, [businessitems]);
 
   const handleAddItem = () => {
+    const priceValue = parseFloat(price); // Parse the price to a float
+
+    // Check for validation errors
     if (itemName.trim() && description.trim() && price.trim() && category.trim() && image) {
-      setItems([...items, { name: itemName, description, price, category, image }]);
+      if (description.length > 100) {
+        setAddItemError('Description must be 100 characters or less.');
+        return; // Exit if the description condition fails
+      }
+      
+      if (priceValue <= 0) {
+        setAddItemError('Price must be greater than 0.');
+        return; // Exit if the price condition fails
+      }
+
+      setItems([...items, { name: itemName, description, price: priceValue, category, image }]);
       setItemName('');
       setDescription('');
       setPrice('');
@@ -30,7 +43,7 @@ const AddItemForm = ({ onNext, businessitems, setBusinessitems }) => {
       setImage(null);
       setAddItemError(''); // Clear add item error on successful addition
     } else {
-      setAddItemError('Please fill in all fields before adding the item.');
+      setAddItemError('Please fill in all fields before adding the item');
     }
   };
 
@@ -77,10 +90,11 @@ const AddItemForm = ({ onNext, businessitems, setBusinessitems }) => {
       />
 
       <textarea
-        placeholder="Item description"
+        placeholder="Item description (max 100 characters)"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         className="item-textarea"
+        maxLength={100} // Limit the number of characters to 100
       />
 
       <input
@@ -115,13 +129,13 @@ const AddItemForm = ({ onNext, businessitems, setBusinessitems }) => {
             <p>Price: PKR{item.price}</p>
             <p>Category: {item.category}</p>
             <img src={item.image} alt={`Item ${index}`} className="item-image" /> */}
-             <button
-                className="delete-item-button"
-                onClick={() => handleDeleteItem(index)}
-                aria-label="Delete Item"
-              >
-                &times;
-              </button>
+            <button
+              className="delete-item-button"
+              onClick={() => handleDeleteItem(index)}
+              aria-label="Delete Item"
+            >
+              &times;
+            </button>
           </div>
         ))}
       </div>

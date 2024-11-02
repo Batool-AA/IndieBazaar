@@ -1,8 +1,10 @@
 .categories-bar {
+    /* width: 99%; */
     display: flex;
-    justify-content:left ;
+    margin: auto;
+    justify-content: left;
     padding: 10px;
-    background-color: #d9e8e7; /* Similar background as in the image */
+    /* background-color: #d9e8e7;  */
   }
   
   .category-button {

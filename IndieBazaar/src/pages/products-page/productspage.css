@@ -1,3 +1,8 @@
+.products-page{
+    width: 100vw;
+    padding-bottom: 20px;
+}
+
 .products-category-section {
     margin: 20px 20px;
     padding: 20px;
@@ -17,3 +22,4 @@
     flex-wrap: wrap;
     gap: 20px;
 }
+

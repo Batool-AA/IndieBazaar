@@ -59,7 +59,7 @@ const ProductsPage = () => {
     ? products 
     : categoryProducts[selectedCategory];
 
-  return (
+  return ( 
     <div className="products-page">
       <NavBar title={businessName} /> {/* Pass the business name to NavBar */}
       <CategoriesBar categories={categories} onSelectCategory={handleCategoryClick} />

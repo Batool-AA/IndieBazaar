@@ -8,16 +8,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 50px;
+    gap: 40px;
     align-items: stretch;
 }
 
 .business-info-header-column {
-    flex: 0.35;
+    flex: 0.4;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    margin-left: 25px;
 }
 
 .business-info-social-media {
@@ -58,7 +59,7 @@
 }
 
 .business-info-carousel-column {
-    flex: 0.65;
+    flex: 0.55;
 }
 
 .business-info-carousel-wrapper {

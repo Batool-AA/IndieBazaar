@@ -14,3 +14,4 @@ const CategoriesBar = ({ categories, onSelectCategory }) => {
 };
 
 export default CategoriesBar;
+ 

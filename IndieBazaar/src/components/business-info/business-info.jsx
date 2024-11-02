@@ -51,9 +51,9 @@ const BusinessInfo = ({ businessId }) => {
     };
 
     const socialMedia = {
-        facebook: 'https://facebook.com/yourpage',
-        twitter: 'https://twitter.com/yourhandle',
-        instagram: '',
+        // facebook: 'https://facebook.com/yourpage',
+        // twitter: 'https://twitter.com/yourhandle',
+        // instagram: '',
     };
 
     const hasSocialMedia = Object.values(socialMedia).some((url) => url);

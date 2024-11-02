@@ -10,7 +10,7 @@ const ProductCard = ({ product , size}) => {
         <p>{product.description}</p>
         <p className="product-price">Rs. {product.price}</p>
       </div>
-    </div> 
+    </div>  
   );
 };
 
