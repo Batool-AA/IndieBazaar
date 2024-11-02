@@ -4,7 +4,7 @@
   }
   
   .button-basic {
-      background-color: var(--vanilla);
+      background-color: var(--vanilla); 
       color: var(--red);
       padding: 10px;
       border: 1px solid var(--coral-pink);

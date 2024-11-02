@@ -1,22 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from "../../components/navigationbar/navigation";
-import DropDown from "../../components/dropdown/dropdown";
-import FilterBox from "../../components/filter-box/filterbox";
 import food from "../../assets/food.jpg";
 import { useLocation, useNavigate } from 'react-router-dom';
-import { doc, getDoc, deleteDoc, updateDoc } from 'firebase/firestore';
+import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from "../../firebase/firebase"; // Adjust path if necessary
 import "./editingbusinesspage.css";
 
 const EditingBusinesses = () => { 
     const navigate = useNavigate();
     const location = useLocation();
-    const { businessId } = location.state; // Get business ID from state
+    const { businessId } = location.state;
 
     const [items, setItems] = useState([]);
-    const [businessName, setBusinessName] = useState(''); // State for business name
+    const [businessName, setBusinessName] = useState('');
 
-    // Fetch business data and items
     const fetchBusinessData = async () => {
         try {
             const docRef = doc(db, "businesses", businessId);
@@ -24,9 +21,9 @@ const EditingBusinesses = () => {
             
             if (docSnap.exists()) {
                 const data = docSnap.data();
-                const items = data.items || []; // Fetch items
+                const items = data.items || [];
                 setItems(items);
-                setBusinessName(data.name || 'Business Name'); // Set business name from data
+                setBusinessName(data.name || 'Business Name');
             } else {
                 console.log("No such document!");
             }
@@ -36,24 +33,20 @@ const EditingBusinesses = () => {
     };
 
     useEffect(() => {
-        fetchBusinessData(); // Fetch business data on mount
-    }, [businessId]); // Depend on businessId
+        fetchBusinessData();
+    }, [businessId]);
 
-    // Function to handle item deletion
     const handleDeleteItem = async (id) => {
         try {
-            // Remove the item from Firestore
             const docRef = doc(db, "businesses", businessId);
             const docSnap = await getDoc(docRef);
 
             if (docSnap.exists()) {
                 const data = docSnap.data();
-                const updatedItems = data.items.filter(item => item.id !== id); // Remove item by id
+                const updatedItems = data.items.filter(item => item.id !== id);
                 
-                // Update the document in Firestore without the deleted item
                 await updateDoc(docRef, { items: updatedItems });
                 
-                // Update the items state to reflect the deletion
                 setItems(updatedItems);
             }
         } catch (error) {
@@ -65,27 +58,31 @@ const EditingBusinesses = () => {
         navigate('/add-more-items', { state: { businessId } });
     };
 
+    const handleDone = () => {
+        navigate('/user-profile',  { state: { businessId }} ); // Adjust the navigation path as needed
+    };
+
     return (
         <div className="editing-businesses-container">
-            <NavBar title={`Edit Your Business Items - ${businessName}`} /> {/* Include business name */}
-            {/* Dropdown and filter components */}
-            <DropDown options={['Option 1', 'Option 2']} onSelect={() => {}} />
+            <NavBar title={`Edit Your Business Items - ${businessName}`} />
             <div className="editing-content-container">
-                <div className="editing-filter-box-container">
-                    <FilterBox />
-                </div>
                 <div className="editing-items-container">
                     {items.map(item => (
-                        <div key={item.id} className="editing-item-card">
+                        <div key={item.id} className="category-card editing-item-card">
                             <p>{item.name}</p>
-                            <img src={item.image || food} alt={item.name} /> {/* Default image if none */}
+                            <img src={item.image || food} alt={item.name} />
                             <button className="delete-button" onClick={() => handleDeleteItem(item.id)}>
-                                &ndash; {/* Minus sign */}
+                                &ndash;
                             </button>
                         </div>
                     ))}
-                    <button className="editing-add-item-button" onClick={handleAddItem}>
+                </div>
+                <div className="editing-buttons-container">
+                    <button className="add-item-button" onClick={handleAddItem}>
                         Add Item
+                    </button>
+                    <button className="add-item-button" onClick={handleDone}>
+                        Done
                     </button>
                 </div>
             </div>

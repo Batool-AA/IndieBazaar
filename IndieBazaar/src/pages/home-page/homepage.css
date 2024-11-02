@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   width: 100vw;
-  /* height: 100vh; */
+  min-height: 100vh;
 }
 
 .top-section {
@@ -25,7 +25,8 @@
 }
 
 .homepage-container #contact {
-  background-color: var(--softPink); /* Light Gray */
+  background-image: linear-gradient(to bottom, var(--lightLavender), var(--softPink));
+  /* background-color: var(--pastelLavender);  */
   padding: 10px;
   color: var(--vibrantPurple); /* Accent Orange */
 }

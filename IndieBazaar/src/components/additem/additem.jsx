@@ -42,6 +42,7 @@ const AddItemForm = ({ onNext, businessitems, setBusinessitems }) => {
       setCategory('');
       setImage(null);
       setAddItemError(''); // Clear add item error on successful addition
+      setNextButtonError('');
     } else {
       setAddItemError('Please fill in all fields before adding the item');
     }
@@ -90,11 +91,11 @@ const AddItemForm = ({ onNext, businessitems, setBusinessitems }) => {
       />
 
       <textarea
-        placeholder="Item description (max 100 characters)"
+        placeholder="Item description (max 50 characters)"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         className="item-textarea"
-        maxLength={100} // Limit the number of characters to 100
+        maxLength={50} // Limit the number of characters to 100
       />
 
       <input

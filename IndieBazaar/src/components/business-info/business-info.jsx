@@ -98,7 +98,7 @@ const BusinessInfo = ({ businessId }) => {
                     </div>
                 </div>
 
-                <div className="business-info-carousel-column">
+                <div className="business-info-carousel-column"> 
                     <div className="business-info-carousel-wrapper">
                         <button className="business-info-carousel-arrow left" onClick={handlePrev}>
                             <FontAwesomeIcon icon={faChevronLeft} />

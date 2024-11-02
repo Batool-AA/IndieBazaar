@@ -44,6 +44,8 @@ const AddMoreItems = ({ businessId }) => {
         setPrice('');
         setCategory('');
         setImage(null);
+        setNextButtonError('');
+        setAddItemError('');
       } catch (error) {
         console.error("Error updating document: ", error);
       }
@@ -87,11 +89,11 @@ const AddMoreItems = ({ businessId }) => {
         className="item-text-input"
       /> 
       <textarea
-        placeholder="Item description (max 100 characters)"
+        placeholder="Item description (max 50 characters)"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         className="item-textarea"
-        maxLength={100}
+        maxLength={50}
       />
       <input
         type="number"

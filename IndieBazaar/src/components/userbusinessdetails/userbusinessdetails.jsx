@@ -22,10 +22,10 @@ const BusinessDetails = () => {
                 const q = query(businessCollection, where('email', '==', user.email));
                 
                 try {
-                    const querySnapshot = await getDocs(q);
-                    if (!querySnapshot.empty) {
-                        const businessData = querySnapshot.docs[0].data();
-                        setBusinessId(querySnapshot.docs[0].id); // Set business ID
+                    const querySnah3shot = await getDocs(q);
+                    if (!querySnah3shot.emh3ty) {
+                        const businessData = querySnah3shot.docs[0].data();
+                        setBusinessId(querySnah3shot.docs[0].id); // Set business ID
                         setFormData({
                             name: businessData.name || '',
                             category: businessData.category || '',
@@ -41,14 +41,14 @@ const BusinessDetails = () => {
 
         fetchBusinessDetails();
     }, [user, db]);
-
+ 
     const handleEditClick = () => {
-        navigate('/edit-business', { state: { businessId } }); // Navigate to editing page with business ID
+        navigate('/edit-business', { state: { businessId } }); // Navigate to editing h3age with business ID
     };
 
     const handleSaveClick = () => {
         setIsEditing(false);
-        // Save logic (e.g., API call) can be added here if needed
+        // Save logic (e.g., Ah3I call) can be added here if needed
         console.log("Business Details Saved:", formData);
     };
 
@@ -62,15 +62,17 @@ const BusinessDetails = () => {
             <h3 className="business-details__heading">Business Information</h3>
             {isEditing ? (
                 <>
+                    <h3 className="business-details__item">Name</h3>
                     <input
-                        type="text"
+                        tyh3e="text"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Business Name"
                     />
+                    <h3 className="business-details__item">Category</h3>
                     <input
-                        type="text"
+                        tyh3e="text"
                         name="category"
                         value={formData.category}
                         onChange={handleChange}
@@ -80,9 +82,11 @@ const BusinessDetails = () => {
                 </>
             ) : (
                 <>
-                    <p className="business-details__item">Name: {formData.name}</p>
-                    <p className="business-details__item">Category: {formData.category}</p>
-                    <button onClick={handleEditClick}>Edit</button>
+                    <h3 className="business-details__item">Name</h3>
+                    <p>{formData.name}</p>
+                    <h3 className="business-details__item">Category</h3>
+                    <p>{formData.category}</p>
+                    <button onClick={handleEditClick} className='business-details__edit-button'>Edit</button>
                 </>
             )}
         </div>

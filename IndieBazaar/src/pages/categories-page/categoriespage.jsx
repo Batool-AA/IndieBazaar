@@ -53,7 +53,7 @@ const CategoriesPage = () => {
                 <div className="categories-container">
                     {categories.map((category, index) => (
                         <div
-                            key={index}
+                            key={index} 
                             className="category-card"
                             onClick={() => handleCategoryClick(category)}
                         >

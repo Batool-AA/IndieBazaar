@@ -96,7 +96,7 @@ const BrowseBusinesses = () => {
                 <div className="businesses-container">
                     {businesses.length > 0 ? (
                         businesses.map((business) => (
-                            <div key={business.id} className="business-card" onClick={() => handleBusinessClick(business)}>  
+                            <div key={business.id} className="category-card business-card" onClick={() => handleBusinessClick(business)}>  
                                 <p>{business.name}</p>
                                 <img src={business.logo} alt={business.name} />
                             </div>

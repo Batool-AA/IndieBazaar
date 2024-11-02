@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  width: 100vw;
   box-sizing: border-box;
   background-image:  linear-gradient(to bottom, var(--softPink), var(--lightLavender));
 }
@@ -38,22 +39,26 @@
   gap: 30px;
 }
 
-.button-basic {
-  width: 250px;
-  height: 100px;
-  padding: 20px 30px;
-  font-size: 24px;
-  font-weight: bold;
-  background-color: var(--vibrantPurple);
+.buyer-seller {
+  /* width: 250px;
+  height: 100px; */
+  /* padding: 20px 30px; */
+  /* font-size: 24px; */
+  /* font-weight: bold; */
+  /* background-color: var(--vibrantPurple);
   color: #fff;
   border: none;
   border-radius: 15px;
   cursor: pointer;
   transition: transform 0.3s, background-color 0.3s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+  width: 200px;
+  margin: 0 10px;
+  background-color: var(--vibrantPurple);
+  color: #fff;
 }
 
-.button-basic:hover {
+.buyer-seller:hover {
   transform: scale(1.05);
   background-color: #6A1BBE;
 }

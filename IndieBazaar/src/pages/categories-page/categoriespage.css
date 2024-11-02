@@ -29,10 +29,10 @@
 .category-card {
   width: 200px;
   height: 250px;
-  border: 15px solid var(--peach);
+  border: 15px solid var(--lightLavender);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
   border-radius: 15px;
-  background-color: var(--peach);
+  background-color: var(--lightLavender);
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -1,6 +1,10 @@
 .business-page-container {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    background-color: var(--lightLavender);
+    /* overflow: hidden; */
+    background-image:  linear-gradient(to bottom, var(--softPink), var(--lightLavender));
 } 
+
+#about-us {
+    background-color: var(--lightLavender);
+}

@@ -1,35 +1,28 @@
 .editing-businesses-container {
     background-image: linear-gradient(to bottom, var(--softPink), var(--lightLavender));
-    padding: 20px;
-    width:100vw;
+    width: 100vw;
+    min-height: 100vh;
 }
 
 .editing-content-container {
-    display: flex; 
-    margin-top: 20px; 
-}
-
-.editing-filter-box-container {
-    flex: 0.25; 
-}
-
-.editing-item-card {
-    width: 200px;
-    height: 250px;
-    border: 15px solid var(--tea-green);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    background-color: var(--tea-green);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: center;
-    position: relative;
-    padding: 15px 10px 5px;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+}
+
+.editing-items-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    gap: 20px; /* Space between the items */
+    padding: 40px;
+    
+}
+
+.editing-item-card {   
     color: var(--coral-pink);
+    background-color: var(--lightLavender);
+    border: 15px solid var(--lightLavender);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
 }
 
 .editing-item-card img {
@@ -49,8 +42,8 @@
 /* Styling for the delete button overlay */
 .delete-button {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 0px;
+    right: -10px;
     background-color: red;
     color: white;
     width: 25px;
@@ -62,17 +55,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10; /* Ensure it stays above the image */
+    z-index: 10;
 }
 
-/* Styling for the Add Item button */
-.editing-add-item-button {
-    background-color: var(--coral-pink);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    margin-top: 20px;
-    align-self: center;
+.editing-buttons-container{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin: auto;
 }

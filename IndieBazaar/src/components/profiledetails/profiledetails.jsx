@@ -11,6 +11,7 @@ const ProfileDetails = () => {
     const auth = getAuth();
     const navigate = useNavigate();
     const [isEditing, setIsEditing] = useState(false);
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false); // New state for password visibility
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -70,10 +71,12 @@ const ProfileDetails = () => {
         }
     };
 
+ 
     return (
         <div className="profile-details">
             {isEditing ? (
                 <>
+                    <h3 className="profile-details__heading">Email</h3>
                     <input
                         type="email"
                         name="email"
@@ -82,13 +85,19 @@ const ProfileDetails = () => {
                         placeholder="Email"
                         readOnly
                     />
-                    <input
-                        type="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        placeholder="Password"
-                    />
+                    <h3 className="profile-details__heading">Password</h3>
+                    <div className="password-container">
+                        <input
+                            type="text"
+                            name="password"
+                            value={formData.password}
+                            onChange={handleChange}
+                            placeholder="Password"
+                        />
+
+                        
+                    </div>
+                    <h3 className="profile-details__heading">Username</h3>
                     <input
                         type="text"
                         name="username"
@@ -96,6 +105,7 @@ const ProfileDetails = () => {
                         onChange={handleChange}
                         placeholder="Username"
                     />
+                    <h3 className="profile-details__heading">User Type</h3>
                     <input
                         type="text"
                         name="usertype"
@@ -104,7 +114,9 @@ const ProfileDetails = () => {
                         placeholder="User Type"
                         readOnly
                     />
-                    <button onClick={handleSaveClick}>Save</button>
+                    <div className="profile-details__button-container">
+                        <button className="profile-details__edit-button" onClick={handleSaveClick}>Save</button>
+                    </div>
                 </>
             ) : (
                 <>

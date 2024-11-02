@@ -4,40 +4,16 @@
     padding-bottom: 20px;
     /* background-image: linear-gradient(to bottom, var(--softPink), var(--lightLavender)); */
     color: var(--deepPurple); /* Set a default text color */
-    background-image: url('../../assets/background picture 2.jpg');
+    /* background-image: url('../../assets/background picture 2.jpg'); */
+    background-image: linear-gradient(to bottom, var(--softPink), var(--lightLavender));
 }
 
-.products-page NavBar{
-    background-image: url('../../assets/background picture 2.jpg');
-}
-
-/* Category button styles */
-.category-buttons {
-    display: flex;
-    gap: 15px;
-    margin: 20px 0;
-}
-
-.category-button {
-    background-color: var(--deepPurple);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 25px;
-    font-weight: bold;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.category-button:hover {
-    background-color: var(--lightLavender);
-    color: var(--deepPurple);
-    transform: scale(1.05);
-}
 
 /* Styling for each category section */
 .products-category-section {
     margin: 20px auto; 
     padding: 20px;
-    background-color: var(--peach);
+    background-color: var(--lightLavender);
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     max-width: 90%; /* Limit width for better readability on larger screens */
@@ -50,57 +26,17 @@
 
 .products-category-section h2 {
     margin-bottom: 15px;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: var(--deepPurple);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    /* letter-spacing: 1px; */
 }
 
 /* Product cards container */
 .product-cards-container {
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
 }
 
-/* Individual product card */
-.product-card {
-    width: 200px;
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.product-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 15px 15px 0 0;
-}
-
-.product-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Icons in the header */
-.header-icons {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    display: flex;
-    gap: 15px;
-}
-
-.header-icons svg {
-    color: var(--deepPurple);
-    font-size: 1.5rem;
-    transition: color 0.3s, transform 0.2s;
-}
-
-.header-icons svg:hover {
-    color: var(--lightLavender);
-    transform: scale(1.2);
-}

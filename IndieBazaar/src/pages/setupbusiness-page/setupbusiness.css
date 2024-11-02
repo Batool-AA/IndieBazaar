@@ -1,7 +1,7 @@
 /* Main container */
 .setup-business-container {
   font-family: Arial, sans-serif;
-  width: 100%; /* Make it responsive */
+  width: 100vw; /* Make it responsive */
   /* Remove max-width to cover full width */
   margin: 0 auto; /* Center content horizontally */
   padding: 20px; /* Add padding to create space around the container */
@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box; /* Prevent padding from affecting the width */
-  height: 100vh; /* Set height to fill the viewport */
+  min-height: 100vh; /* Set height to fill the viewport */
   background-image: linear-gradient(to bottom, var(--softPink), var(--lightLavender));
 }
 

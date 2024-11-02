@@ -3,6 +3,7 @@
   padding: 20px;
   padding-top: 10px;
   width: 100vw;
+  min-height: 100vh;
 }
 
 .browse-content-container {
@@ -25,23 +26,13 @@
   margin-top: 20px;
 }
 
-.business-card {
-  width: 200px;
-  height: 250px;
-  border: 15px solid var(--tea-green);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* Similar shadow to categories */
-  border-radius: 15px; /* Match border-radius for uniformity */
-  background-color: var(--tea-green);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-  position: relative;
-  padding: 15px 10px 5px;
-  margin-bottom: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+
+.business-card{
   color: var(--coral-pink);
+  background-color: var(--lightLavender);
+  border: 15px solid var(--lightLavender);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
 }
 
 .business-card:hover {

@@ -1,40 +1,74 @@
 .profile-details {
-    background-color: var(--lightLavender);
     padding: 20px;
     border: 1px solid var(--vibrantPurple);
     border-radius: 8px;
     box-shadow: var(--vibrantPurple);
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    flex: 0.5;
 }
+
 
 .profile-details__heading {
     color: var(--deepPurple);
-    margin-top: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-.profile-details__edit-button { 
-    background-color: var(--deepPurple);
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    margin-top: 15px;
+.profile-details input[type="text"],
+.profile-details input[type="email"],
+.profile-details input[type="password"],
+.profile-details p {
+    padding: 8px;
+    border: 1px solid var(--vibrantPurple);
+    border-radius: 4px;
+    font-size: 1rem;
 }
 
 .profile-details__button-container {
     display: flex;
-    gap: 10px; /* Add space between buttons */
+    gap: 10px;
+    margin:auto;
+    margin-top: 15px;
+}
+
+.profile-details__edit-button, 
+.profile-details__logout-button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.profile-details__edit-button {
+    background-color: var(--deepPurple);
+    color: #fff;
 }
 
 .profile-details__logout-button {
     background-color: #d9534f;
     color: white;
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
-    border-radius: 4px;
 }
 
 .profile-details__logout-button:hover {
     background-color: #c9302c;
+}
+
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container input {
+    width: 100%;
+}
+
+.password-toggle-icon {
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    cursor: pointer;
+    color: #888;
 }

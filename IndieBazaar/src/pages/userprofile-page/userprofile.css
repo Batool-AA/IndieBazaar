@@ -5,23 +5,22 @@
     width: 100vw;
     min-height: 100vh; /* Ensures it covers the full viewport */
     background-image: linear-gradient(to bottom, var(--softPink), var(--lightLavender));
-    background-size: cover; /* Makes sure background stretches */
-    background-repeat: no-repeat; /* Prevents tiling */
 }
 
-/* Adjusts body to remove extra margin, if any */
-body {
-    margin: 0; /* Remove any default margin on the body */
-    overflow-x: hidden; /* Prevents horizontal scrolling */
-}
 
-/* User profile container styles */
 .user-profile {
     display: flex;
     gap: 20px; 
     padding: 20px;
 }
-
+ 
 .user-profile__content {
-    flex-grow: 1;
+    display: flex;
+    flex-direction: row; /* Ensures items are aligned horizontally */
+    justify-content: flex-start; /* Aligns items to the start */
+    align-items: center; /* Vertically centers items */
+    width: 100%; /* Ensures full width of the parent */
+    flex-wrap: wrap; /* Allows wrapping to the next line if necessary */
+    gap: 20px; /* Adds space between items */
 }
+
