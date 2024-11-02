@@ -1,19 +1,26 @@
-/* userprofile.css */
+/* Ensure the profile page takes up the full viewport height */
 .user-profile-page {
     display: flex;
     flex-direction: column;
     width: 100vw;
+    min-height: 100vh; /* Ensures it covers the full viewport */
+    background-image: linear-gradient(to bottom, var(--softPink), var(--lightLavender));
+    background-size: cover; /* Makes sure background stretches */
+    background-repeat: no-repeat; /* Prevents tiling */
 }
 
+/* Adjusts body to remove extra margin, if any */
+body {
+    margin: 0; /* Remove any default margin on the body */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+/* User profile container styles */
 .user-profile {
     display: flex;
-    gap: 20px;
+    gap: 20px; 
     padding: 20px;
 }
-
-/* .user-profile__sidebar {
-    width: 300px;
-} */
 
 .user-profile__content {
     flex-grow: 1;

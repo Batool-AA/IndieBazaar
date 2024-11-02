@@ -2,7 +2,7 @@
 .setup-business-container {
   font-family: Arial, sans-serif;
   width: 100%; /* Make it responsive */
-  max-width: 1200px; /* Add a max-width for larger screens */
+  /* Remove max-width to cover full width */
   margin: 0 auto; /* Center content horizontally */
   padding: 20px; /* Add padding to create space around the container */
   display: flex;
@@ -10,6 +10,8 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box; /* Prevent padding from affecting the width */
+  height: 100vh; /* Set height to fill the viewport */
+  background-image: linear-gradient(to bottom, var(--softPink), var(--lightLavender));
 }
 
 /* Header container */
@@ -25,14 +27,14 @@
 .setup-business-container h1 {
   font-size: 2.5rem; /* Slightly reduce font-size for smaller screens */
   font-weight: bold;
-  color: #2e7d32;
+  color: var(--deepPurple);
   margin: 0;
 }
 
 /* Subtitle */
 .subtitle {
   font-size: 1.2rem; /* Adjust font-size for better readability */
-  color: #558b2f;
+  color: var(--deepPurple);
   margin-top: 5px;
   text-align: center;
  
@@ -45,8 +47,8 @@
   padding: 12px 24px;
   border: none;
   border-radius: 20px;
-  background-color: var(--atomic-tangerine);
-  color: #ffffff;
+  background-color: var(--vibrantPurple);
+  color:var(--peach);
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -55,7 +57,7 @@
 
 .prev-button:hover,
 .next-button:hover {
-  background-color: var(--coral-pink);
+  background-color: var(--deepPurple);
 }
 
 /* Responsive adjustments */
@@ -76,7 +78,7 @@
 
 .prompt {
   font-size: 2rem;
-  color: var(--coral-pink);
+  color: var(--deepPurple);
   margin-bottom: 20px;
   text-align: center;
 }
@@ -98,7 +100,7 @@ input[type="text"], textarea, input[type="number"] {
   box-sizing: border-box;
   outline: none;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  border-color: #2e7d32; /* Green border on focus */
+  border-color: var(--vibrantPurple); /* Green border on focus */
   box-shadow: 0 0 5px rgba(46, 125, 50, 0.3); /* Subtle shadow on focus */
 }
 
@@ -135,4 +137,25 @@ textarea{
   color: #333;
   outline: none;
   box-sizing: border-box;
+}
+
+.category-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  background-color: var(--peach) !important; /* Add !important if necessary */
+  color: var(--vibrantPurple);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.category-buttons button:hover {
+  background-color: var(--deepPurple) !important; /* Add !important if necessary */
+  transform: scale(1.05);
+}
+
+.category-buttons button.selected {
+  background-color: var(--softPink) !important; /* Add !important if necessary */
+  color: var(--deepPurple);
 }

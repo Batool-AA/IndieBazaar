@@ -3,8 +3,8 @@
 
 /* Button styling */
 .add-item-button {
-  background-color: #ff9f80;
-  color: #fff;
+  background-color: var(--vibrantPurple);
+  color: var(--peach);
   border: none;
   border-radius: 5px;
   padding: 10px 20px;

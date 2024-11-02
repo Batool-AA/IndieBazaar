@@ -7,10 +7,10 @@
   .explore-button {
     padding: 10px 20px;
     font-size: 1rem;
-    border: 2px solid var(--coral-pink);
+    border: 2px solid var(--vibrantPurple);
     border-radius: 5px;
-    background-color: var(--vanilla);
-    box-shadow: 0 4px 8px var(--coral-pink);
+    background-color: var(--softPink);
+    box-shadow: 0 4px 8px var(--vibrantPurple);
     cursor: pointer;
     opacity: 0; 
     transition: opacity 1s ease, background-color 0.3s ease;
@@ -22,6 +22,6 @@
   }
   
   .explore-button:hover {
-    background-color: var(--apricot);
+    background-color: var(--peach);
   }
   

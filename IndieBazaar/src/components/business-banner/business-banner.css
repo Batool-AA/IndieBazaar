@@ -1,14 +1,21 @@
 .business-banner-container {
-    background-color: var(--vanilla);
-    color: var(--coral-pink);
+    background-image:  linear-gradient(to bottom, var(--softPink), var(--lightLavender));
+    color: var(--deepPurplez); /* Accent Orange */
     text-align: center;
     position: relative;
     padding: 20px 20px;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-}
+  }
+
+  .business-banner-container h1{
+    color: var(--vibrantPurple);
+  }
+
+  .business-banner-container p{
+    color: var(--vibrantPurple);
+  }
 
 
-
-
+  

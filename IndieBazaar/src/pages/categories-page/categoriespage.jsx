@@ -20,7 +20,7 @@ const CategoriesPage = () => {
         { name: 'Food', image: food }, 
         { name: 'Accessories', image: accessory },
         { name: 'Clothes', image: clothes },
-        { name: 'Decor', image: decor },
+        { name: 'Decor', image: decor }, 
         { name: 'Health', image: Health },
         { name: 'Book', image: book },
         { name: 'Stationary', image: stationary },

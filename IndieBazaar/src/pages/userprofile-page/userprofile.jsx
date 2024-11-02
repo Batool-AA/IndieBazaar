@@ -20,7 +20,7 @@ const UserProfile = () => {
                     <ProfileDetails />
                     <BusinessDetails />
                 </div>
-            </div>
+            </div> 
         </div>
     );
 };

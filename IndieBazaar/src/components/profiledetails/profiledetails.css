@@ -1,17 +1,18 @@
 .profile-details {
-    background-color: #ffffff;
+    background-color: var(--lightLavender);
     padding: 20px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--vibrantPurple);
     border-radius: 8px;
+    box-shadow: var(--vibrantPurple);
 }
 
 .profile-details__heading {
-    color: #6c757d;
+    color: var(--deepPurple);
     margin-top: 15px;
 }
 
-.profile-details__edit-button {
-    background-color: #007bff;
+.profile-details__edit-button { 
+    background-color: var(--deepPurple);
     color: #fff;
     padding: 8px 12px;
     border-radius: 5px;

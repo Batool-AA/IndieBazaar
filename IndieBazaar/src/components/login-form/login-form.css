@@ -1,17 +1,17 @@
   .login-form-component {
     flex: 1;
-    border: 2px solid var(--coral-pink);
+    border: 2px solid var(--vibrantPurple);
     border-radius: 20px;
-    background-color: var(--vanilla);
-    box-shadow: 0 4px 8px var(--coral-pink);
+    background-color: var(--vibrantPurple);
+    box-shadow: 0 4px 8px var(--vibrantPurple);
     padding: 25px;
     padding-top: 0;
-    color: var(--coral-pink);
+    color: var(--peach);
   }
-
+ 
   .login-form-component h2 {
     text-align: center;
-    color: var(--coral-pink);
+    color: var(--peach);
   }
   
   .login-component-options {
@@ -26,11 +26,11 @@
   }
 
   .login-form-component a {
-    color: var(--coral-pink);
+    color: var(--peach);
   }
 
   .login-form-component a:hover {
-    color: var(--apricot);
+    color: var(--softPink);
   }
   
   .login-component-back-to-home {

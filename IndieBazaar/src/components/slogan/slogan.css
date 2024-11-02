@@ -1,8 +1,8 @@
 .slogan-section {
     flex: 1;
-    background-color: var(--tea-green);
+    background-color: var(--softPink);
     border-radius: 20px;
-    color: var(--coral-pink);
+    color: var(--vibrantPurple);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,7 +11,7 @@
   }
   
   .slogan-text {
-    font-size: 2.4rem;
+    font-size: 2.4rem; 
     margin-bottom: 45px;
 
   }

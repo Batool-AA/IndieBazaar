@@ -11,7 +11,7 @@ const Login = () => {
             <div className="login-page-form-container">
                 <h1>IndieBazaar</h1>
                 <LoginForm />
-            </div>
+            </div> 
         </div>
     )
 }

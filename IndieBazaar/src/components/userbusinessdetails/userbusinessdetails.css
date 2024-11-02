@@ -1,18 +1,18 @@
 .business-details {
-    background-color: #ffffff;
+    background-color: var(--lightLavender);
     padding: 20px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--vibrantPurple);
     border-radius: 8px;
 }
 
 .business-details__heading {
-    color: #343a40;
+    color: var(--deepPurple);
     margin-bottom: 15px;
 }
 
 .business-details__item {
     margin-bottom: 10px;
-    color: #6c757d;
+    color: var(--deepPurple);
 }
 
 .business-details__item a {

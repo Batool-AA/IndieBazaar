@@ -8,7 +8,7 @@
     padding: 20px;
     align-items: center;
     height: 100vh;
-    background-color: var(--vanilla);
+    background-color: var(--pastelLavender);
   }
 
   .login-page-slogan-container {
@@ -20,7 +20,7 @@
   }
 
   .login-page-form-container h1 {
-    color: var(--coral-pink);
+    color: var(--deepPurple);
     text-align: center;
   }
   

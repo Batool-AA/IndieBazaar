@@ -20,16 +20,17 @@
 .email-form button {
     padding: 10px 20px;
     font-size: 1rem;
-    border: 1px solid var(--coral-pink);
-    background-color: var(--vanilla);
-    box-shadow: 0 4px 8px var(--coral-pink);
-    color: var(--red);
+    border: 1px solid var(--vibrantPurple);
+    background-color: var(--vibrantPurple);
+    box-shadow: 0 4px 8px var(--vibrantPurple);
+    color: var(--peach);
     cursor: pointer;
     margin-left: 10px;
 }
 
 .email-form button:hover {
-    background-color: var(--apricot);
+    background-color: var(--peach);
+    color: var(--vibrantPurple)
 }
 
 .links-container {
@@ -39,9 +40,9 @@
 .links-container a {
     margin: 0 10px;
     text-decoration: none;
-    color: var(--coral-pink);
+    color: var(--vibrantPurple);
 }
 
 .links-container a:hover {
-    color: var(--apricot);
+    color: var(--peach);
 }

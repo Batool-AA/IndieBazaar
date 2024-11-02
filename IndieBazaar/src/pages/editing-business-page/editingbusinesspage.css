@@ -1,5 +1,5 @@
 .editing-businesses-container {
-    background-color: var(--vanilla);
+    background-image: linear-gradient(to bottom, var(--softPink), var(--lightLavender));
     padding: 20px;
     width:100vw;
 }

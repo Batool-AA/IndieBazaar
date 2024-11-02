@@ -42,11 +42,11 @@
     border: none;
     width: 100%;
     background-color: var(--vanilla);
-    border-bottom: 1px solid var(--apricot);
+    border-bottom: 1px solid var(--peach);
   }
 
   .input-group input:focus{
     border: none;
     outline: none;
-    border-bottom: 1px solid var(--apricot);
+    border-bottom: 1px solid var(--peach);
   }

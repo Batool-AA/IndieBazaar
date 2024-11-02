@@ -1,26 +1,43 @@
 .categories-bar {
-    /* width: 99%; */
-    display: flex;
-    margin: auto;
-    justify-content: left;
-    padding: 10px;
-    /* background-color: #d9e8e7;  */
-  }
-  
-  .category-button {
-    background-color: #800080; /* Purple background */
-    color: #fff;
-    border: none;
-    border-radius: 20px; /* Rounded buttons */
-    padding: 10px 20px;
-    margin: 0 10px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .category-button:hover {
-    background-color: #d9b3f7; /* Lighter purple on hover */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add some shadow on hover */
-  }
-  
+  display: flex;
+  justify-content: center; /* Center the bar */
+  align-items: center;
+  padding: 15px;
+  gap: 10px;
+  max-width: 100%;
+  margin: 0 auto; /* Center horizontally */
+  overflow-x: auto; /* Allows scrolling on smaller screens */
+  scrollbar-width: thin;
+}
+
+.category-button {
+  background-color: var(--deepPurple); /* Purple background */
+  color: #fff;
+  border: none;
+  border-radius: 20px; /* Rounded buttons */
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600; /* Bold text for better readability */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  white-space: nowrap; /* Prevents text from wrapping */
+}
+
+.category-button:hover {
+  background-color: #d9b3f7; /* Lighter purple on hover */
+  color: var(--deepPurple); /* Darker text on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.category-button:focus {
+  outline: none;
+  border: 2px solid #d9b3f7; /* Visible border on focus */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow for focus as well */
+}
+
+.category-button.active {
+  background-color: #d9b3f7; /* Highlight active category */
+  color: var(--deepPurple); /* Text color change for active */
+  font-weight: 700; /* Bold text on active */
+}

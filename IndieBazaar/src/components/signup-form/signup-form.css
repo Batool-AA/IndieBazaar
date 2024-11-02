@@ -1,12 +1,12 @@
 .signup-form-component {
   flex: 1;
-  border: 2px solid var(--coral-pink);
+  border: 2px solid var(--vibrantPurple);
   border-radius: 20px;
-  background-color: var(--vanilla);
-  box-shadow: 0 4px 8px var(--coral-pink);
+  background-color: var(--vibrantPurple);
+  box-shadow: 0 4px 8px var(--vibrantPurple);
   padding: 25px;
   padding-top: 0;
-  color: var(--coral-pink);
+  color: var(--peach);
 }
 
 .signup-form-component h2 {
@@ -48,6 +48,22 @@
   color: #666;
 }
 
+.signup-form-component .signup-input-group input[type="text"] {
+  border: none;
+  width: 100%;
+  background-color: var(--vanilla);
+  border-bottom: 1px solid var(--peach);
+  padding: 10px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none; /* Ensures no shadow */
+  border-radius: 0; /* Removes any default rounding */
+}
 
+.signup-input-group label {
+  display: block;
+  margin-bottom: 0px; /* Adjusts space between label and input */
+  font-weight: bold; /* Optional: make the label bold */
+}
 
 

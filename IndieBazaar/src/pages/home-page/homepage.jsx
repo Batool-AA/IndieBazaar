@@ -10,15 +10,16 @@ const HomePage = () => {
       <div className="homepage-container">
         <div className="top-section">
           <HomeNavbar />
-          <BusinessBanner title={"IndieBazaar"} slogan={"Connecting Local Sellers, Empowering Buyers"} path={"about-us"} businessId={""}/>
+          
         </div>  
+        <BusinessBanner title={"IndieBazaar"} slogan={"Connecting Local Sellers, Empowering Buyers"} path={"about-us"} businessId={""}/>
         <div id="about-us">
           <AboutUs /> 
         </div>
         <div id="contact">
           <ContactUs/>
         </div>
-      </div>
+      </div> 
     );
   };
   

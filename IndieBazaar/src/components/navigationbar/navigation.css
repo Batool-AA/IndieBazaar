@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--vanilla);
+    background-color: var(--softPink);
     padding: 10px 20px;
 }
 
@@ -14,18 +14,18 @@
 
 .pages-navbar-title {
     font-size: 24px;
-    color: var(--atomic-tangerine); 
+    color: var(--deepPurple); 
     text-decoration: solid;
 }
 
 .pages-navbar-icons .icon {
     font-size: 20px; 
-    color: var(--atomic-tangerine); 
+    color: var(--deepPurple); 
     cursor: pointer; 
 }
 
 .pages-navbar-icons .icon:hover {
-    color: var(--apricot); 
+    color: var(--vibrantPurple); 
 }
 
 .pages-navbar-title

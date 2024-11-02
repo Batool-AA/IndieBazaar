@@ -8,7 +8,7 @@
 .big-text {
   font-family: 'Arial Black', sans-serif;
   font-size: 150px;
-  color: var(--coral-pink);
+  color: var(--vibrantPurple); /* theme.colors.coral */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,11 +44,11 @@
 
 .about-info-box {
   position: absolute;
-  border: 1px solid var(--apricot);
+  border: 1px solid var(--peach); /* theme.colors.brightYellow */
   padding: 20px;
   z-index: 2;
-  box-shadow: 0 4px 8px var(--apricot); 
-  color: var(--red);
+  box-shadow: 0 4px 8px var(--peach); /* theme.colors.brightYellow */
+  color: var(--darkGray); /* theme.colors.darkGray */
 }
 
 .about-info-box p {
@@ -96,14 +96,14 @@
   font-size: 1.1rem;
   border: none;
   border-radius: 5px;
-  background-color: var(--coral-pink);
-  color: white;
+  background-color: var(--softPink); /* theme.colors.coral */
+  color: var(--deepPurple); /* theme.colors.buttonWhite */
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .about-setup-button:hover, .about-explore-button:hover {
-  background-color: var(--apricot);
+  background-color: var(--peach); /* theme.colors.brightYellow */
   transform: scale(1.05);
 }

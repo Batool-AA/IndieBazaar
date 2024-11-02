@@ -62,9 +62,9 @@ const SignupForm = () => {
       <form onSubmit={handleSubmit}>
         <h2>Sign Up</h2>
 
-        <div className="input-group">
+        <div className="signup-input-group">
           <label>Name</label>
-          <input
+          <input 
             type="text"
             name="username"
             value={formData.username}

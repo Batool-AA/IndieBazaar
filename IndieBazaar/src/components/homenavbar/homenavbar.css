@@ -1,36 +1,33 @@
-@import "../../variables.css";
-
 .navbar {
-    display: flex;
-    padding: 20px;
-    background-color: var(--vanilla);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    width: 100%;
-    z-index: 10; 
-  } 
-  
-  .nav-left, .nav-right {
-    display: flex;
-    gap: 20px;
-  }
+  display: flex;
+  padding: 20px;
+  /* background-color: var(--softPink); theme.colors.pastelLavender */
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  width: 100%;
+  z-index: 10;
+}
 
-  .nav-left {
-    margin-right: auto;
-    margin-left: 20px;
-  }
+.nav-left, .nav-right {
+  display: flex;
+  gap: 20px;
+}
 
-  .nav-right {
-    margin-left: auto;
-    margin-right: 20px;
-  }
-  
-  
-  .nav-left span, .nav-right span {
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-  
-  .nav-left span:hover, .nav-right span:hover {
-    color: lightgray;
-  }
-  
+.nav-left {
+  margin-right: auto;
+  margin-left: 20px;
+}
+
+.nav-right {
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.nav-left span, .nav-right span {
+  cursor: pointer;
+  transition: color 0.3s ease;
+  color: var(--vibrantPurple); /* theme.colors.darkGray */
+}
+
+.nav-left span:hover, .nav-right span:hover {
+  color: var(--peach); /* theme.colors.coral */
+}

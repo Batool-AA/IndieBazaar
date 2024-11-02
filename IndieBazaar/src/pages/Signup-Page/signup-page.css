@@ -6,7 +6,7 @@
     padding: 20px;
     align-items: center;
     height: 100vh;
-    background-color: var(--vanilla);
+    background-color: var(--pastelLavender); 
   }
 
   .signup-page-slogan-container {

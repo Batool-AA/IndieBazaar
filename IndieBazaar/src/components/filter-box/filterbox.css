@@ -3,11 +3,11 @@
     margin-left: 20px;
     margin-top: 20px;
     padding: 10px;
-    background-color: var(--tea-green);
+    background-color: var(--peach);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
-    color: var(--coral-pink);
+    color: var(--deepPurple);
     max-height: 400px;
 }
 

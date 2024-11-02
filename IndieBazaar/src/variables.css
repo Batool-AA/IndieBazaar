@@ -1,21 +1,20 @@
 :root {
-    --atomic-tangerine: #FFAC81;
-    --coral-pink: #FF928B;
-    --apricot: #FEC3A6;
-    --vanilla: #EFE9AE;
-    --tea-green: #CDEAC0;
-    --red: #ea4f46;
-  }
-
-
-  /* --atomic-tangerine: #F6C0D0;  
-  --coral-pink: #A0CFD3;   
-  --apricot: #B4EDD2;      
-  --vanilla: #6D466B;        
-  --tea-green: #412234;       */
+  --pastelLavender: #E6E1FF;   /* Light Lavender this one*/
+  --vibrantPurple: #a85bea;    /* Vibrant Purple this one */
+  --coral: #FF6B6B;            /* Coral */
+  --darkGray: #333333;         /* Dark Gray */
+  --deepPurple: #5A189A;       /* Deep Purple this one*/
+  --lightLavender: #E6E1FF;    /* Light Lavender (duplicate of the first color) */
+  --buttonWhite: #FFFFFF;      /* White */
+  --brightYellow: #FFD700;      /* Bright Yellow */
   
-  /* --atomic-tangerine: #FFAC81;
-    --coral-pink: #FF928B;
-    --apricot: #FEC3A6;
-    --vanilla: #EFE9AE;
-    --tea-green: #CDEAC0; */
+  /* Additional Colors */
+  --softPink: #FFB3D9;        /* Soft Pink this one*/ 
+  --mintGreen: #B2E3D8;       /* Mint Green */
+  --skyBlue: #87CEEB;         /* Sky Blue */
+  --lightGray: #D3D3D3;       /* Light Gray */
+  --charcoal: #444444;        /* Charcoal Gray */
+  --goldenrod: #DAA520;       /* Goldenrod Yellow */
+  --teal: #008080;            /* Teal */
+  --peach: #FFDAB9;           /* Peach this one*/
+}

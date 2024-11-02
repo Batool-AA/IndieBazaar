@@ -1,33 +1,31 @@
-@import "../../variables.css";
-
 .homepage-container {
-    position: relative;
-    overflow: hidden;
-    width: 100vw;
-    /* height: 100vh; */
-  }
-  
-  .top-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--vanilla); 
-    color: var(--coral-pink);
-    width: 100%;
-  }
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  /* height: 100vh; */
+}
 
-  .homepage-container #about-us {
-    height: 600px; 
-    width: 100%;
-    background-color: var(--tea-green);
-    padding: 30px;
-    text-align: center;
-  }
-  
-  .homepage-container #contact {
-    background-color: var(--vanilla); 
-    padding: 10px; 
-    color: var(--coral-pink);
-  }
-  
+.top-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--softPink); /* Light Gray */
+  color: var(--vibrantPurple); /* Accent Orange */
+  width: 100%;
+}
+
+.homepage-container #about-us {
+  height: 600px; 
+  width: 100%;
+  background-color: var(--pastelLavender); /* Primary Blue */
+  padding: 30px;
+  text-align: center;
+  color: var(--buttonWhite); /* White text on blue background */
+}
+
+.homepage-container #contact {
+  background-color: var(--softPink); /* Light Gray */
+  padding: 10px;
+  color: var(--vibrantPurple); /* Accent Orange */
+}
