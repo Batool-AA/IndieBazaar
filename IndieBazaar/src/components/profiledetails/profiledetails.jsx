@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './profiledetails.css';
 import { useUser } from '../../firebase/usercontext';
-import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, query, where, getDocs, doc, updateDoc } from 'firebase/firestore';
 import { getAuth, signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,13 +11,13 @@ const ProfileDetails = () => {
     const auth = getAuth();
     const navigate = useNavigate();
     const [isEditing, setIsEditing] = useState(false);
-    const [isPasswordVisible, setIsPasswordVisible] = useState(false); // New state for password visibility
     const [formData, setFormData] = useState({
         email: '',
         password: '',
         username: '',
         usertype: '',
     });
+    const [userId, setUserId] = useState(null); // To store the user document ID
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -28,7 +28,9 @@ const ProfileDetails = () => {
                 try {
                     const querySnapshot = await getDocs(q);
                     if (!querySnapshot.empty) {
-                        const userData = querySnapshot.docs[0].data();
+                        const userDoc = querySnapshot.docs[0];
+                        setUserId(userDoc.id); // Store the document ID for updates
+                        const userData = userDoc.data();
                         setFormData({
                             email: userData.email || '',
                             password: userData.password || '',
@@ -52,8 +54,19 @@ const ProfileDetails = () => {
     };
 
     const handleSaveClick = async () => {
-        setIsEditing(false);
-        console.log("Profile Details Saved:", formData);
+        if (userId) {
+            const userDocRef = doc(db, 'users', userId);
+            try {
+                await updateDoc(userDocRef, {
+                    username: formData.username,
+                    password: formData.password,
+                });
+                console.log("Profile Details Updated:", formData);
+                setIsEditing(false); // Exit editing mode after saving
+            } catch (error) {
+                console.error("Error updating user data:", error);
+            }
+        }
     };
 
     const handleChange = (e) => {
@@ -71,7 +84,6 @@ const ProfileDetails = () => {
         }
     };
 
- 
     return (
         <div className="profile-details">
             {isEditing ? (
@@ -81,22 +93,17 @@ const ProfileDetails = () => {
                         type="email"
                         name="email"
                         value={formData.email}
-                        onChange={handleChange}
-                        placeholder="Email"
                         readOnly
+                        placeholder="Email"
                     />
                     <h3 className="profile-details__heading">Password</h3>
-                    <div className="password-container">
-                        <input
-                            type="text"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleChange}
-                            placeholder="Password"
-                        />
-
-                        
-                    </div>
+                    <input
+                        type="text"
+                        name="password"
+                        value={formData.password}
+                        onChange={handleChange}
+                        placeholder="Password"
+                    />
                     <h3 className="profile-details__heading">Username</h3>
                     <input
                         type="text"
@@ -110,9 +117,8 @@ const ProfileDetails = () => {
                         type="text"
                         name="usertype"
                         value={formData.usertype}
-                        onChange={handleChange}
-                        placeholder="User Type"
                         readOnly
+                        placeholder="User Type"
                     />
                     <div className="profile-details__button-container">
                         <button className="profile-details__edit-button" onClick={handleSaveClick}>Save</button>

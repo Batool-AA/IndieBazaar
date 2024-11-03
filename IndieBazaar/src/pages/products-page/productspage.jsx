@@ -11,7 +11,7 @@ const ProductsPage = () => {
   const location = useLocation();
   const { businessId } = location.state; // Get businessId from state
 
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState(''); // Default selected category
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [businessName, setBusinessName] = useState(''); // State for business name
@@ -28,9 +28,9 @@ const ProductsPage = () => {
           setProducts(items);
           setBusinessName(data.name || 'Business Name'); // Set business name from data
 
-          // Extract unique categories from items
-          const uniqueCategories = new Set(items.flatMap(item => item.category));
-          setCategories(['All', ...Array.from(uniqueCategories)]); // Add 'All' category
+          // Extract unique categories from items (excluding 'All')
+          const uniqueCategories = new Set(items.map(item => item.category));
+          setCategories([...Array.from(uniqueCategories)]); // Only unique categories
         } else {
           console.log("No such document!");
         }
@@ -43,7 +43,7 @@ const ProductsPage = () => {
   }, [businessId]); // Depend on businessId
 
   const categoryProducts = categories.reduce((acc, category) => {
-    acc[category] = products.filter(product => product.category.includes(category));
+    acc[category] = products.filter(product => product.category === category);
     return acc;
   }, {});
 
@@ -54,10 +54,6 @@ const ProductsPage = () => {
       section.scrollIntoView({ behavior: 'smooth' }); 
     }
   };
-
-  const filteredProducts = selectedCategory === 'All' 
-    ? products 
-    : categoryProducts[selectedCategory];
 
   return ( 
     <div className="products-page">

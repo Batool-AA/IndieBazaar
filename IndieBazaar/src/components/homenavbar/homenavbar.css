@@ -1,10 +1,10 @@
 .navbar {
   display: flex;
   padding: 20px;
-  /* background-color: var(--softPink); theme.colors.pastelLavender */
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   width: 100%;
   z-index: 10;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
 .nav-left, .nav-right {
@@ -30,4 +30,34 @@
 
 .nav-left span:hover, .nav-right span:hover {
   color: var(--peach); /* theme.colors.coral */
+}
+
+/* Media queries for responsive adjustments */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column; /* Stack items vertically on small screens */
+    padding: 10px; /* Reduce padding */
+  }
+
+  .nav-left, .nav-right {
+    gap: 10px; /* Reduce gap between items */
+  }
+
+  .nav-left {
+    margin-left: 10px; /* Adjust margin for smaller screens */
+  }
+
+  .nav-right {
+    margin-right: 10px; /* Adjust margin for smaller screens */
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .navbar {
+    padding: 15px; /* Slightly increase padding for medium screens */
+  }
+
+  .nav-left, .nav-right {
+    gap: 15px; /* Adjust gap for medium screens */
+  }
 }

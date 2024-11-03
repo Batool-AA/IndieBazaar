@@ -11,44 +11,43 @@ const EditingBusinesses = () => {
     const location = useLocation();
     const { businessId } = location.state;
 
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState([]); // Holds items for UI
     const [businessName, setBusinessName] = useState('');
 
-    const fetchBusinessData = async () => {
-        try {
-            const docRef = doc(db, "businesses", businessId);
-            const docSnap = await getDoc(docRef);
-            
-            if (docSnap.exists()) {
-                const data = docSnap.data();
-                const items = data.items || [];
-                setItems(items);
-                setBusinessName(data.name || 'Business Name');
-            } else {
-                console.log("No such document!");
-            }
-        } catch (error) {
-            console.error("Error fetching business data:", error);
-        }
-    };
-
+    // Fetch initial business data
     useEffect(() => {
+        const fetchBusinessData = async () => {
+            try {
+                const docRef = doc(db, "businesses", businessId);
+                const docSnap = await getDoc(docRef);
+                
+                if (docSnap.exists()) {
+                    const data = docSnap.data();
+                    setItems(data.items || []); // Set initial items
+                    setBusinessName(data.name || 'Business Name');
+                } else {
+                    console.log("No such document!");
+                }
+            } catch (error) {
+                console.error("Error fetching business data:", error);
+            }
+        };
+
         fetchBusinessData();
     }, [businessId]);
 
+    // Handle item deletion
     const handleDeleteItem = async (id) => {
         try {
+            // Create updated list of items after deletion
+            const updatedItems = items.filter(item => item.id !== id);
+            
+            // Update Firestore document
             const docRef = doc(db, "businesses", businessId);
-            const docSnap = await getDoc(docRef);
+            await updateDoc(docRef, { items: updatedItems });
 
-            if (docSnap.exists()) {
-                const data = docSnap.data();
-                const updatedItems = data.items.filter(item => item.id !== id);
-                
-                await updateDoc(docRef, { items: updatedItems });
-                
-                setItems(updatedItems);
-            }
+            // Directly update local items state for immediate UI update
+            setItems(updatedItems);
         } catch (error) {
             console.error("Error deleting item:", error);
         }

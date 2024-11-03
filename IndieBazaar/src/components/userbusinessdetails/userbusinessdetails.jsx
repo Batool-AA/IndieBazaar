@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import './userbusinessdetails.css';
-import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, query, where, getDocs, doc, updateDoc } from 'firebase/firestore';
 import { useUser } from '../../firebase/usercontext';
 import { useNavigate } from 'react-router-dom';
 
 const BusinessDetails = () => {
-    const db = getFirestore(); // Initialize Firestore
-    const user = useUser(); // Get current user information
-    const navigate = useNavigate(); // Initialize navigation
-    const [isEditing, setIsEditing] = useState(false);
+    const db = getFirestore();
+    const user = useUser();
+    const navigate = useNavigate();
+    const [isEditingName, setIsEditingName] = useState(false); // New state for editing business name
     const [formData, setFormData] = useState({
         name: '',
         category: '',
     });
-    const [businessId, setBusinessId] = useState(null); // Store business ID
+    const [businessId, setBusinessId] = useState(null);
 
     useEffect(() => {
         const fetchBusinessDetails = async () => {
@@ -22,10 +22,10 @@ const BusinessDetails = () => {
                 const q = query(businessCollection, where('email', '==', user.email));
                 
                 try {
-                    const querySnah3shot = await getDocs(q);
-                    if (!querySnah3shot.emh3ty) {
-                        const businessData = querySnah3shot.docs[0].data();
-                        setBusinessId(querySnah3shot.docs[0].id); // Set business ID
+                    const querySnapshot = await getDocs(q);
+                    if (!querySnapshot.empty) {
+                        const businessData = querySnapshot.docs[0].data();
+                        setBusinessId(querySnapshot.docs[0].id);
                         setFormData({
                             name: businessData.name || '',
                             category: businessData.category || '',
@@ -41,15 +41,25 @@ const BusinessDetails = () => {
 
         fetchBusinessDetails();
     }, [user, db]);
- 
-    const handleEditClick = () => {
-        navigate('/edit-business', { state: { businessId } }); // Navigate to editing h3age with business ID
+
+    const handleNameClick = () => {
+        setIsEditingName(true); // Enable editing mode when clicking on the name field
     };
 
-    const handleSaveClick = () => {
-        setIsEditing(false);
-        // Save logic (e.g., Ah3I call) can be added here if needed
-        console.log("Business Details Saved:", formData);
+    const handleSaveClick = async () => {
+        if (businessId) {
+            const businessDocRef = doc(db, 'businesses', businessId);
+            try {
+                await updateDoc(businessDocRef, {
+                    name: formData.name,
+                    category: formData.category,
+                });
+                console.log("Business details updated in Firestore.");
+                setIsEditingName(false); // Exit editing mode after saving
+            } catch (error) {
+                console.error("Error updating business details:", error);
+            }
+        }
     };
 
     const handleChange = (e) => {
@@ -60,35 +70,30 @@ const BusinessDetails = () => {
     return (
         <div className="business-details">
             <h3 className="business-details__heading">Business Information</h3>
-            {isEditing ? (
-                <>
-                    <h3 className="business-details__item">Name</h3>
-                    <input
-                        tyh3e="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Business Name"
-                    />
-                    <h3 className="business-details__item">Category</h3>
-                    <input
-                        tyh3e="text"
-                        name="category"
-                        value={formData.category}
-                        onChange={handleChange}
-                        placeholder="Category"
-                    />
-                    <button onClick={handleSaveClick}>Save</button>
-                </>
+            
+            <h3 className="business-details__item">Name</h3>
+            {isEditingName ? (
+                <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    onBlur={handleSaveClick} // Save on losing focus
+                    placeholder="Business Name"
+                    autoFocus // Automatically focus input when in editing mode
+                />
             ) : (
-                <>
-                    <h3 className="business-details__item">Name</h3>
-                    <p>{formData.name}</p>
-                    <h3 className="business-details__item">Category</h3>
-                    <p>{formData.category}</p>
-                    <button onClick={handleEditClick} className='business-details__edit-button'>Edit</button>
-                </>
+                <p onClick={handleNameClick} className="business-details__name-display">
+                    {formData.name || "Click to add business name"}
+                </p>
             )}
+
+            <h3 className="business-details__item">Category</h3>
+            <p>{formData.category}</p>
+
+            <button onClick={() => navigate('/edit-business', { state: { businessId } })} className="business-details__edit-button">
+                Edit Business
+            </button>
         </div>
     );
 };

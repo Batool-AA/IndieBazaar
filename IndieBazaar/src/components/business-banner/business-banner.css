@@ -1,21 +1,51 @@
 .business-banner-container {
-    background-image:  linear-gradient(to bottom, var(--softPink), var(--lightLavender));
-    color: var(--deepPurplez); /* Accent Orange */
-    text-align: center;
-    position: relative;
-    padding: 20px 20px;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+  background-image: linear-gradient(to bottom, var(--softPink), var(--lightLavender));
+  color: var(--deepPurple); /* Fixed variable name */
+  text-align: center;
+  position: relative;
+  padding: 20px;
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally */
+  justify-content: center; /* Center children vertically */
+  overflow: hidden;
+}
+
+.business-banner-container h1 {
+  color: var(--vibrantPurple);
+  font-size: 2.5rem; /* Base font size */
+  margin: 10px 0; /* Margin for spacing */
+}
+
+.business-banner-container p {
+  color: var(--vibrantPurple);
+  font-size: 1.2rem; /* Base font size */
+  margin: 10px 0; /* Margin for spacing */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .business-banner-container h1 {
+      font-size: 2rem; /* Reduce size on smaller screens */
   }
 
-  .business-banner-container h1{
-    color: var(--vibrantPurple);
+  .business-banner-container p {
+      font-size: 1rem; /* Reduce size on smaller screens */
+      padding: 0 10px; /* Add some padding for smaller devices */
   }
 
-  .business-banner-container p{
-    color: var(--vibrantPurple);
+  /* Padding adjustments for smaller screens */
+  .business-banner-container {
+      padding: 15px; /* Slightly reduce padding */
+  }
+}
+
+@media (max-width: 480px) {
+  .business-banner-container h1 {
+      font-size: 1.5rem; /* Further reduce size on very small screens */
   }
 
-
-  
+  .business-banner-container p {
+      font-size: 0.9rem; /* Further reduce size on very small screens */
+  }
+}

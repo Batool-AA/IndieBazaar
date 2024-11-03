@@ -3,52 +3,56 @@
 .about-us-container {
   position: relative;
   margin: auto; 
+  padding: 20px; /* Add padding for better spacing */
 }
 
 .big-text {
   font-family: 'Arial Black', sans-serif;
-  font-size: 150px;
-  color: var(--vibrantPurple); /* theme.colors.coral */
+  font-size: 10vw; /* Use viewport width for responsiveness */
+  color: var(--vibrantPurple);
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.word-1 {
+.word-1, .word-2, .word-3 {
   position: absolute;
-  left: 250px;
+}
+
+.word-1 {
+  left: 10%; /* Adjust to percentage for responsiveness */
   top: -30px;
 }
 
 .word-2 {
-  position: absolute;
-  right: 150px;
+  right: 10%; /* Adjust to percentage for responsiveness */
   top: 150px;
 }
 
 .word-3 {
-  position: absolute;
-  left: 150px;
+  left: 15%; /* Adjust to percentage for responsiveness */
   top: 280px;
 }
 
 .indiebazaar-logo {
-  width: 370px;
+  width: 40%; /* Use percentage to make it responsive */
   height: auto;
   z-index: 1;
   position: absolute;
   top: 60px;
-  left: 570px;
+  left: 50%; /* Center the logo */
+  transform: translateX(-50%); /* Center adjustment */
 }
 
 .about-info-box {
   position: absolute;
-  border: 1px solid var(--peach); /* theme.colors.brightYellow */
+  border: 1px solid var(--peach);
   padding: 20px;
   z-index: 2;
-  box-shadow: 0 4px 8px var(--peach); /* theme.colors.brightYellow */
-  color: var(--darkGray); /* theme.colors.darkGray */
+  box-shadow: 0 4px 8px var(--peach);
+  color: var(--darkGray);
+  width: 20%; /* Use percentage for responsiveness */
 }
 
 .about-info-box p {
@@ -58,33 +62,30 @@
 }
 
 .about-info-box-1 {
-  left: 230px;
+  left: 10%;
   top: 130px;
-  width: 17%;
 }
 
 .about-info-box-2 {
-  left: 300px;
+  left: 20%;
   top: 250px;
-  width: 17%;
 }
 
 .about-info-box-3 {
   top: 70px;
-  right: 320px;
-  width: 17%;
+  right: 20%;
 }
 
 .about-info-box-4 {
   top: 350px;
-  right: 400px;
-  width: 17%;
+  right: 20%;
 }
 
 .about-button-container {
   position: absolute;
   top: 500px;
-  left: 500px;
+  left: 50%; /* Center the button container */
+  transform: translateX(-50%); /* Center adjustment */
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -93,17 +94,49 @@
 
 .about-setup-button, .about-explore-button {
   padding: 12px 24px;
-  font-size: 1.1rem;
+  font-size: 1rem; /* Use rem for better scalability */
   border: none;
   border-radius: 5px;
-  background-color: var(--softPink); /* theme.colors.coral */
-  color: var(--deepPurple); /* theme.colors.buttonWhite */
+  background-color: var(--softPink);
+  color: var(--deepPurple);
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .about-setup-button:hover, .about-explore-button:hover {
-  background-color: var(--peach); /* theme.colors.brightYellow */
+  background-color: var(--peach);
   transform: scale(1.05);
+}
+
+/* Media queries for responsive adjustments */
+@media (max-width: 768px) {
+  .big-text {
+    font-size: 8vw; /* Smaller font size for mobile */
+  }
+
+  .word-1, .word-2, .word-3 {
+    position: relative; /* Change to relative for stacking on small screens */
+    left: auto; /* Reset left/right positioning */
+    right: auto;
+  }
+
+  .word-2 {
+    top: 20px; /* Adjust position for small screens */
+  }
+
+  .indiebazaar-logo {
+    width: 60%; /* Increase logo size for smaller screens */
+  }
+
+  .about-info-box {
+    width: 80%; /* Increase width for small screens */
+    top: auto; /* Remove absolute positioning for stacking */
+    margin: 10px auto; /* Center the box */
+  }
+
+  .about-button-container {
+    top: auto; /* Remove absolute positioning */
+    margin-top: 20px; /* Add margin for spacing */
+  }
 }
