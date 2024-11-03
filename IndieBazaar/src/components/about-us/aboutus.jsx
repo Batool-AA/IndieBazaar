@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './aboutus.css';
-import logo from  '../../assets/logo-indiebazaar.png';
+import logo from  '../../assets/logo2.png';
 
 
 const AboutUs = () => {

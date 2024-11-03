@@ -30,15 +30,15 @@
 
 /* Styling for each item card */
 .item-card {
-  background-color: #e6dcb5;
+  background-color: var(--lightLavender);
   position: relative;
-  border: 1px solid #9b513b;
+  border: 1px solid var(--peach);
   border-radius: 5px;
   padding: 10px;
-  width: calc(33.33% - 20px); /* Adjust width to fit three items per row with gap */
+  width: calc(50% - 20px); /* Adjust width to fit three items per row with gap */
   box-sizing: border-box;
   text-align: left;
-  color: #333;
+  color: var(--deepPurple);
 }
 
 

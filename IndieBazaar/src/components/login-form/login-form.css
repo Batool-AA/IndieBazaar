@@ -2,16 +2,16 @@
     flex: 1;
     border: 2px solid var(--vibrantPurple);
     border-radius: 20px;
-    background-color: var(--vibrantPurple);
+    background-color: var(--lightLavender);
     box-shadow: 0 4px 8px var(--vibrantPurple);
     padding: 25px;
     padding-top: 0;
-    color: var(--peach);
+    color: var(--deepPurple);
   }
  
   .login-form-component h2 {
     text-align: center;
-    color: var(--peach);
+    color: var(--deepPurple);
   }
   
   .login-component-options {
@@ -26,11 +26,11 @@
   }
 
   .login-form-component a {
-    color: var(--peach);
+    color: var(--deepPurple);
   }
 
   .login-form-component a:hover {
-    color: var(--softPink);
+    color: var(--vibrantPurple);
   }
   
   .login-component-back-to-home {

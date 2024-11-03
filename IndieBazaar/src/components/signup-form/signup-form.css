@@ -2,15 +2,16 @@
   flex: 1;
   border: 2px solid var(--vibrantPurple);
   border-radius: 20px;
-  background-color: var(--vibrantPurple);
+  background-color: var(--lightLavender);
   box-shadow: 0 4px 8px var(--vibrantPurple);
   padding: 25px;
   padding-top: 0;
-  color: var(--peach);
+  color: var(--deepPurple);
 }
 
 .signup-form-component h2 {
   text-align: center;
+  color: var(--deepPurple);
 }
 
 .signup-component-options {
@@ -25,11 +26,11 @@
 }
 
 .signup-form-component a {
-  color: var(--coral-pink);
+  color: var(--deepPurple);
 }
 
 .signup-form-component a:hover {
-  color: var(--apricot);
+  color: var(--vibrantPurple);
 }
 
 .signup-component-back-to-login {
@@ -51,9 +52,10 @@
 .signup-form-component .signup-input-group input[type="text"] {
   border: none;
   width: 100%;
-  background-color: var(--vanilla);
-  border-bottom: 1px solid var(--peach);
-  padding: 10px;
+  margin-bottom: 10px;
+  background-color: var(--lightLavender);
+  border-bottom: 1px solid var(--deepPurple);
+  /* padding: 10px; */
   font-size: 16px;
   outline: none;
   box-shadow: none; /* Ensures no shadow */

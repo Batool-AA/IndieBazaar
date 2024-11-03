@@ -37,7 +37,7 @@ const SetupBusiness = () => {
   };
 
   const handleDone = () => {
-    addDoc(businessdb, { name: businessName, description: businessDescription, category: businessCategories, items: businessitems, logo: businessLogo,email: user.email});
+    addDoc(businessdb, { name: businessName, description: businessDescription, category: businessCategories, items: businessitems, logo: businessLogo, email: user.email});
     navigate('/user-profile');
   }
 

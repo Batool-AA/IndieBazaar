@@ -1,8 +1,8 @@
 .slogan-section {
     flex: 1;
-    background-color: var(--softPink);
+    background-color: var(--vibrantPurple);
     border-radius: 20px;
-    color: var(--vibrantPurple);
+    color: var(--peach);
     display: flex;
     flex-direction: column;
     justify-content: center;

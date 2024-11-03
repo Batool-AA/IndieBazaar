@@ -4,10 +4,10 @@
   }
   
   .button-basic {
-      background-color: var(--vanilla); 
-      color: var(--red);
+      background-color: var(--vibrantPurple); 
+      color: var(--lightLavender);
       padding: 10px;
-      border: 1px solid var(--coral-pink);
+      border: 1px solid var(--deepPurple);
       border-radius: 10px;
       cursor: pointer;
       margin-top: 10px;
@@ -17,7 +17,7 @@
   }
   
   .button-basic:hover{
-    background-color: var(--apricot);
+    background-color: var(--deepPurple);
   }
   
   .error-message {
@@ -41,12 +41,12 @@
   .input-group input {
     border: none;
     width: 100%;
-    background-color: var(--vanilla);
-    border-bottom: 1px solid var(--peach);
+    background-color: var(--lightLavender);
+    border-bottom: 1px solid var(--deepPurple);
   }
 
   .input-group input:focus{
     border: none;
     outline: none;
-    border-bottom: 1px solid var(--peach);
+    border-bottom: 1px solid var(--deepPurple);
   }

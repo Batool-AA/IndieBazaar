@@ -90,7 +90,7 @@
   gap: 10px;
 }
 
-input[type="text"], textarea, input[type="number"] {
+.setup-business-container input[type="text"], textarea, input[type="number"] {
   margin-bottom: 10px;
   width: 100%;
   padding: 12px;
@@ -105,12 +105,12 @@ input[type="text"], textarea, input[type="number"] {
 }
 
 /* Placeholder text styling */
-input[type="text"]::placeholder, textarea::placeholder, input[type="number"]::placeholder {
+.setup-business-container input[type="text"]::placeholder, textarea::placeholder, input[type="number"]::placeholder {
   color: #aaa; /* Light color for placeholder */
   font-size: 0.9rem;
 }
 
-textarea{
+.setup-business-container textarea{
   resize: vertical;
   height: 60px;
 }

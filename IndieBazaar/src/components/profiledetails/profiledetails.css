@@ -42,19 +42,11 @@
     cursor: pointer;
 }
 
-.profile-details__edit-button {
+.profile-details__edit-button , .profile-details__logout-button{
     background-color: var(--deepPurple);
     color: #fff;
 }
 
-.profile-details__logout-button {
-    background-color: #d9534f;
-    color: white;
-}
-
-.profile-details__logout-button:hover {
-    background-color: #c9302c;
-}
 
 .password-container {
     position: relative;
