@@ -3,12 +3,11 @@
 .about-us-container {
   position: relative;
   margin: auto; 
-  padding: 20px; /* Add padding for better spacing */
 }
 
 .big-text {
   font-family: 'Arial Black', sans-serif;
-  font-size: 10vw; /* Use viewport width for responsiveness */
+  font-size: 150px; 
   color: var(--vibrantPurple);
   display: flex;
   justify-content: center;
@@ -21,28 +20,27 @@
 }
 
 .word-1 {
-  left: 10%; /* Adjust to percentage for responsiveness */
+  left: 250px; /* Adjust to percentage for responsiveness */
   top: -30px;
 }
 
 .word-2 {
-  right: 10%; /* Adjust to percentage for responsiveness */
+  right: 150px; /* Adjust to percentage for responsiveness */
   top: 150px;
 }
 
 .word-3 {
-  left: 15%; /* Adjust to percentage for responsiveness */
+  left: 150px; /* Adjust to percentage for responsiveness */
   top: 280px;
 }
 
 .indiebazaar-logo {
-  width: 40%; /* Use percentage to make it responsive */
+  width: 370px; /* Use percentage to make it responsive */
   height: auto;
   z-index: 1;
   position: absolute;
   top: 60px;
-  left: 50%; /* Center the logo */
-  transform: translateX(-50%); /* Center adjustment */
+  left: 570px; /* Center the logo */
 }
 
 .about-info-box {
@@ -52,7 +50,6 @@
   z-index: 2;
   box-shadow: 0 4px 8px var(--peach);
   color: var(--darkGray);
-  width: 20%; /* Use percentage for responsiveness */
 }
 
 .about-info-box p {
@@ -62,30 +59,33 @@
 }
 
 .about-info-box-1 {
-  left: 10%;
+  left: 230px;
   top: 130px;
+  width: 17%;
 }
 
 .about-info-box-2 {
-  left: 20%;
+  left: 300px;
   top: 250px;
+  width: 17%;
 }
 
 .about-info-box-3 {
   top: 70px;
-  right: 20%;
+  right: 320px;
+  width: 17%;
 }
 
 .about-info-box-4 {
   top: 350px;
-  right: 20%;
+  right: 400px;
+  width: 17%;
 }
 
 .about-button-container {
   position: absolute;
   top: 500px;
-  left: 50%; /* Center the button container */
-  transform: translateX(-50%); /* Center adjustment */
+  left: 500px; /* Center the button container */
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -109,34 +109,4 @@
   transform: scale(1.05);
 }
 
-/* Media queries for responsive adjustments */
-@media (max-width: 768px) {
-  .big-text {
-    font-size: 8vw; /* Smaller font size for mobile */
-  }
 
-  .word-1, .word-2, .word-3 {
-    position: relative; /* Change to relative for stacking on small screens */
-    left: auto; /* Reset left/right positioning */
-    right: auto;
-  }
-
-  .word-2 {
-    top: 20px; /* Adjust position for small screens */
-  }
-
-  .indiebazaar-logo {
-    width: 60%; /* Increase logo size for smaller screens */
-  }
-
-  .about-info-box {
-    width: 80%; /* Increase width for small screens */
-    top: auto; /* Remove absolute positioning for stacking */
-    margin: 10px auto; /* Center the box */
-  }
-
-  .about-button-container {
-    top: auto; /* Remove absolute positioning */
-    margin-top: 20px; /* Add margin for spacing */
-  }
-}
