@@ -21,8 +21,8 @@ const AddMoreItems = ({ businessId }) => {
     if (itemName.trim() && description.trim() && price.trim() && category.trim() && image) {
       const newItem = { name: itemName, description, price, category, image };
 
-      if (description.length > 100) {
-        setAddItemError('Description must be 100 characters or less.');
+      if (description.length > 50) {
+        setAddItemError('Description must be 50 characters or less.');
         return; // Exit if the description condition fails
       }
       
