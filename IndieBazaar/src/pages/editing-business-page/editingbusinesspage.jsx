@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NavBar from "../../components/navigationbar/navigation";
 import food from "../../assets/food.jpg";
 import { useLocation, useNavigate } from 'react-router-dom';
-import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import { doc, getDoc, updateDoc, arrayRemove } from 'firebase/firestore';
 import { db } from "../../firebase/firebase"; // Adjust path if necessary
 import "./editingbusinesspage.css";
 
@@ -15,39 +15,39 @@ const EditingBusinesses = () => {
     const [businessName, setBusinessName] = useState('');
 
     // Fetch initial business data
-    useEffect(() => {
-        const fetchBusinessData = async () => {
-            try {
-                const docRef = doc(db, "businesses", businessId);
-                const docSnap = await getDoc(docRef);
-                
-                if (docSnap.exists()) {
-                    const data = docSnap.data();
-                    setItems(data.items || []); // Set initial items
-                    setBusinessName(data.name || 'Business Name');
-                } else {
-                    console.log("No such document!");
-                }
-            } catch (error) {
-                console.error("Error fetching business data:", error);
+    const fetchBusinessData = async () => {
+        try {
+            const docRef = doc(db, "businesses", businessId);
+            const docSnap = await getDoc(docRef);
+            
+            if (docSnap.exists()) {
+                const data = docSnap.data();
+                setItems(data.items || []); // Set initial items
+                setBusinessName(data.name || 'Business Name');
+            } else {
+                console.log("No such document!");
             }
-        };
+        } catch (error) {
+            console.error("Error fetching business data:", error);
+        }
+    };
 
+    useEffect(() => {
         fetchBusinessData();
     }, [businessId]);
 
     // Handle item deletion
-    const handleDeleteItem = async (id) => {
+    const handleDeleteItem = async (itemToDelete) => {
         try {
-            // Create updated list of items after deletion
-            const updatedItems = items.filter(item => item.id !== id);
-            
-            // Update Firestore document
             const docRef = doc(db, "businesses", businessId);
-            await updateDoc(docRef, { items: updatedItems });
 
-            // Directly update local items state for immediate UI update
-            setItems(updatedItems);
+            // Use arrayRemove to remove the exact object (item) from Firestore
+            await updateDoc(docRef, {
+                items: arrayRemove(itemToDelete)
+            });
+
+            // Re-fetch items to update state and ensure consistency
+            await fetchBusinessData();
         } catch (error) {
             console.error("Error deleting item:", error);
         }
@@ -58,7 +58,7 @@ const EditingBusinesses = () => {
     };
 
     const handleDone = () => {
-        navigate('/user-profile',  { state: { businessId }} ); // Adjust the navigation path as needed
+        navigate('/user-profile', { state: { businessId }}); // Adjust the navigation path as needed
     };
 
     return (
@@ -70,7 +70,7 @@ const EditingBusinesses = () => {
                         <div key={item.id} className="category-card editing-item-card">
                             <p>{item.name}</p>
                             <img src={item.image || food} alt={item.name} />
-                            <button className="delete-button" onClick={() => handleDeleteItem(item.id)}>
+                            <button className="delete-button" onClick={() => handleDeleteItem(item)}>
                                 &ndash;
                             </button>
                         </div>

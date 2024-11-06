@@ -16,39 +16,29 @@ const AddMoreItems = ({ businessId }) => {
   const db = getFirestore();
   const navigate = useNavigate();
 
-  const handleAddItem = async () => {
+  const handleAddItem = () => {
     const priceValue = parseFloat(price);
     if (itemName.trim() && description.trim() && price.trim() && category.trim() && image) {
-      const newItem = { name: itemName, description, price, category, image };
-
       if (description.length > 50) {
         setAddItemError('Description must be 50 characters or less.');
-        return; // Exit if the description condition fails
+        return;
       }
       
       if (priceValue <= 0) {
         setAddItemError('Price must be greater than 0.');
-        return; // Exit if the price condition fails
+        return;
       }
 
-      try {
-        const businessDocRef = doc(db, 'businesses', businessId);
-        await updateDoc(businessDocRef, {
-          items: arrayUnion(newItem) // Add the new item to Firestore
-        });
-
-        // Update local state
-        setItems([...items, newItem]);
-        setItemName('');
-        setDescription('');
-        setPrice('');
-        setCategory('');
-        setImage(null);
-        setNextButtonError('');
-        setAddItemError('');
-      } catch (error) {
-        console.error("Error updating document: ", error);
-      }
+      const newItem = { name: itemName, description, price, category, image };
+      
+      // Update local state
+      setItems([...items, newItem]);
+      setItemName('');
+      setDescription('');
+      setPrice('');
+      setCategory('');
+      setImage(null);
+      setAddItemError('');
     } else {
       setAddItemError('Please fill in all fields before adding the item');
     }
@@ -57,11 +47,24 @@ const AddMoreItems = ({ businessId }) => {
   const handleDeleteItem = (index) => {
     const updatedItems = items.filter((_, i) => i !== index);
     setItems(updatedItems);
-    setNextButtonError(''); // Clear next button error if items remain after deletion
   };
 
-  const handleDone = () => {
-    navigate('/user-profile'); // Navigate to user profile after finishing
+  const handleDone = async () => {
+    if (items.length === 0) {
+      setAddItemError('No items to add. Please add items before finishing.');
+      return;
+    }
+
+    try {
+      const businessDocRef = doc(db, 'businesses', businessId);
+      // Add all items in one operation to Firestore
+      await updateDoc(businessDocRef, {
+        items: arrayUnion(...items)
+      });
+      navigate('/user-profile'); // Navigate to user profile after finishing
+    } catch (error) {
+      console.error("Error updating document: ", error);
+    }
   };
 
   const handleImageUpload = async (e) => {
