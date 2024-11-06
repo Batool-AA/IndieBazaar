@@ -1,6 +1,7 @@
 /* Updated background for the page */
 .products-page {
     width: 100vw;
+    min-height: 100vh;
     padding-bottom: 20px;
     /* background-image: linear-gradient(to bottom, var(--softPink), var(--lightLavender)); */
     color: var(--deepPurple); /* Set a default text color */

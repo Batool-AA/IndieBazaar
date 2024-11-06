@@ -3,6 +3,8 @@
     flex-direction: column;
     /* overflow: hidden; */
     background-image:  linear-gradient(to bottom, var(--softPink), var(--lightLavender));
+    width: 100vw;
+    min-height: 100vh;
 } 
 
 #about-us {

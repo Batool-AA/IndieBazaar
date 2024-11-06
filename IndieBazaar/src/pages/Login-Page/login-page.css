@@ -9,6 +9,7 @@
     align-items: center;
     height: 100vh;
     background-color: var(--pastelLavender);
+    width: 100vw;
   }
 
   .login-page-slogan-container {

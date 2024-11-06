@@ -1,4 +1,9 @@
 /* Main container */
+
+.setup-business-container-main {
+  background-image: linear-gradient(to bottom, var(--softPink), var(--lightLavender));
+}
+
 .setup-business-container {
   font-family: Arial, sans-serif;
   width: 100vw; /* Make it responsive */
@@ -8,18 +13,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   box-sizing: border-box; /* Prevent padding from affecting the width */
   min-height: 100vh; /* Set height to fill the viewport */
   background-image: linear-gradient(to bottom, var(--softPink), var(--lightLavender));
 }
 
+
 /* Header container */
 .header-container {
   text-align: center;
   margin-bottom: 30px;
-  margin-top: 50px; /* Reduce margin for better responsiveness */
-  padding: 15px;
   width: 100%; /* Allow the header to expand with the content */
 }
 
@@ -88,9 +92,10 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  min-width: 500px;
 }
 
-.setup-business-container input[type="text"], textarea, input[type="number"] {
+.setup-business-container input[type="text"], textarea, input[type="number"], .image-upload {
   margin-bottom: 10px;
   width: 100%;
   padding: 12px;
@@ -124,19 +129,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 600px;
 }
 
 .image-upload {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #9b513b;
-  border-radius: 5px;
   background-color: #fff;
   font-size: 1rem;
   color: #333;
-  outline: none;
-  box-sizing: border-box;
+
 }
 
 .category-buttons button {

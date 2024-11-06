@@ -8,6 +8,7 @@ import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { useLocation,useNavigate } from 'react-router-dom';
 import StepFiveBusinessLogo from '../../components/businesslogo/business-logo.jsx';
 import { useUser } from '../../firebase/usercontext';
+import NavBar from '../../components/navigationbar/navigation.jsx';
 const SetupBusiness = () => {
   const location = useLocation();
   const user = useUser();
@@ -42,8 +43,12 @@ const SetupBusiness = () => {
   }
 
   return (
-    <div className="setup-business-container">    
+    <div className="setup-business-container-main">    
       {/* New header container */}
+      <div className="setup-nav">
+        <NavBar title={"IndieBazaar"}/>
+      </div>
+      <div className='setup-business-container'>
       <div className="header-container">
         <h1>Hi Seller!</h1>
         <p className="subtitle">Let's Set Up Your Business</p>
@@ -90,6 +95,7 @@ const SetupBusiness = () => {
       {step == 6 && (
         <button className='prev-button' onClick={handleDone}>Finish Setting Up</button>
       )}
+      </div>
     </div>
   );
 };
