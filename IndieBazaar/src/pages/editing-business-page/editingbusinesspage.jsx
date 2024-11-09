@@ -36,22 +36,28 @@ const EditingBusinesses = () => {
         fetchBusinessData();
     }, [businessId]);
 
-    // Handle item deletion
     const handleDeleteItem = async (itemToDelete) => {
-        try {
-            const docRef = doc(db, "businesses", businessId);
-
-            // Use arrayRemove to remove the exact object (item) from Firestore
-            await updateDoc(docRef, {
-                items: arrayRemove(itemToDelete)
-            });
-
-            // Re-fetch items to update state and ensure consistency
-            await fetchBusinessData();
-        } catch (error) {
-            console.error("Error deleting item:", error);
+        // Show a confirmation dialog
+        const confirmed = window.confirm(`Are you sure you want to delete "${itemToDelete.name}"?`);
+    
+        // If the user confirms, proceed with deletion
+        if (confirmed) {
+            try {
+                const docRef = doc(db, "businesses", businessId);
+    
+                // Use arrayRemove to remove the exact object (item) from Firestore
+                await updateDoc(docRef, {
+                    items: arrayRemove(itemToDelete)
+                });
+    
+                // Re-fetch items to update state and ensure consistency
+                await fetchBusinessData();
+            } catch (error) {
+                console.error("Error deleting item:", error);
+            }
         }
     };
+    
 
     const handleAddItem = () => {
         navigate('/add-more-items', { state: { businessId } });

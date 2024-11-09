@@ -14,8 +14,7 @@ import EditingBusinesses from "./pages/editing-business-page/editingbusinesspage
 import { UserProvider } from './firebase/usercontext';
 import Profilepage from './pages/test/test'
 import AddMoreItemsPage from "./pages/addmoreitemspage/addmoreitems-page";
-
-
+import PrivateRoute from './components/protectedroute/protectedroute'; // Import your PrivateRoute component
 
 function App () {
   return (
@@ -26,24 +25,23 @@ function App () {
         
         <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/store" element={<CategoriesPage/>} />
+        <Route path="/store" element={<CategoriesPage />} />
         <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/buyerseller" element={<BuyerSellerPage />} />
-        <Route path="/setbusiness" element={<SetupBusiness/>}/> 
-        <Route path="/business-home/:id" element={<BusinessPage />} />
-        <Route path="/business-products" element={<ProductPage />} />
+        <Route path="/buyerseller" element={<PrivateRoute element={<BuyerSellerPage />} />} />
+        <Route path="/setbusiness" element={<PrivateRoute element={<SetupBusiness />} />} /> 
+        <Route path="/business-home/:id" element={<PrivateRoute element={<BusinessPage />} />} />
+        <Route path="/business-products" element={<PrivateRoute element={<ProductPage />} />} />
         <Route path="/browse/:category" element={<BrowseBusinesses />} />
-        <Route path="/user-profile" element={<UserProfile/>} />
-        <Route path="/edit-business" element={<EditingBusinesses />} />
-        <Route path="/test" element={<Profilepage/>} />
-        <Route path="/add-more-items" element={<AddMoreItemsPage/>} />
+        <Route path="/user-profile" element={<PrivateRoute element={<UserProfile />} />} />
+        <Route path="/edit-business" element={<PrivateRoute element={<EditingBusinesses />} />} />
+        <Route path="/test" element={<Profilepage />} />
+        <Route path="/add-more-items" element={<PrivateRoute element={<AddMoreItemsPage />} />} />
         
       </Routes>
     </Router>
     </UserProvider>
-
     </>
-  )
+  );
 }
 
 export default App;
