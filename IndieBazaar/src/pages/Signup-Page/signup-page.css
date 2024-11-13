@@ -7,7 +7,7 @@
     align-items: center;
     height: 100vh;
     background-color: var(--pastelLavender); 
-    width: 100vw;
+    /* width: 100vw; */
   }
 
   .signup-page-slogan-container {

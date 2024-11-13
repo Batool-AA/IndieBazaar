@@ -78,14 +78,14 @@
 
 .about-info-box-4 {
   top: 350px;
-  right: 400px;
+  right: 353px;
   width: 17%;
 }
 
 .about-button-container {
   position: absolute;
   top: 500px;
-  left: 500px; /* Center the button container */
+  left: 550px;
   display: flex;
   justify-content: center;
   gap: 20px;

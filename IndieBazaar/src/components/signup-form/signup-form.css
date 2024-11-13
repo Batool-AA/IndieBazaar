@@ -56,7 +56,7 @@
   background-color: var(--lightLavender);
   border-bottom: 1px solid var(--deepPurple);
   /* padding: 10px; */
-  font-size: 16px;
+  /* font-size: 16px; */
   outline: none;
   box-shadow: none; /* Ensures no shadow */
   border-radius: 0; /* Removes any default rounding */

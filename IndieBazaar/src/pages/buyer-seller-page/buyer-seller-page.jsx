@@ -50,7 +50,7 @@ const BuyerSellerPage = () => {
           <span role="img" aria-label="buyer">🛍️</span> Buyer
         </button>
 
-        <span>OR</span>
+        {/* <span>OR</span> */}
 
         <button className="button-basic buyer-seller" onClick={handleSeller}>
           <span role="img" aria-label="seller">👨‍💼</span> Seller
