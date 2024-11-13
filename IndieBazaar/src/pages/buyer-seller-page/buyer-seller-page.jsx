@@ -5,6 +5,7 @@ import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { useState } from "react";
 import { auth } from '../../firebase/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import Navbar from "../../components/navigationbar/navigation"
 
 const BuyerSellerPage = () => {
 
@@ -41,9 +42,9 @@ const BuyerSellerPage = () => {
   
   return (
     <div className="buyer-seller-page-container">
-      {/* <div className="buyer-seller-header-container">
-        <h1 className="buyer-seller-header-title">IndieBazaar</h1>
-      </div> */}
+      <div className="buyer-seller-header-container">
+        <Navbar title={"IndieBazaar"} />
+      </div>
       <div className="buyer-seller-buttons-container">
 
         <button className="button-basic buyer-seller" onClick={handleBuyer}>

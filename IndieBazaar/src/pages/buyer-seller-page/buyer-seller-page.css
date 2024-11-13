@@ -9,26 +9,6 @@
   background-image:  linear-gradient(to bottom, var(--softPink), var(--lightLavender));
 }
 
-.animated-heading {
-  font-family: 'Arial', sans-serif;
-  font-size: 36px;
-  color: var(--deepPurple);
-  margin-top: 200px; /* Adjust this value to increase or decrease spacing */
-  opacity: 0;
-  transform: translateY(-20px);
-  animation: fadeInUp 1s ease forwards;
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 .buyer-seller-buttons-container {
   display: flex;

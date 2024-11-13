@@ -4,6 +4,7 @@
     align-items: center;
     /* background-color: var(--softPink); */
     padding: 10px 20px;
+    width: 98vw;
 }
 
 .pages-navbar-icons {
