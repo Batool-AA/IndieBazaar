@@ -5,10 +5,16 @@ const PrivateRoute = ({ element }) => {
   const userContext = useUser(); // Get the user context
   const user = userContext?.user; // Safe destructuring with optional chaining
 
-  if (!user) {
-    // If the user is not authenticated, redirect to login page
-    return <Navigate to="/login" />;
-  }
+  const PrivateRoute = ({ element }) => {
+    const { user } = useUser();
+  
+    if (user === undefined) {
+      // Optionally add a loading indicator while user authentication state is being determined
+      return <div>Loading...</div>;
+    }
+  
+    return user ? element : <Navigate to="/login" />;
+  };
 
   return element; // Render the protected component if authenticated
 };
