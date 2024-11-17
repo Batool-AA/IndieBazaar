@@ -15,6 +15,7 @@ import { UserProvider } from './firebase/usercontext';
 import Profilepage from './pages/test/test'
 import AddMoreItemsPage from "./pages/addmoreitemspage/addmoreitems-page";
 import PrivateRoute from './components/protectedroute/protectedroute'; // Import your PrivateRoute component
+import EditItem from './pages/edit-items-page/edit-items-page'
 
 function App () {
   return (
@@ -36,6 +37,7 @@ function App () {
         <Route path="/edit-business" element={<PrivateRoute element={<EditingBusinesses />} />} />
         <Route path="/test" element={<Profilepage />} />
         <Route path="/add-more-items" element={<PrivateRoute element={<AddMoreItemsPage />} />} />
+        <Route path="/edit-item" element={<PrivateRoute element={<EditItem />} />}/>
         
       </Routes>
     </Router>
