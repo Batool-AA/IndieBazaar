@@ -3,7 +3,7 @@ import StepOneBusinessName from '../../components/businessname/businessname.jsx'
 import StepTwoBusinessDescription from '../../components/businessdesc/businessdesc.jsx';
 import StepThreeBusinessCategory from '../../components/businesscategory/businesscat.jsx';
 import AddItemForm from '../../components/additem/additem.jsx';
-import './SetupBusiness.css';
+import './setupbusiness.css';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { useLocation,useNavigate } from 'react-router-dom';
 import StepFiveBusinessLogo from '../../components/businesslogo/business-logo.jsx';
