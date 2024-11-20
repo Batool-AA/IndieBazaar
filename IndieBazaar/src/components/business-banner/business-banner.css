@@ -13,6 +13,7 @@
 
 .business-banner-container h1 {
   color: var(--vibrantPurple);
+  font-family: 'Poppins', sans-serif;
 }
 
 .business-banner-container p {

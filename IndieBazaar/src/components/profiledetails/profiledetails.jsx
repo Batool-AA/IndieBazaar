@@ -12,7 +12,7 @@ const ProfileDetails = () => {
     const navigate = useNavigate();
     const [isEditing, setIsEditing] = useState(false);
     const [formData, setFormData] = useState({
-        email: '',
+        email: '', 
         password: '',
         username: '',
         usertype: '',

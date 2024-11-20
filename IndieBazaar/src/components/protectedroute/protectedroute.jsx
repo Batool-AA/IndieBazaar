@@ -1,22 +1,22 @@
 import { Navigate } from 'react-router-dom';
-import { useUser } from '../../firebase/usercontext'; // assuming you have a hook that provides the current user
+import { useUser } from '../../firebase/usercontext'; // Assuming you have this hook
 
 const PrivateRoute = ({ element }) => {
-  const userContext = useUser(); // Get the user context
-  const user = userContext?.user; // Safe destructuring with optional chaining
+  const  user = useUser(); // Get the user object from context
 
-  const PrivateRoute = ({ element }) => {
-    const { user } = useUser();
-  
-    if (user === undefined) {
-      // Optionally add a loading indicator while user authentication state is being determined
-      return <div>Loading...</div>;
-    }
-  
-    return user ? element : <Navigate to="/login" />;
-  };
+  if (user === undefined) {
+    // Still determining auth state
+    console.log(user)
+    return <div>Loading...</div>;
+  }
 
-  return element; // Render the protected component if authenticated
+  if (user === null) {
+    // User is not logged in
+    return <Navigate to="/login" />;
+  }
+
+  // User is authenticated
+  return element;
 };
 
 export default PrivateRoute;
