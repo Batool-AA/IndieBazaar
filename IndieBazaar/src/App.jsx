@@ -32,7 +32,7 @@ function App () {
         <Route path="/setbusiness" element={<PrivateRoute element={<SetupBusiness />} />} /> 
         <Route path="/business-home/:id" element={<PrivateRoute element={<BusinessPage />} />} />
         <Route path="/business-products" element={<PrivateRoute element={<ProductPage />} />} />
-        <Route path="/browse/:category" element={<BrowseBusinesses />} />
+        <Route path="/browse" element={<BrowseBusinesses />} />
         <Route path="/user-profile" element={<PrivateRoute element={<UserProfile />} />} />
         <Route path="/edit-business" element={<PrivateRoute element={<EditingBusinesses />} />} />
         <Route path="/test" element={<Profilepage />} />

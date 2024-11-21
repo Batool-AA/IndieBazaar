@@ -19,6 +19,7 @@ const EditingBusinesses = () => {
     const fetchBusinessData = async () => {
         if (!businessId) {
             setError('Missing or invalid business ID.');
+            window.alert('Missing or invalid business ID.');
             return;
         }
 
@@ -32,10 +33,12 @@ const EditingBusinesses = () => {
                 setBusinessName(data.name || 'Business Name');
             } else {
                 setError('Business not found.');
+                window.alert('Business not found.');
             }
         } catch (error) {
             console.error("Error fetching business data:", error);
             setError('Failed to fetch business data.');
+            window.alert('Failed to fetch business data.');
         }
     };
 
@@ -76,15 +79,9 @@ const EditingBusinesses = () => {
         navigate('/user-profile', { state: { businessId }}); // Adjust the navigation path as needed
     };
 
-    // Redirect or show an error message if `businessId` is invalid
+    // If there's an error, show it using window.alert and don't render the page content
     if (error) {
-        return (
-            <div className="error-container">
-                <h1>Error</h1>
-                <p>{error}</p>
-                <button onClick={() => navigate('/')}>Go to Home</button>
-            </div>
-        );
+        return null; // Prevent rendering if there is an error, but we already show the alert
     }
 
     return (
