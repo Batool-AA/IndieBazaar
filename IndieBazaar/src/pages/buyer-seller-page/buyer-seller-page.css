@@ -1,3 +1,5 @@
+
+
 .buyer-seller-page-container {
   display: flex;
   flex-direction: column;
@@ -20,19 +22,7 @@
 }
 
 .buyer-seller {
-  /* width: 250px;
-  height: 100px; */
-  /* padding: 20px 30px; */
-  /* font-size: 24px; */
-  /* font-weight: bold; */
-  /* background-color: var(--vibrantPurple);
-  color: #fff;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  transition: transform 0.3s, background-color 0.3s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
-  width: 200px;
+  width: 300px;
   margin: 0 10px;
   background-color: var(--vibrantPurple);
   color: #fff;
@@ -41,4 +31,36 @@
 .buyer-seller:hover {
   transform: scale(1.05);
   background-color: #6A1BBE;
+}
+
+@media (max-width: 768px) {
+  .buyer-seller-page-container {
+    padding: 15px;
+  }
+
+  .buyer-seller-buttons-container {
+    gap: 20px; /* Reduce gap between buttons */
+  }
+
+  .buyer-seller {
+    width: 250px; /* Reduce button size for smaller screens */
+    font-size: 0.9rem; /* Adjust font size */
+  }
+}
+
+/* For mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+
+
+  .buyer-seller-buttons-container {
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 15px;
+  }
+
+  .buyer-seller {
+    width: 100%; /* Full width for buttons */
+    max-width: 300px; /* Optional max-width for better control */
+    font-size: 0.8rem;
+    padding: 8px 12px; /* Compact padding */
+  }
 }
