@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import '../additem/additem.css';
-import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { getFirestore, doc, updateDoc, arrayUnion } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 
@@ -16,7 +16,9 @@ const AddMoreItems = ({ businessId }) => {
   const db = getFirestore();
   const navigate = useNavigate();
   const fileInputRef = useRef(null); // Ref for the file input
-
+  const [uploading, setUploading] = useState(false); // Track upload progress
+  const [uploadProgress, setUploadProgress] = useState(0);
+  
   const handleAddItem = () => {
     const priceValue = parseFloat(price);
     if (itemName.trim() && description.trim() && price.trim() && category.trim() && image) {
@@ -69,17 +71,34 @@ const AddMoreItems = ({ businessId }) => {
     }
   };
 
-  const handleImageUpload = async (e) => {
+  const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
       const storageRef = ref(storage, `images/${Date.now()}_${file.name}`);
-      try {
-        await uploadBytes(storageRef, file);
-        const imageURL = await getDownloadURL(storageRef);
-        setImage(imageURL);
-      } catch (error) {
-        console.error("Error uploading file: ", error);
-      }
+      const uploadTask = uploadBytesResumable(storageRef, file);
+
+      // Monitor the upload progress
+      uploadTask.on('state_changed', 
+        (snapshot) => {
+          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          setUploadProgress(progress); // Update the progress state
+          setUploading(true); // Set uploading to true
+        }, 
+        (error) => {
+          console.error("Error uploading file: ", error);
+          setUploading(false); // Set uploading to false on error
+        }, 
+        async () => {
+          try {
+            const imageURL = await getDownloadURL(uploadTask.snapshot.ref);
+            setImage(imageURL);
+            setUploading(false); // Set uploading to false when done
+          } catch (error) {
+            console.error("Error getting image URL: ", error);
+            setUploading(false);
+          }
+        }
+      );
     }
   };
 
@@ -92,7 +111,7 @@ const AddMoreItems = ({ businessId }) => {
         value={itemName}
         onChange={(e) => setItemName(e.target.value)}
         className="item-text-input"
-      />
+      /> 
       <textarea
         placeholder="Item description (max 50 characters)"
         value={description}
@@ -123,10 +142,14 @@ const AddMoreItems = ({ businessId }) => {
         ref={fileInputRef} // Attach ref to file input
       />
 
-      {addItemError && <p className="error-message">{addItemError}</p>} {/* Display add item error */}
+      {uploading && (
+        <div className="upload-progress">
+          <div className="progress-bar" style={{ width: `${uploadProgress}%` }}></div>
+        </div>
+      )}
 
-      <button className="add-item-button" onClick={handleAddItem}>
-        Add Item
+      <button className="add-item-button" onClick={handleAddItem} disabled={uploading}>
+        {uploading ? 'Uploading...' : 'Add Item'}
       </button>
 
       <div className="items-list">
