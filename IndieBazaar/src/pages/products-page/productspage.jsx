@@ -58,6 +58,7 @@ const ProductsPage = () => {
   return ( 
     <div className="products-page">
       <NavBar title={businessName} /> {/* Pass the business name to NavBar */}
+      
       <CategoriesBar categories={categories} onSelectCategory={handleCategoryClick} />
 
       {categories.map((category, index) => (

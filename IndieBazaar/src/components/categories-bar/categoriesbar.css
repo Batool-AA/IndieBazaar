@@ -1,3 +1,4 @@
+/* General Styles for Categories Bar */
 .categories-bar {
   display: flex;
   justify-content: center; /* Center the bar */
@@ -10,6 +11,7 @@
   scrollbar-width: thin;
 }
 
+/* Category Button Styling */
 .category-button {
   background-color: var(--deepPurple); /* Purple background */
   color: #fff;
@@ -40,4 +42,40 @@
   background-color: #d9b3f7; /* Highlight active category */
   color: var(--deepPurple); /* Text color change for active */
   font-weight: 700; /* Bold text on active */
+}
+
+/* Media Queries */
+
+/* For tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .categories-bar {
+    gap: 8px; /* Slightly reduce gap on smaller screens */
+    padding: 10px; /* Reduce padding for smaller screen space */
+    flex-wrap: wrap;
+  }
+
+  .category-button {
+    font-size: 14px; /* Smaller text for better fit */
+    padding: 10px 20px; /* Adjust padding */
+  }
+}
+
+/* For mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .categories-bar {
+    gap: 6px; /* Reduce gap for very small screens */
+    padding: 8px; /* Adjust padding for mobile screens */
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    justify-content: flex-start; /* Align buttons to the left for mobile */
+  }
+
+  .category-button {
+    font-size: 12px; /* Even smaller text on mobile */
+    padding: 8px 16px; /* Smaller padding for mobile devices */
+    white-space: normal; /* Allow button text to wrap if needed */
+  }
+
+  .category-button:hover {
+    transform: translateY(0); /* Remove hover lift effect on small screens */
+  }
 }

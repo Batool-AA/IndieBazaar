@@ -1,10 +1,11 @@
+/* Business Info Container */
 .business-info-container {
     padding: 30px 50px;
     margin: auto;
     overflow: hidden;
-    
 }
 
+/* Business Info Content */
 .business-info-content {
     display: flex;
     justify-content: space-between;
@@ -13,6 +14,7 @@
     align-items: stretch;
 }
 
+/* Header Column */
 .business-info-header-column {
     flex: 0.4;
     display: flex;
@@ -22,6 +24,7 @@
     margin-left: 25px;
 }
 
+/* Social Media Section */
 .business-info-social-media {
     display: flex;
     gap: 10px;
@@ -38,11 +41,12 @@
     color: #1da1f2;
 }
 
+/* Title & Description */
 .business-info-title {
     flex: 80%;
     font-size: 2rem;
     margin-bottom: 20px;
-    color: var(--deepPurple)
+    color: var(--deepPurple);
 }
 
 .business-info-description {
@@ -50,6 +54,7 @@
     margin-bottom: 20px;
 }
 
+/* Button */
 .business-info-button {
     padding: 10px 20px;
     font-size: 1rem;
@@ -60,10 +65,12 @@
     border-radius: 5px;
 }
 
+/* Carousel Column */
 .business-info-carousel-column {
     flex: 0.55;
 }
 
+/* Carousel Wrapper */
 .business-info-carousel-wrapper {
     position: relative;
     display: flex;
@@ -72,8 +79,10 @@
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
+    padding: 0 30px; /* Added padding for arrow spacing */
 }
 
+/* Carousel Arrows */
 .business-info-carousel-arrow {
     background: none;
     border: none;
@@ -88,17 +97,18 @@
 }
 
 .business-info-carousel-arrow.left {
-    left: 60px;
+    left: 0; /* Adjusted to fit better */
 }
 
 .business-info-carousel-arrow.right {
-    right: 60px;
+    right: 0; /* Adjusted to fit better */
 }
 
 .business-info-carousel-arrow:hover {
     color: #007bff;
 }
 
+/* Carousel Product */
 .business-info-product {
     position: relative;
     overflow: hidden;
@@ -106,6 +116,7 @@
     transition: transform 0.3s ease;
 }
 
+/* Carousel Controls */
 .business-info-carousel-controls {
     margin-top: 20px;
 }
@@ -117,4 +128,88 @@
     padding: 10px 15px;
     margin: 0 10px;
     cursor: pointer;
+}
+
+/* Media Queries */
+
+/* For tablets (max-width: 768px) */
+@media (max-width: 768px) {
+    .business-info-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .business-info-header-column {
+        flex: none;
+        width: 90%;
+        margin: 0;
+        text-align: center;
+    }
+
+    .business-info-title {
+        font-size: 1.8rem;
+    }
+
+    .business-info-description {
+        font-size: 1rem;
+    }
+
+    .business-info-button {
+        margin: 0 auto;
+        display: block;
+    }
+
+    .business-info-carousel-column {
+        flex: none;
+        width: 100%;
+    }
+
+    .business-info-carousel-arrow.left {
+        left: 5%; /* Adjusted for tablet screens */
+    }
+
+    .business-info-carousel-arrow.right {
+        right: 5%; /* Adjusted for tablet screens */
+    }
+}
+
+/* For mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .business-info-container {
+        padding: 20px;
+    }
+
+    .business-info-title {
+        font-size: 1.5rem;
+    }
+
+    .business-info-description {
+        font-size: 0.9rem;
+    }
+
+    .business-info-button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+        margin: 20px auto;
+        display: block;
+    }
+
+    .business-info-carousel-wrapper {
+        max-width: 100%;
+        padding: 0 10px; /* Further reduced padding for mobile */
+    }
+
+    .business-info-carousel-arrow.left {
+        left: 10px; /* Adjusted for small screens */
+    }
+
+    .business-info-carousel-arrow.right {
+        right: 10px; /* Adjusted for small screens */
+    }
+
+    .business-info-carousel-controls button {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
 }
