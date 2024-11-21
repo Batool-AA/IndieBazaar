@@ -81,14 +81,14 @@ const CategoriesPage = () => {
             />
             <div className="categories-content-container">
                 <div className="categories-filter-box-container">
-                    <FilterBox
+                    {/* <FilterBox
                         options={categories.map((category) => category.name)}
                         selectedCategories={selectedCategories}
                         onFilterChange={handleFilterChange}
-                    />
-                    <button onClick={applyFilters} className="apply-filters-button">
+                    /> */}
+                    {/* <button onClick={applyFilters} className="apply-filters-button">
                         Apply Filters
-                    </button>
+                    </button> */}
                 </div>
                 <div className="categories-container">
                     {filteredCategories.map((category, index) => (
