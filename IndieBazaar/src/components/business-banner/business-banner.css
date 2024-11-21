@@ -18,6 +18,39 @@
 
 .business-banner-container p {
   color: var(--vibrantPurple);
+  font-size: 1rem; /* Default font size */
+}
+
+/* Media queries for responsiveness */
+
+/* Extra small devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .business-banner-container {
+    padding: 15px; /* Reduce padding */
+  }
+
+  .business-banner-container h1 {
+    font-size: 2.5rem; /* Smaller heading font size */
+  }
+
+  .business-banner-container p {
+    font-size: 0.875rem; /* Smaller paragraph font size */
+  }
+}
+
+/* Small devices (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .business-banner-container {
+    padding: 20px; /* Moderate padding */
+  }
+
+  .business-banner-container h1 {
+    font-size: 2.75rem; /* Adjust font size */
+  }
+
+  .business-banner-container p {
+    font-size: 0.95rem; /* Adjust paragraph font size */
+  }
 }
 
 

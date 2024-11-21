@@ -5,6 +5,7 @@
   width: 100%;
   z-index: 10;
   flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  background-color: var(--softPink); /* Optional background for better visibility */
 }
 
 .nav-left, .nav-right {
@@ -32,32 +33,72 @@
   color: var(--peach); /* theme.colors.coral */
 }
 
-/* Media queries for responsive adjustments */
-@media (max-width: 600px) {
-  .navbar {
-    flex-direction: column; /* Stack items vertically on small screens */
-    padding: 10px; /* Reduce padding */
-  }
+/* Media queries for responsiveness */
+
+/* Extra small devices (max-width: 480px) */
+@media (max-width: 480px) {
 
   .nav-left, .nav-right {
-    gap: 10px; /* Reduce gap between items */
+    flex-direction: column; /* Stack items vertically */
+    gap: 2px;
+  }
+
+  .nav-right{
+    text-align: right;
+    margin-left: auto;
+    margin-right: 20px;
   }
 
   .nav-left {
-    margin-left: 10px; /* Adjust margin for smaller screens */
+    margin-left: 20px;
   }
-
-  .nav-right {
-    margin-right: 10px; /* Adjust margin for smaller screens */
+  .nav-left span, .nav-right span {
+    font-size: 14px; /* Adjust font size for smaller screens */
   }
 }
 
-@media (min-width: 601px) and (max-width: 900px) {
+/* Small devices (481px to 768px) */
+@media (max-width: 768px) {
   .navbar {
-    padding: 15px; /* Slightly increase padding for medium screens */
+    flex-direction: row; /* Keep items in a row */
+    padding: 15px;
   }
 
   .nav-left, .nav-right {
-    gap: 15px; /* Adjust gap for medium screens */
+    gap: 15px; /* Adjust spacing for medium screens */
+  }
+
+  .nav-left span, .nav-right span {
+    font-size: 16px; /* Adjust font size */
+  }
+}
+
+/* Medium devices (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar {
+    padding: 18px;
+  }
+
+  .nav-left, .nav-right {
+    gap: 18px;
+  }
+
+  .nav-left span, .nav-right span {
+    font-size: 18px; /* Slightly larger text */
+  }
+}
+
+/* Large devices (1025px and up) */
+@media (min-width: 1025px) {
+  .navbar {
+    padding: 20px; /* Default padding */
+  }
+
+  .nav-left, .nav-right {
+    gap: 20px; /* Default spacing */
+  }
+
+  .nav-left span, .nav-right span {
+    font-size: 18px; /* Default font size */
   }
 }

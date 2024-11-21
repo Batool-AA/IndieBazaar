@@ -22,6 +22,7 @@
   padding: 30px;
   text-align: center;
   color: var(--buttonWhite); /* White text on blue background */
+  align-items: center;
 }
 
 .homepage-container #contact {

@@ -14,7 +14,8 @@
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 300px; 
+    width: 300px;
+    max-width: 100%; /* Ensure it doesn't exceed the screen width */
 }
 
 .email-form button {
@@ -47,3 +48,37 @@
     color: var(--peach);
 }
 
+/* Responsive Design */
+
+/* Small devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .email-form input {
+        width: 70%; /* Full width with some padding on smaller screens */
+        margin-bottom: 10px; /* Add space between input and button */
+    }
+
+    .email-form button {
+        width: 30%; /* Full width for buttons */
+        margin-left: 0; /* Remove margin for alignment */
+    }
+
+    .links-container {
+        font-size: 0.9rem; /* Slightly smaller font size */
+    }
+}
+
+
+/* Large devices (1025px and up) */
+@media (min-width: 1025px) {
+    .email-form input {
+        width: 300px; /* Fixed width for larger screens */
+    }
+
+    .email-form button {
+        margin-left: 10px; /* Default margin */
+    }
+
+    .links-container {
+        font-size: 1.1rem; /* Larger font size for better readability */
+    }
+}
