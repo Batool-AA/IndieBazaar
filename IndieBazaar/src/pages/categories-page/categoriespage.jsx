@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import NavBar from "../../components/navigationbar/navigation";
 import DropDown from "../../components/dropdown/dropdown";
 import SearchBar from "../../components/searchbar/searchbar";
@@ -10,34 +11,62 @@ import Health from "../../assets/health.jpg";
 import book from "../../assets/books.jpg";
 import handmade from "../../assets/handmade.jpg";
 import stationary from "../../assets/stationary.jpg";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import "./categoriespage.css";
 
 const CategoriesPage = () => {
     const navigate = useNavigate();
 
     const categories = [
-        { name: 'Food', image: food }, 
-        { name: 'Accessories', image: accessory },
-        { name: 'Clothes', image: clothes },
-        { name: 'Decor', image: decor }, 
-        { name: 'Health', image: Health },
-        { name: 'Book', image: book },
-        { name: 'Stationary', image: stationary },
-        { name: 'Handmade', image: handmade },
+        { name: "Food", image: food },
+        { name: "Accessories", image: accessory },
+        { name: "Clothes", image: clothes },
+        { name: "Decor", image: decor },
+        { name: "Health", image: Health },
+        { name: "Book", image: book },
+        { name: "Stationary", image: stationary },
+        { name: "Handmade", image: handmade },
     ];
 
+    // State for selected categories
+    const [selectedCategories, setSelectedCategories] = useState([]);
+
     const handleCategoryClick = (category) => {
-        navigate(`/browse/${category.name}`);
+        // Navigate to browse with just this category
+        navigate(`/browse?categories=${encodeURIComponent(category.name)}`);
     };
 
     const handleCategorySelect = (selectedCategoryName) => {
-        // Find the selected category by name
-        const selectedCategory = categories.find(
-            (category) => category.name === selectedCategoryName
-        );
-        if (selectedCategory) {
-            navigate(`/browse/${selectedCategory.name}`);
+        navigate(`/browse?categories=${encodeURIComponent(selectedCategoryName)}`);
+    };
+
+    // Function to update selected categories when a checkbox is toggled
+    const handleFilterChange = (categoryName, isChecked) => {
+        setSelectedCategories((prevSelected) => {
+            if (isChecked) {
+                // Add the category to the selected list
+                return [...prevSelected, categoryName];
+            } else {
+                // Remove the category from the selected list
+                return prevSelected.filter((name) => name !== categoryName);
+            }
+        });
+    };
+
+    // Filtered categories based on selected checkboxes
+    const filteredCategories =
+        selectedCategories.length > 0
+            ? categories.filter((category) =>
+                  selectedCategories.includes(category.name)
+              )
+            : categories;
+
+    const applyFilters = () => {
+        if (selectedCategories.length > 0) {
+            const encodedCategories = selectedCategories.map(encodeURIComponent).join(',');
+            navigate(`/browse?categories=${encodedCategories}`);
+        } else {
+            navigate('/browse');
         }
     };
 
@@ -46,18 +75,27 @@ const CategoriesPage = () => {
             <div className="categories-page-header">
                 <NavBar title="IndieBazaar" />
             </div>
-            {/* Map category names to dropdown options */}
-            <DropDown options={categories.map(category => category.name)} onSelect={handleCategorySelect} />
+            <DropDown
+                options={categories.map((category) => category.name)}
+                onSelect={handleCategorySelect}
+            />
             <div className="categories-content-container">
                 <div className="categories-filter-box-container">
-                    <FilterBox />
+                    <FilterBox
+                        options={categories.map((category) => category.name)}
+                        selectedCategories={selectedCategories}
+                        onFilterChange={handleFilterChange}
+                    />
+                    <button onClick={applyFilters} className="apply-filters-button">
+                        Apply Filters
+                    </button>
                 </div>
                 <div className="categories-container">
-                    {categories.map((category, index) => (
+                    {filteredCategories.map((category, index) => (
                         <div
-                            key={index} 
+                            key={index}
                             className="category-card"
-                            onClick={() => handleCategoryClick(category)}
+                            onClick={() => handleCategoryClick(category)} 
                         >
                             <p>{category.name}</p>
                             <img src={category.image} alt={category.name} />
