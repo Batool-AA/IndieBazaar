@@ -1,41 +1,88 @@
 .slogan-section {
-    flex: 1;
-    background-color: var(--vibrantPurple);
-    border-radius: 20px;
-    color: var(--peach);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 40px;
-    position: relative;
+  flex: 1;
+  background-color: var(--vibrantPurple);
+  border-radius: 20px;
+  color: var(--peach);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  position: relative;
+}
+
+.slogan-text {
+  font-size: 2.4rem;
+  margin-bottom: 45px;
+}
+
+.slogan-top {
+  top: 15px;
+  right: 15px;
+  width: 100px;
+  height: auto;
+  position: absolute;
+}
+
+.slogan-bottom {
+  bottom: 15px;
+  left: 15px;
+  width: 100px;
+  height: auto;
+  position: absolute;
+}
+
+.slogan-handshake {
+  bottom: 20px;
+  right: 20px;
+  width: 200px;
+  height: auto;
+  position: absolute;
+}
+
+/* Media Queries */
+
+/* For tablets (768px and below) */
+@media (max-width: 768px) {
+  .slogan-section {
+      padding: 30px; /* Adjust padding for smaller screens */
+      border-radius: 15px; /* Softer corners */
   }
-  
+
   .slogan-text {
-    font-size: 2.4rem; 
-    margin-bottom: 45px;
-
-  }
-  
-  .slogan-top {
-    top: 15px; 
-    right: 15px;
-    width: 100px; 
-    height: auto;
+      font-size: 2rem; /* Reduce font size */
+      margin-bottom: 30px; /* Adjust spacing */
+      text-align: left;
   }
 
+  .slogan-top,
   .slogan-bottom {
-    bottom: 15px;
-    left: 15px;
-    width: 100px; 
-    height: auto;
+      width: 80px; /* Adjust image sizes */
   }
 
   .slogan-handshake {
-    bottom: 20px;
-    right: 20px;
-    width: 200px; 
-    height: auto;
+    width: 80px; /* Adjust image sizes */
+  }
+}
+
+/* For mobile devices (480px and below) */
+@media (max-width: 480px) {
+  .slogan-section {
+      padding: 20px; /* Further reduce padding */
+      border-radius: 10px;
   }
 
+  .slogan-text {
+      font-size: 1.5rem; /* Smaller font size */
+      text-align: left; /* Center-align text for smaller screens */
+      margin-bottom: 20px;
+  }
 
-  
+  .slogan-top,
+  .slogan-bottom {
+      width: 60px; /* Further adjust image sizes */
+  }
+
+  .slogan-handshake {
+      width: 80px; /* Scale handshake image */
+  }
+}

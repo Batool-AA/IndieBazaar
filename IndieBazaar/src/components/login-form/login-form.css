@@ -1,68 +1,139 @@
+.login-form-component {
+  flex: 1;
+  border: 2px solid var(--vibrantPurple);
+  border-radius: 20px;
+  background-color: var(--lightLavender);
+  box-shadow: 0 4px 8px var(--vibrantPurple);
+  padding: 25px;
+  padding-top: 0;
+  color: var(--deepPurple);
+}
+
+.login-form-component h2 {
+  text-align: center;
+  color: var(--deepPurple);
+}
+
+.login-component-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 400;
+}
+
+.login-component-signup {
+  text-align: center;
+}
+
+.login-form-component a {
+  color: var(--deepPurple);
+}
+
+.login-form-component a:hover {
+  color: var(--vibrantPurple);
+}
+
+.login-component-back-to-home {
+  display: block;
+  margin-top: 20px;
+  text-align: right;
+  width: 100px;
+  margin-left: auto;
+}
+
+.password-input-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.login-password-toggle-icon {
+  position: absolute;
+  right: 0px;
+  top: 0%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+a {
+  cursor: pointer;
+}
+
+.login-component-options a{
+  text-align: right;
+}
+
+/* Media Queries */
+
+/* For tablets (768px and below) */
+@media (max-width: 768px) {
   .login-form-component {
-    flex: 1;
-    border: 2px solid var(--vibrantPurple);
-    border-radius: 20px;
-    background-color: var(--lightLavender);
-    box-shadow: 0 4px 8px var(--vibrantPurple);
-    padding: 25px;
-    padding-top: 0;
-    color: var(--deepPurple);
-  }
- 
-  .login-form-component h2 {
-    text-align: center;
-    color: var(--deepPurple);
-  }
-  
-  .login-component-options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 400;
-  }
- 
-  .login-component-signup {
-    text-align: center;
+      padding: 20px; /* Adjust padding for smaller screens */
+      box-shadow: 0 3px 6px var(--vibrantPurple); /* Softer shadow */
   }
 
-  .login-form-component a {
-    color: var(--deepPurple);
-  }
 
-  .login-form-component a:hover {
-    color: var(--vibrantPurple);
-  }
-  
   .login-component-back-to-home {
-    display: block;
-    margin-top: 20px;
-    text-align: right;
-    width: 100px;
-    margin-left: auto;
+      width: auto; /* Expand to fit content */
+      text-align: center; /* Center the text */
+      margin-left: 0;
   }
-  
-  .password-input-group {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-  
-  .password-input-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-  
+
   .login-password-toggle-icon {
-    position: absolute;
-    right: 0px; 
-    top: 0%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: #666;
+      font-size: 1.3rem; /* Adjust icon size */
   }
-  
-  a{
-    cursor: pointer;
+
+  .input-group label {
+    text-align: left;
   }
+
+  /* .error-message {
+    text-align: left;
+  } */
+
+}
+
+/* For mobile devices (480px and below) */
+@media (max-width: 480px) {
+  .login-form-component {
+      padding: 15px; /* Further reduce padding */
+      border-radius: 15px; /* Softer corners */
+  }
+
+  .login-form-component h2 {
+      font-size: 1.1rem; /* Smaller heading size */
+  }
+
+  .login-component-options {
+      gap: 10px; /* Add spacing between stacked options */
+  }
+
+  .login-component-signup {
+      font-size: 0.9rem; /* Adjust font size for better readability */
+  }
+
+  .login-component-back-to-home {
+      margin-top: 10px; /* Reduce margin */
+      font-size: 0.8rem; /* Smaller text */
+  }
+
+  .login-password-toggle-icon {
+      font-size: 1.2rem; /* Adjust icon size */
+  }
+
+  .input-group label {
+    text-align: left;
+  }
+
+  /* .error-message {
+    text-align: left;
+  } */
+}

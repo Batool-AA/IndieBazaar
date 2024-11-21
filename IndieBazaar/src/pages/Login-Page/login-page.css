@@ -7,22 +7,64 @@
     gap: 20px;
     padding: 20px;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    /* max-height: auto; */
     background-color: var(--pastelLavender);
     /* width: 100vw; */
-  }
+}
 
-  .login-page-slogan-container {
+.login-page-slogan-container {
     flex: 0.9;
-  }
+}
 
-  .login-page-form-container {
+.login-page-form-container {
     flex: 0.5;
-  }
+}
 
-  .login-page-form-container h1 {
+.login-page-form-container h1 {
     color: var(--deepPurple);
     text-align: center;
-  }
-  
-  
+}
+
+/* Media Queries */
+
+/* For tablets (768px and below) */
+@media (max-width: 768px) {
+    .login-page-container {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center align in column layout */
+    }
+
+    .login-page-slogan-container {
+        flex: 1; /* Adjust the width */
+        text-align: center; /* Center the text */
+    }
+
+    .login-page-form-container {
+        flex: 1; /* Adjust the width */
+        margin-top: 20px;
+        width: 80%;
+    }
+}
+
+/* For mobile devices (480px and below) */
+@media (max-width: 480px) {
+    .login-page-container {
+        padding: 10px; /* Reduce padding for smaller screens */
+        gap: 10px; /* Reduce gap between elements */
+    }
+
+    .login-page-slogan-container,
+    .login-page-form-container {
+        flex: 1; /* Full width */
+        text-align: center; /* Center text for both sections */
+    }
+
+    .login-page-form-container{
+      width: 80%;
+    }
+
+    .login-page-form-container h1 {
+        font-size: 1.5rem; /* Adjust font size for smaller screens */
+    }
+}
