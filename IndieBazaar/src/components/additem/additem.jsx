@@ -3,7 +3,7 @@ import './additem.css';
 import '../../pages/setupbusiness-page/setupbusiness.css';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
-const AddItemForm = ({ onNext, businessitems, setBusinessitems }) => {
+const AddItemForm = ({ onNext, businessitems, setBusinessItems }) => {
   const [itemName, setItemName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
@@ -62,7 +62,7 @@ const AddItemForm = ({ onNext, businessitems, setBusinessitems }) => {
   };
 
   const handleNext = () => {
-    setBusinessitems(items);
+    setBusinessItems(items);
     if (items.length > 0) {
       setNextButtonError('');
       onNext();

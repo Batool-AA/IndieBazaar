@@ -1,5 +1,5 @@
 /* Main container */
-
+ 
 .setup-business-container-main {
   background-image: linear-gradient(to bottom, var(--softPink), var(--lightLavender));
 }
@@ -64,21 +64,6 @@
   background-color: var(--deepPurple);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .setup-business-container h1 {
-    font-size: 2rem;
-  }
-
-  .subtitle {
-    font-size: 1rem;
-  }
-
-  .prev-button,
-  .next-button {
-    max-width: 100%; /* Allow buttons to stretch fully on smaller screens */
-  }
-}
 
 .prompt {
   font-size: 2rem;
@@ -158,4 +143,90 @@
 .category-buttons button.selected {
   background-color: var(--softPink) !important; /* Add !important if necessary */
   color: var(--deepPurple);
+}
+
+
+/* Base Styling (already implemented) */
+
+/* Responsive Design */
+
+/* Small Screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .setup-business-container {
+    padding: 15px; /* Reduce padding for smaller devices */
+  }
+
+  .setup-business-container h1 {
+    font-size: 2rem; /* Smaller font size for headings */
+  }
+
+  .subtitle {
+    font-size: 1rem; /* Adjust subtitle size */
+  }
+
+  .input-container, .step-container {
+    min-width: 100%; /* Allow full-width inputs */
+    padding: 10px; /* Add inner spacing */
+  }
+
+  .setup-business-container input[type="text"], 
+  textarea, 
+  input[type="number"], 
+  .image-upload {
+    font-size: 0.9rem; /* Slightly smaller text in inputs */
+    padding: 10px; /* Adjust padding */
+  }
+
+  .prev-button,
+  .next-button {
+    font-size: 0.9rem; /* Reduce button font size */
+    padding: 10px 20px; /* Adjust button padding */
+  }
+}
+
+/* Medium Screens (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .setup-business-container {
+    padding: 20px; /* Maintain good spacing */
+  }
+
+  .setup-business-container h1 {
+    font-size: 2.3rem; /* Moderate font size */
+  }
+
+  .subtitle {
+    font-size: 1.1rem; /* Slightly larger subtitle */
+  }
+
+  .input-container, .step-container {
+    min-width: 80%; /* Slightly reduce input width */
+  }
+
+  .prev-button,
+  .next-button {
+    font-size: 1rem; /* Standardize font size for medium screens */
+    max-width: 200px; /* Slightly reduce button width */
+  }
+}
+
+/* Large Screens (above 768px) */
+@media (min-width: 769px) {
+ 
+  .setup-business-container h1 {
+    font-size: 2.5rem; /* Original font size */
+  }
+
+  .subtitle {
+    font-size: 1.2rem; /* Original subtitle size */
+  }
+
+  .input-container, .step-container {
+    min-width: 600px; /* Original width for inputs */
+  }
+
+  .prev-button,
+  .next-button {
+    font-size: 1rem; /* Original button font size */
+    max-width: 250px; /* Original button width */
+  }
 }

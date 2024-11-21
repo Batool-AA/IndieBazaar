@@ -1,5 +1,7 @@
 import React, { useState, useRef } from 'react';
+import '../../pages/setupbusiness-page/setupbusiness.css'
 import '../additem/additem.css';
+import './addmoreitems.css'
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { getFirestore, doc, updateDoc, arrayUnion } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';

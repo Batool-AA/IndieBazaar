@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../additem/additem.css';
-import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { getFirestore, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 
@@ -12,7 +12,10 @@ const EditItem = ({ businessId, itemToEdit }) => {
   const [image, setImage] = useState(itemToEdit.image || null);
   const [editError, setEditError] = useState('');
   const [isImageUpdated, setIsImageUpdated] = useState(false);
-  
+  const [uploading, setUploading] = useState(false); // Track upload progress
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const fileInputRef = useRef(null);
+
   const storage = getStorage();
   const db = getFirestore();
   const navigate = useNavigate();
@@ -21,7 +24,7 @@ const EditItem = ({ businessId, itemToEdit }) => {
     const priceValue = parseFloat(price);
 
     // Input validation
-    if (!itemName.trim() || !description.trim() || !price.trim() || !category.trim() || (!image && !itemToEdit.image)) {
+    if (!itemName.trim() || !description.trim() || !category.trim() || (!image && !itemToEdit.image)) {
       setEditError('Please fill in all fields before saving the changes.');
       return;
     }
@@ -63,19 +66,34 @@ const EditItem = ({ businessId, itemToEdit }) => {
     }
   };
 
-  const handleImageUpload = async (e) => {
+  const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
       const storageRef = ref(storage, `images/${Date.now()}_${file.name}`);
-      try {
-        await uploadBytes(storageRef, file);
-        const imageURL = await getDownloadURL(storageRef);
-        setImage(imageURL);
-        setIsImageUpdated(true); // Mark image as updated
-      } catch (error) {
-        console.error('Error uploading image:', error);
-        setEditError('Error uploading image. Please try again.');
-      }
+      const uploadTask = uploadBytesResumable(storageRef, file);
+
+      // Monitor the upload progress
+      uploadTask.on('state_changed', 
+        (snapshot) => {
+          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          setUploadProgress(progress); // Update the progress state
+          setUploading(true); // Set uploading to true
+        }, 
+        (error) => {
+          console.error("Error uploading file: ", error);
+          setUploading(false); // Set uploading to false on error
+        }, 
+        async () => {
+          try {
+            const imageURL = await getDownloadURL(uploadTask.snapshot.ref);
+            setImage(imageURL);
+            setUploading(false); // Set uploading to false when done
+          } catch (error) {
+            console.error("Error getting image URL: ", error);
+            setUploading(false);
+          }
+        }
+      );
     }
   };
 
@@ -122,14 +140,18 @@ const EditItem = ({ businessId, itemToEdit }) => {
         accept="image/*"
       />
       {editError && <p className="error-message">{editError}</p>}
+      {uploading && (
+        <div className="upload-progress">
+          <div className="progress-bar" style={{ width: `${uploadProgress}%` }}></div>
+        </div>
+      )}
 
-      <div className="button-container">
-        <button className="edit-item-button" onClick={handleEditItem}>
-          Save Changes
-        </button>
-        <button className="cancel-button" onClick={handleCancel}>
-          Cancel
-        </button>
+      <button className="add-item-button" onClick={handleEditItem} disabled={uploading}>
+        {uploading ? 'Uploading...' : 'Save Changes'}
+      </button>
+
+      <div className="input-container">
+        <button className="next-button" onClick={handleCancel}>Done</button>
       </div>
     </div>
   );
