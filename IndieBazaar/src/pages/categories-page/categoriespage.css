@@ -1,11 +1,20 @@
 .categories-page-container {
-  /* background-color: var(--softPink); */
-  background-image:  linear-gradient(to bottom, var(--softPink), var(--lightLavender));
-  /* background-image: url('../../assets/background picture 2.jpg'); */
-  /* background-size: cover;
-  background-position: center; */
+  background-image: linear-gradient(to bottom, var(--softPink), var(--lightLavender));
+  padding: 20px;
+  padding-top: 10px;
   width: 100vw;
   min-height: 100vh;
+}
+
+.categories-content-container {
+  display: flex;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.categories-filter-box-container {
+  flex: 0.25;
+  margin-left: 15px;
 }
 
 .categories-container {
@@ -13,28 +22,19 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 30px; 
-  margin-left: 100px; 
-  margin-top: 20px;
-}
-
-.categories-filter-box-container {
-  flex: 0.25; 
-  margin-left: 15px;
-}
- 
-.categories-content-container {
-  display: flex; 
+  gap: 30px;
+  margin-left: 100px;
   margin-top: 20px;
 }
 
 .category-card {
-  width: 200px;
-  height: 250px;
+  color: var(--coral-pink);
+  background-color: var(--lightLavender);
   border: 15px solid var(--lightLavender);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  width: 200px;
+  height: 250px;
   border-radius: 15px;
-  background-color: var(--lightLavender);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,7 +44,6 @@
   padding: 15px 10px 5px;
   margin-bottom: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: var(--deepPurple);
 }
 
 .category-card:hover {
@@ -71,6 +70,61 @@
   cursor: pointer;
 }
 
+/* Media Queries */
 
+/* For tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .categories-content-container {
+    flex-direction: column;
+    align-items: center;
+  }
 
+  .categories-filter-box-container {
+    flex: none;
+    width: 90%;
+    margin: 0 auto 20px;
+  }
 
+  .categories-container {
+    margin-left: 0;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .category-card {
+    width: 180px;
+    height: 220px;
+  }
+
+  .category-card p {
+    font-size: 0.9rem;
+  }
+}
+
+/* For mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .categories-page-container {
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .categories-filter-box-container {
+    width: 50%;
+    margin-bottom: 15px;
+  }
+
+  .categories-container {
+    gap: 15px;
+  }
+
+  .category-card {
+    width: 160px;
+    height: 200px;
+    padding: 10px;
+  }
+
+  .category-card p {
+    font-size: 0.85rem;
+  }
+}

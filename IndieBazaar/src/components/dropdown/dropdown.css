@@ -51,3 +51,47 @@
 .dropdown-item:hover {
     background-color: #e6e6e6;
 }
+
+/* Media Queries */
+
+/* For tablets (max-width: 768px) */
+@media (max-width: 768px) {
+    .dropdown-container {
+        max-width: 450px;
+        padding: 8px;
+    }
+
+    .dropdown-selected {
+        font-size: 0.9rem;
+    }
+
+    .dropdown-list {
+        max-height: 150px;
+    }
+
+    .dropdown-item {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+}
+
+/* For mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .dropdown-container {
+        max-width: 90%;
+        padding: 10px;
+    }
+
+    .dropdown-selected {
+        font-size: 0.85rem;
+    }
+
+    .dropdown-list {
+        max-height: 120px;
+    }
+
+    .dropdown-item {
+        padding: 6px;
+        font-size: 0.8rem;
+    }
+}

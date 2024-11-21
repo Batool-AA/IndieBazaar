@@ -37,7 +37,7 @@ const FilterBox = () => {
                 ))}
             </div>
 
-            <div className="filter-price-range">
+            {/* <div className="filter-price-range">
                 <h4>Price Range (PKR)</h4>
                 <input
                     type="range"
@@ -48,7 +48,7 @@ const FilterBox = () => {
                     className="filter-slider"
                 />
                 <p>Selected Price: PKR {price}</p>
-            </div>
+            </div> */}
         </div>
     );
 };

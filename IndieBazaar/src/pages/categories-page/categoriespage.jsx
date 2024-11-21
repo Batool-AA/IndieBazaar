@@ -43,7 +43,9 @@ const CategoriesPage = () => {
 
     return (
         <div className="categories-page-container">
-            <NavBar title="IndieBazaar" />
+            <div className="categories-page-header">
+                <NavBar title="IndieBazaar" />
+            </div>
             {/* Map category names to dropdown options */}
             <DropDown options={categories.map(category => category.name)} onSelect={handleCategorySelect} />
             <div className="categories-content-container">

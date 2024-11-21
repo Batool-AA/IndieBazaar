@@ -83,7 +83,10 @@ const BrowseBusinesses = () => {
 
     return (
         <div className="browse-businesses-container">
-            <NavBar title="IndieBazaar - Browse Businesses" />
+            <div className="browse-page-header">
+                <NavBar title="IndieBazaar" />
+            </div>
+            
             {/* Business Name Dropdown */}
             <DropDown 
                 options={businessNames} 

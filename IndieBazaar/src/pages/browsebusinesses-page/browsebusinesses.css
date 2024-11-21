@@ -1,5 +1,5 @@
 .browse-businesses-container {
-  background-image: linear-gradient(to bottom, var(--softPink), var(--lightLavender)); /* Similar gradient effect */
+  background-image: linear-gradient(to bottom, var(--softPink), var(--lightLavender));
   padding: 20px;
   padding-top: 10px;
   width: 100vw;
@@ -12,7 +12,7 @@
 }
 
 .browse-filter-box-container {
-  flex: 0.25; 
+  flex: 0.25;
   margin-left: 15px;
 }
 
@@ -21,18 +21,28 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 30px; /* Match with categories */
-  margin-left: 100px; 
+  gap: 30px;
+  margin-left: 100px;
   margin-top: 20px;
 }
 
-
-
-.business-card{
+.business-card {
   color: var(--coral-pink);
   background-color: var(--lightLavender);
   border: 15px solid var(--lightLavender);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  width: 200px;
+  height: 250px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  position: relative;
+  padding: 15px 10px 5px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .business-card:hover {
@@ -57,4 +67,63 @@
   text-align: center;
   width: 100%;
   cursor: pointer;
+}
+
+/* Media Queries */
+
+/* For tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .browse-content-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .browse-filter-box-container {
+    flex: none;
+    width: 90%;
+    margin: 0 auto 20px;
+  }
+
+  .businesses-container {
+    margin-left: 0;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .business-card {
+    width: 180px;
+    height: 220px;
+  }
+
+  .business-card p {
+    font-size: 0.9rem;
+  }
+}
+
+/* For mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .browse-businesses-container {
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .browse-filter-box-container {
+    width: 50%;
+    margin-bottom: 15px;
+  }
+
+  .businesses-container {
+    gap: 15px;
+  }
+
+  .business-card {
+    width: 160px;
+    height: 200px;
+    padding: 10px;
+  }
+
+  .business-card p {
+    font-size: 0.85rem;
+  }
 }
