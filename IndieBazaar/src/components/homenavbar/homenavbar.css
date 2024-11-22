@@ -6,20 +6,21 @@
   z-index: 10;
   flex-wrap: wrap; /* Allow wrapping for smaller screens */
   background-color: var(--softPink); /* Optional background for better visibility */
+  justify-content: space-between; /* Ensure left and right sections stay aligned */
+  align-items: center; /* Vertically center items */
 }
 
 .nav-left, .nav-right {
   display: flex;
   gap: 20px;
+  align-items: center; /* Ensure alignment */
 }
 
 .nav-left {
-  margin-right: auto;
   margin-left: 10px;
 }
 
 .nav-right {
-  margin-left: auto;
   margin-right: 50px;
 }
 
@@ -37,34 +38,40 @@
 
 /* Extra small devices (max-width: 480px) */
 @media (max-width: 480px) {
+  .navbar {
+    padding: 10px;
+    align-items: flex-start; /* Align items to the left */
+  }
 
   .nav-left, .nav-right {
     flex-direction: column; /* Stack items vertically */
-    gap: 2px;
+    gap: 10px;
   }
 
-  .nav-right{
-    text-align: right;
+  .nav-right {
+    align-items: flex-end; /* Align right section to the right */
     margin-left: auto;
-    margin-right: 20px;
+    margin-right: 25px;
   }
 
   .nav-left {
-    margin-left: 20px;
+    margin-bottom: 10px;
   }
+
   .nav-left span, .nav-right span {
     font-size: 14px; /* Adjust font size for smaller screens */
   }
 }
 
 /* Small devices (481px to 768px) */
-@media (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 768px) {
   .navbar {
     flex-direction: row; /* Keep items in a row */
     padding: 15px;
   }
 
   .nav-left, .nav-right {
+    flex-direction: row;
     gap: 15px; /* Adjust spacing for medium screens */
   }
 

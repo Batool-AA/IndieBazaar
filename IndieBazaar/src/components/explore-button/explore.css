@@ -1,27 +1,85 @@
 .explore-container {
-    text-align: center;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+/* Responsive button styles */
+.explore-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: 2px solid var(--vibrantPurple);
+  border-radius: 5px;
+  background-color: var(--softPink);
+  box-shadow: 0 4px 8px var(--vibrantPurple);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 1s ease, background-color 0.3s ease;
+  color: var(--red);
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.explore-button:hover {
+  background-color: var(--peach);
+}
+
+/* Media queries for responsiveness */
+
+/* Extra small devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .explore-container {
+    margin-top: 15px;
+    margin-bottom: 30px;
+  }
+
+  .explore-button {
+    padding: 8px 15px; /* Smaller padding */
+    font-size: 0.9rem; /* Adjust font size */
+    box-shadow: 0 2px 4px var(--vibrantPurple); /* Reduce shadow */
+  }
+}
+
+/* Small devices (481px to 768px) */
+@media (max-width: 768px) {
+  .explore-container {
+    margin-top: 18px;
+    margin-bottom: 40px;
+  }
+
+  .explore-button {
+    padding: 9px 18px; /* Adjust padding */
+    font-size: 0.95rem; /* Slightly smaller font size */
+    box-shadow: 0 3px 6px var(--vibrantPurple); /* Moderate shadow */
+  }
+}
+
+/* Medium devices (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .explore-container {
     margin-top: 20px;
     margin-bottom: 50px;
   }
-  
+
   .explore-button {
     padding: 10px 20px;
     font-size: 1rem;
-    border: 2px solid var(--vibrantPurple);
-    border-radius: 5px;
-    background-color: var(--softPink);
-    box-shadow: 0 4px 8px var(--vibrantPurple);
-    cursor: pointer;
-    opacity: 0; 
-    transition: opacity 1s ease, background-color 0.3s ease;
-    color:var(--red);
+    box-shadow: 0 4px 8px var(--vibrantPurple); /* Default shadow */
   }
-  
-  .fade-in {
-    opacity: 1; 
+}
+
+/* Large devices (1025px and up) */
+@media (min-width: 1025px) {
+  .explore-container {
+    margin-top: 25px;
+    margin-bottom: 60px; /* Slightly larger margins */
   }
-  
-  .explore-button:hover {
-    background-color: var(--peach);
+
+  .explore-button {
+    padding: 12px 25px; /* Larger padding */
+    font-size: 1.1rem; /* Larger font size */
+    box-shadow: 0 5px 10px var(--vibrantPurple); /* More prominent shadow */
   }
-  
+}
