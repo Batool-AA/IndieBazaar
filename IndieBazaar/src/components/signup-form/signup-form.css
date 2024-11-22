@@ -7,6 +7,7 @@
   padding: 25px;
   padding-top: 0;
   color: var(--deepPurple);
+  text-align: left;
 }
 
 .signup-form-component h2 {

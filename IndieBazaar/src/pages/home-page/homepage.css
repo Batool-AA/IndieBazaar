@@ -1,7 +1,7 @@
 .homepage-container {
   position: relative;
-  /* overflow: hidden; */
-  min-width: 100vw;
+  overflow-x: hidden;
+  width: 100vw;
   min-height: 100vh;
 }
 
@@ -13,6 +13,7 @@
   background-color: var(--softPink); /* Light Gray */
   color: var(--vibrantPurple); /* Accent Orange */
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .homepage-container #about-us {
