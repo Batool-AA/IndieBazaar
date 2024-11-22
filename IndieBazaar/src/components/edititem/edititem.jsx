@@ -12,7 +12,7 @@ const EditItem = ({ businessId, itemToEdit }) => {
   const [image, setImage] = useState(itemToEdit.image || null);
   const [editError, setEditError] = useState('');
   const [isImageUpdated, setIsImageUpdated] = useState(false);
-  const [uploading, setUploading] = useState(false); // Track upload progress
+  const [uploading, setUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
   const fileInputRef = useRef(null);
 
@@ -47,7 +47,14 @@ const EditItem = ({ businessId, itemToEdit }) => {
         const businessData = businessSnapshot.data();
         const updatedItems = businessData.items.map((item) =>
           item.name === itemToEdit.name
-            ? { ...item, name: itemName, description, price, category, image: isImageUpdated ? image : itemToEdit.image }
+            ? {
+                ...item,
+                name: itemName,
+                description,
+                price,
+                category,
+                image: isImageUpdated ? image : itemToEdit.image,
+              }
             : item
         );
 
@@ -73,23 +80,25 @@ const EditItem = ({ businessId, itemToEdit }) => {
       const uploadTask = uploadBytesResumable(storageRef, file);
 
       // Monitor the upload progress
-      uploadTask.on('state_changed', 
+      uploadTask.on(
+        'state_changed',
         (snapshot) => {
           const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          setUploadProgress(progress); // Update the progress state
-          setUploading(true); // Set uploading to true
-        }, 
+          setUploadProgress(progress);
+          setUploading(true);
+        },
         (error) => {
-          console.error("Error uploading file: ", error);
-          setUploading(false); // Set uploading to false on error
-        }, 
+          console.error('Error uploading file:', error);
+          setUploading(false);
+        },
         async () => {
           try {
             const imageURL = await getDownloadURL(uploadTask.snapshot.ref);
             setImage(imageURL);
-            setUploading(false); // Set uploading to false when done
+            setIsImageUpdated(true); // Mark image as updated
+            setUploading(false);
           } catch (error) {
-            console.error("Error getting image URL: ", error);
+            console.error('Error getting image URL:', error);
             setUploading(false);
           }
         }
@@ -98,7 +107,7 @@ const EditItem = ({ businessId, itemToEdit }) => {
   };
 
   const handleCancel = () => {
-    if (!businessId) return; // If businessId is missing, do nothing or show an error
+    if (!businessId) return;
     navigate('/edit-business', { state: { businessId } });
   };
 
@@ -135,6 +144,7 @@ const EditItem = ({ businessId, itemToEdit }) => {
       />
       <input
         type="file"
+        ref={fileInputRef}
         onChange={handleImageUpload}
         className="image-upload"
         accept="image/*"
@@ -151,7 +161,9 @@ const EditItem = ({ businessId, itemToEdit }) => {
       </button>
 
       <div className="input-container">
-        <button className="next-button" onClick={handleCancel}>Done</button>
+        <button className="next-button" onClick={handleCancel}>
+          Done
+        </button>
       </div>
     </div>
   );
