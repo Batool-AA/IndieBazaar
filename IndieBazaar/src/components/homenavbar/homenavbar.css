@@ -15,12 +15,12 @@
 
 .nav-left {
   margin-right: auto;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .nav-right {
   margin-left: auto;
-  margin-right: 20px;
+  margin-right: 50px;
 }
 
 .nav-left span, .nav-right span {
