@@ -29,7 +29,7 @@ function App () {
         <Route path="/store" element={<CategoriesPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/buyerseller" element={<BuyerSellerPage />} />
-        <Route path="/setbusiness" element={<PrivateRoute element={<SetupBusiness />} />} /> 
+        <Route path="/setbusiness" element={<SetupBusiness />} /> 
         <Route path="/business-home/:id" element={<BusinessPage />} />
         <Route path="/business-products" element={<ProductPage />} />
         <Route path="/browse" element={<BrowseBusinesses />} />

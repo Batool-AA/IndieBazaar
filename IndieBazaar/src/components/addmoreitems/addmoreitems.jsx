@@ -56,10 +56,10 @@ const AddMoreItems = ({ businessId }) => {
   };
 
   const handleDone = async () => {
-    if (items.length === 0) {
-      setAddItemError('No items to add. Please add items before finishing.');
-      return;
-    }
+    // if (items.length === 0) {
+    //   setAddItemError('No items to add. Please add items before finishing.');
+    //   return;
+    // }
 
     try {
       const businessDocRef = doc(db, 'businesses', businessId);
@@ -71,6 +71,7 @@ const AddMoreItems = ({ businessId }) => {
     } catch (error) {
       console.error("Error updating document: ", error);
     }
+    navigate('/user-profile');
   };
 
   const handleImageUpload = (e) => {
