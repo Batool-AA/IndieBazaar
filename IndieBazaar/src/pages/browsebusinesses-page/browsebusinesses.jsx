@@ -6,6 +6,7 @@ import NavBar from "../../components/navigationbar/navigation";
 import FilterBox from "../../components/filter-box/filterbox";
 import { useLocation, useNavigate } from 'react-router-dom';
 import "./browsebusinesses.css";
+import mainlogo from '../../assets/logoimage.jpg';
 
 const BrowseBusinesses = () => {
     const location = useLocation();
@@ -152,7 +153,7 @@ const BrowseBusinesses = () => {
     return (
         <div className="browse-businesses-container">
             <div className="browse-page-header">
-                <NavBar title="IndieBazaar" />
+                <NavBar title="IndieBazaar" logoSrc={mainlogo}/>
             </div>
             
             {/* Business Name Dropdown */}

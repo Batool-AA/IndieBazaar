@@ -33,6 +33,10 @@
   background-color: #6A1BBE;
 }
 
+.buyer-seller-header-container{
+  margin-top: 10px;
+}
+
 @media (max-width: 768px) {
   .buyer-seller-page-container {
     padding: 15px;

@@ -5,10 +5,11 @@
     /* background-color: var(--softPink); */
     padding: 10px 20px;
     width: 98vw;
+    position: relative;
 }
 
 .pages-navbar-icons {
-    display: flex;
+    display: flex; 
     gap: 15px;
     align-items: center;
 }
@@ -17,6 +18,8 @@
     font-size: 24px;
     color: var(--deepPurple); 
     text-decoration: solid;
+    font-family: 'Caveat', cursive;
+
 }
 
 .pages-navbar-icons .icon {
@@ -34,3 +37,12 @@
     cursor: pointer;
 }
 
+
+.navbar-logo {
+    position: absolute;
+    height: 40px; /* Adjust size */
+    width: auto;
+    cursor: pointer;
+    top: 0%;
+    border-radius: 20px;
+}

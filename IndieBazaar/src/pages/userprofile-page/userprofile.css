@@ -1,5 +1,6 @@
 /* Ensure the profile page takes up the full viewport height */
 .user-profile-page {
+    padding-top: 10px;
     display: flex;
     flex-direction: column;
     width: 100vw;

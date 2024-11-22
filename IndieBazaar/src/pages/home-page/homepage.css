@@ -1,7 +1,7 @@
 .homepage-container {
   position: relative;
-  overflow: hidden;
-  width: 100vw;
+  /* overflow: hidden; */
+  min-width: 100vw;
   min-height: 100vh;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .homepage-container #about-us {
-  height: 600px; 
+  height: 500px; 
   width: 100%;
   background-color: var(--pastelLavender); /* Primary Blue */
   padding: 30px;
@@ -30,4 +30,5 @@
   /* background-color: var(--pastelLavender);  */
   padding: 10px;
   color: var(--vibrantPurple); /* Accent Orange */
+  height: 250px;
 }

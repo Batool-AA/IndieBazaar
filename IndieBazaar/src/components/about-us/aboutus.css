@@ -3,15 +3,20 @@
 .about-us-container {
   position: relative;
   margin: auto; 
+  height: 100vh; 
+  width: 100%; /* Ensure the container takes full width */
+  padding: 20px; /* Add some padding for better spacing */
+  
 }
 
 .big-text {
   font-family: 'Arial Black', sans-serif;
-  font-size: 150px; 
+  font-size: 10vw; /* Adjust the font size relative to viewport width */
   color: var(--vibrantPurple);
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   margin-bottom: 20px;
 }
 
@@ -20,27 +25,27 @@
 }
 
 .word-1 {
-  left: 250px; /* Adjust to percentage for responsiveness */
-  top: -30px;
+  left: 15%;
+  top: -13%; /* Adjusted to give more room for other words */
 }
 
 .word-2 {
-  right: 150px; /* Adjust to percentage for responsiveness */
-  top: 150px;
+  left: 57%;
+  top: 12%;
 }
 
 .word-3 {
-  left: 150px; /* Adjust to percentage for responsiveness */
-  top: 280px;
+  left: 6%;
+  top: 27%;
 }
 
 .indiebazaar-logo {
-  width: 370px; /* Use percentage to make it responsive */
+  width: 25vw; /* Responsive width for the logo */
   height: auto;
-  z-index: 1;
   position: absolute;
-  top: 60px;
-  left: 570px; /* Center the logo */
+  top: 0%;
+  left: 35%;
+  z-index: 1;
 }
 
 .about-info-box {
@@ -59,33 +64,35 @@
 }
 
 .about-info-box-1 {
-  left: 230px;
-  top: 130px;
+  left: 15%;
+  top: 8%;
   width: 17%;
 }
 
 .about-info-box-2 {
-  left: 300px;
-  top: 250px;
+  left: 18%;
+  top: 23%;
   width: 17%;
 }
 
 .about-info-box-3 {
-  top: 70px;
-  right: 320px;
+  left: 57%;
+  top: 1%;
   width: 17%;
 }
 
 .about-info-box-4 {
-  top: 350px;
-  right: 353px;
+  left: 57%;
+  top: 37%;
   width: 17%;
 }
 
 .about-button-container {
   position: absolute;
-  top: 500px;
-  left: 550px;
+  top: 55%;
+  left: 47%;
+  /* margin: auto; */
+  transform: translateX(-50%); /* Center the button container */
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -94,7 +101,7 @@
 
 .about-setup-button, .about-explore-button {
   padding: 12px 24px;
-  font-size: 1rem; /* Use rem for better scalability */
+  font-size: 1rem;
   border: none;
   border-radius: 5px;
   background-color: var(--softPink);
@@ -109,4 +116,57 @@
   transform: scale(1.05);
 }
 
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+  .big-text {
+    font-size: 12vw; /* Adjust font size for tablets */
+  }
 
+  .word-1, .word-2, .word-3 {
+    font-size: 15vw; /* Increase size for better visibility */
+  }
+
+  .indiebazaar-logo {
+    width: 30vw; /* Logo width increases for better scaling */
+    left: 35%; /* Re-center the logo */
+  }
+
+  .about-info-box {
+    width: 80%;
+    font-size: 1rem;
+  }
+
+  .about-info-box-1, .about-info-box-2, .about-info-box-3, .about-info-box-4 {
+    width: 40%; /* Adjust box widths for better visibility */
+    top: auto; /* Allow better positioning for smaller screens */
+  }
+
+  .about-button-container {
+    top: 60%; /* Move buttons lower for mobile view */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .big-text {
+    font-size: 16vw; /* Larger font for very small screens */
+  }
+
+  .word-1, .word-2, .word-3 {
+    font-size: 10vw;
+  }
+
+  .indiebazaar-logo {
+    width: 40vw;
+    left: 30%;
+  }
+
+  .about-info-box {
+    width: 90%;
+  }
+
+  .about-button-container {
+    top: 65%;
+  }
+}

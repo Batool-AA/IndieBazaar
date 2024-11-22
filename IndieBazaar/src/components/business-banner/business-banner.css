@@ -13,12 +13,12 @@
 
 .business-banner-container h1 {
   color: var(--vibrantPurple);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Times New Roman', sans-serif;
 }
 
 .business-banner-container p {
   color: var(--vibrantPurple);
-  font-size: 1rem; /* Default font size */
+  font-size: 1.5rem; /* Default font size */
 }
 
 /* Media queries for responsiveness */
@@ -30,11 +30,11 @@
   }
 
   .business-banner-container h1 {
-    font-size: 2.5rem; /* Smaller heading font size */
+    font-size: 3.5rem; /* Smaller heading font size */
   }
 
   .business-banner-container p {
-    font-size: 0.875rem; /* Smaller paragraph font size */
+    font-size: 1.875rem; /* Smaller paragraph font size */
   }
 }
 
@@ -45,11 +45,11 @@
   }
 
   .business-banner-container h1 {
-    font-size: 2.75rem; /* Adjust font size */
+    font-size: 4.75rem; /* Adjust font size */
   }
 
   .business-banner-container p {
-    font-size: 0.95rem; /* Adjust paragraph font size */
+    font-size: 1.95rem; /* Adjust paragraph font size */
   }
 }
 

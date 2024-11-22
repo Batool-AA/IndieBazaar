@@ -29,7 +29,7 @@ const StepTwoBusinessDescription = ({ onNext, businessDescription, setBusinessDe
           value={businessDescription}
           onChange={(e) => setBusinessDescription(e.target.value)}
         />
-        <div className="social-media-container">
+        {/* <div className="social-media-container">
           <div className="social-media-field">
             <FaInstagram className="social-icon" />
             <input
@@ -57,7 +57,7 @@ const StepTwoBusinessDescription = ({ onNext, businessDescription, setBusinessDe
               onChange={(e) => setFacebook(e.target.value)}
             />
           </div>
-        </div>
+        </div> */}
         {errors && <p className="error-message">{errors}</p>}
         <button className="next-button" onClick={handleNext}>Next</button>
       </div>

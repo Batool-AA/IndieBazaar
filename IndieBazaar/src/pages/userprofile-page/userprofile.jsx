@@ -5,6 +5,7 @@ import NavBar from '../../components/navigationbar/navigation';
 import ProfileDetails from '../../components/profiledetails/profiledetails';
 import BusinessDetails from '../../components/userbusinessdetails/userbusinessdetails';
 import './userprofile.css';
+import mainlogo from '../../assets/logoimage.jpg'
 
 const UserProfile = () => {
     const [usertype, setUsertype] = useState(null); // state to store the user type
@@ -40,7 +41,7 @@ const UserProfile = () => {
 
     return (
         <div className="user-profile-page">
-            <NavBar title="IndieBazaar" />
+            <NavBar title="IndieBazaar" logoSrc={mainlogo}/>
             <div className="user-profile">
                 <div className="user-profile__sidebar">
                     {/* Sidebar content */}

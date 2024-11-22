@@ -6,7 +6,7 @@ import { useState } from "react";
 import { auth } from '../../firebase/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import Navbar from "../../components/navigationbar/navigation"
-
+import mainlogo from '../../assets/logoimage.jpg'
 const BuyerSellerPage = () => {
 
   const navigate = useNavigate();
@@ -43,7 +43,7 @@ const BuyerSellerPage = () => {
   return (
     <div className="buyer-seller-page-container">
       <div className="buyer-seller-header-container">
-        <Navbar title={"IndieBazaar"} />
+        <Navbar title={"IndieBazaar"} logoSrc={mainlogo}/>
       </div>
       <div className="buyer-seller-buttons-container">
 

@@ -5,7 +5,7 @@ import { db } from '../../firebase/firebase'; // Import Firestore db
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import './navigation.css';
 
-const NavBar = ({ title }) => {
+const NavBar = ({ title, logoSrc }) => {
     const navigate = useNavigate();
 
     const handleUserClick = () => {
@@ -18,7 +18,7 @@ const NavBar = ({ title }) => {
         }
     };
 
-    const handletitleclick = async () => {
+    const handleTitleClick = async () => {
         if (title.includes("IndieBazaar")) {
             navigate("/");
         } else {
@@ -42,7 +42,17 @@ const NavBar = ({ title }) => {
 
     return (
         <div className="pages-navbar">
-            <div className="pages-navbar-title" onClick={handletitleclick}>{title}</div> 
+            <div className="pages-navbar-title" onClick={handleTitleClick}>
+                {logoSrc ? (
+                    <img 
+                        src={logoSrc} 
+                        alt="Logo" 
+                        className="navbar-logo"
+                    />
+                ) : (
+                    <span className="navbar-title-text">{title}</span>
+                )}
+            </div>
             <div className="pages-navbar-icons">
                 <FaHeart className="icon" />
                 <FaShoppingCart className="icon" />

@@ -12,6 +12,7 @@ import book from "../../assets/books.jpg";
 import handmade from "../../assets/handmade.jpg";
 import stationary from "../../assets/stationary.jpg";
 import { useNavigate } from "react-router-dom";
+import mainlogo from "../../assets/logoimage.jpg";
 import "./categoriespage.css";
 
 const CategoriesPage = () => {
@@ -73,23 +74,23 @@ const CategoriesPage = () => {
     return (
         <div className="categories-page-container">
             <div className="categories-page-header">
-                <NavBar title="IndieBazaar" />
+                <NavBar title="IndieBazaar" logoSrc={mainlogo}/>
             </div>
             <DropDown
                 options={categories.map((category) => category.name)}
                 onSelect={handleCategorySelect}
             />
             <div className="categories-content-container">
-                <div className="categories-filter-box-container">
-                    {/* <FilterBox
+                {/* <div className="categories-filter-box-container">
+                    <FilterBox
                         options={categories.map((category) => category.name)}
                         selectedCategories={selectedCategories}
                         onFilterChange={handleFilterChange}
-                    /> */}
-                    {/* <button onClick={applyFilters} className="apply-filters-button">
+                    />
+                    <button onClick={applyFilters} className="apply-filters-button">
                         Apply Filters
-                    </button> */}
-                </div>
+                    </button>
+                </div> */}
                 <div className="categories-container">
                     {filteredCategories.map((category, index) => (
                         <div

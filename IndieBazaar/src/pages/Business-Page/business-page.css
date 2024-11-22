@@ -1,4 +1,5 @@
 .business-page-container {
+    padding-top: 10px;
     display: flex;
     flex-direction: column;
     /* overflow: hidden; */

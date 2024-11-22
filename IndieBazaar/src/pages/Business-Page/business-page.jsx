@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { collection, getDoc, doc } from 'firebase/firestore'; // Import Firestore functions
 import { db } from "../../firebase/firebase"; // Import your Firestore instance here
 import React, { useEffect, useState } from 'react';
+import mainlogo from '../../assets/logoimage.jpg';
 import "./business-page.css"
 
 const BusinessPage = () => {
@@ -37,7 +38,7 @@ const BusinessPage = () => {
 
     return (
         <div className="business-page-container">
-            <Navbar title={"IndieBazaar"} />
+            <Navbar title={"IndieBazaar"} logoSrc={mainlogo}/>
             {business && ( // Render only if business data is available
                 <>
                     <BusinessBanner title={business.name} slogan={""} businessId={business.id} path={"/business-products"}/>
